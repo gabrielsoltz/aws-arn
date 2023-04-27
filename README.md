@@ -3,8 +3,8 @@ A complete list of all AWS ARNs
 
 Isn't anyoning trying to guess the ARN for a specific AWS resource?  This is a complete list of all AWS ARNs.  It is generated from the AWS documentation.  The list is sorted alphabetically by service and resource.  This is the only complete list of AWS ARNs available anywhere.
 
-Total number of services:  151
-Total number of resources:  463
+- Total number of services:  151
+- Total number of resources:  463
 
 If you find this useful, please star this repo.  If you find any errors, please open an issue or pull request.
 
