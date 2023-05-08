@@ -26,11 +26,15 @@ def main():
 
     # List services
     if args.list_services:
-        list_services(service)
+        list_services()
         sys.exit(0)
 
     if args.list_sub_services:
-        list_sub_services(sub_service)
+        list_sub_services()
+        sys.exit(0)
+
+    if args.generate_markdown:
+        print(generate_markdown_table())
         sys.exit(0)
 
     if args.generate_arn:

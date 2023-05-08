@@ -34,7 +34,7 @@ arn:aws:ec2:us-east-1:012345789012:instance/i-1234568901
 # Use it as CLI
 
 ```
-./main.py --generate-arn --id test --service ec2 --sub-service instance --region us-east-1 --account 012345789012 --partition aws
+./aws-arn --generate-arn --id test --service ec2 --sub-service instance --region us-east-1 --account 012345789012 --partition aws
 
 arn:aws:ec2:us-east-1:012345789012:instance/test
 ```
