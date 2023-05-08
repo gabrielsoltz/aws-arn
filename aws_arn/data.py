@@ -1,4 +1,4 @@
-aws_arn = {
+aws_arn_data = {
     "acm": {
         "certificate": {
             "arn_format": "arn:{partition}:acm:{region}:{account}:certificate/{resource_id}",

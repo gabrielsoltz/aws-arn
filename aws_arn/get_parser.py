@@ -21,13 +21,13 @@ def get_parser():
     group_functions.add_argument(
         "--validate-id",
         action=argparse.BooleanOptionalAction,
-        help="Validate id for a resource",
+        help="Validate resource_id for a resource",
         required=False,
     )
     group_functions.add_argument(
         "--get-resource-id-from-arn",
         action=argparse.BooleanOptionalAction,
-        help="Validate id for a resource",
+        help="Get resource_id from ARN",
         required=False,
     )
     group_functions.add_argument(
@@ -48,9 +48,15 @@ def get_parser():
         help="List all sub services",
         required=False,
     )
+    group_functions.add_argument(
+        "--generate-markdown",
+        action=argparse.BooleanOptionalAction,
+        help="Generate Markdown table for README.md",
+        required=False,
+    )
 
     group_data = parser.add_argument_group(
-        "Functions"
+        "Data"
     )
     group_data.add_argument(
         "--service",
