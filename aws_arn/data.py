@@ -1816,27 +1816,27 @@ aws_arn_data = {
         }
     },
     "iot1click-projects": {
-            "device": {
-        "arn_format": "arn:{partition}:iot1click:{region}:{account}:device/{resource_id}",
-        "id_name": "DeviceId",
-        "id_regexp": "^[a-zA-Z0-9_-]{1,128}$",
-        "asff_name": "",
-        "cloudformation": "AWS::IoT1Click::Device",
-    },
-    "placement": {
-        "arn_format": "arn:{partition}:iot1click:{region}:{account}:placement/{resource_id}",
-        "id_name": "PlacementName",
-        "id_regexp": "^[a-zA-Z0-9_-]{1,128}$",
-        "asff_name": "",
-        "cloudformation": "AWS::IoT1Click::Placement",
-    },
-    "project": {
-        "arn_format": "arn:{partition}:iot1click:{region}:{account}:project/{resource_id}",
-        "id_name": "ProjectName",
-        "id_regexp": "^[a-zA-Z0-9_-]{1,128}$",
-        "asff_name": "",
-        "cloudformation": "AWS::IoT1Click::Project",
-    },
+        "device": {
+            "arn_format": "arn:{partition}:iot1click:{region}:{account}:device/{resource_id}",
+            "id_name": "DeviceId",
+            "id_regexp": "^[a-zA-Z0-9_-]{1,128}$",
+            "asff_name": "",
+            "cloudformation": "AWS::IoT1Click::Device",
+        },
+        "placement": {
+            "arn_format": "arn:{partition}:iot1click:{region}:{account}:placement/{resource_id}",
+            "id_name": "PlacementName",
+            "id_regexp": "^[a-zA-Z0-9_-]{1,128}$",
+            "asff_name": "",
+            "cloudformation": "AWS::IoT1Click::Placement",
+        },
+        "project": {
+            "arn_format": "arn:{partition}:iot1click:{region}:{account}:project/{resource_id}",
+            "id_name": "ProjectName",
+            "id_regexp": "^[a-zA-Z0-9_-]{1,128}$",
+            "asff_name": "",
+            "cloudformation": "AWS::IoT1Click::Project",
+        },
     },
     "iotanalytics": {
         "channel": {
@@ -2768,828 +2768,828 @@ aws_arn_data = {
             "cloudformation": "AWS::SecretsManager::Secret",
         }
     },
-        "redshift": {
-            "cluster": {
-                "arn_format": "arn:{partition}:redshift:{region}:{account}:cluster:${resource_id}",
-                "id_name": "ClusterName",
-                "id_regexp": "^([a-z0-9][a-z0-9-]*[a-z0-9]|[a-z0-9])$",
-                "asff_name": "AwsRedshiftCluster",
-                "cloudformation": "AWS::Redshift::Cluster",
-            },
-            "snapshot": {
-                "arn_format": "arn:{partition}:redshift:{region}:{account}:snapshot:${resource_id}",
-                "id_name": "SnapshotName",
-                "id_regexp": "^([a-z0-9][a-z0-9-]*[a-z0-9]|[a-z0-9])$",
-                "asff_name": "",
-                "cloudformation": "AWS::Redshift::Snapshot",
-            },
+    "redshift": {
+        "cluster": {
+            "arn_format": "arn:{partition}:redshift:{region}:{account}:cluster:${resource_id}",
+            "id_name": "ClusterName",
+            "id_regexp": "^([a-z0-9][a-z0-9-]*[a-z0-9]|[a-z0-9])$",
+            "asff_name": "AwsRedshiftCluster",
+            "cloudformation": "AWS::Redshift::Cluster",
         },
-        "rekognition": {
-            "collection": {
-                "arn_format": "arn:{partition}:rekognition:{region}:{account}:collection/${resource_id}",
-                "id_name": "CollectionId",
-                "id_regexp": "^[a-zA-Z0-9-_]+$",
-                "asff_name": "",
-                "cloudformation": "AWS::Rekognition::Collection",
-            },
-            "stream_processor": {
-                "arn_format": "arn:{partition}:rekognition:{region}:{account}:stream-processor/${resource_id}",
-                "id_name": "StreamProcessorName",
-                "id_regexp": "^[a-zA-Z0-9-_]+$",
-                "asff_name": "",
-                "cloudformation": "AWS::Rekognition::StreamProcessor",
-            },
+        "snapshot": {
+            "arn_format": "arn:{partition}:redshift:{region}:{account}:snapshot:${resource_id}",
+            "id_name": "SnapshotName",
+            "id_regexp": "^([a-z0-9][a-z0-9-]*[a-z0-9]|[a-z0-9])$",
+            "asff_name": "",
+            "cloudformation": "AWS::Redshift::Snapshot",
         },
-        "resource-groups": {
-            "group": {
-                "arn_format": "arn:{partition}:resource-groups:{region}:{account}:group/${resource_id}",
-                "id_name": "GroupName",
-                "id_regexp": "^[a-zA-Z0-9._\\-]+$",
-                "asff_name": "",
-                "cloudformation": "AWS::ResourceGroups::Group",
-            }
+    },
+    "rekognition": {
+        "collection": {
+            "arn_format": "arn:{partition}:rekognition:{region}:{account}:collection/${resource_id}",
+            "id_name": "CollectionId",
+            "id_regexp": "^[a-zA-Z0-9-_]+$",
+            "asff_name": "",
+            "cloudformation": "AWS::Rekognition::Collection",
         },
-        "robomaker": {
-            "robot_application": {
-                "arn_format": "arn:{partition}:robomaker:{region}:{account}:robot-application/${ApplicationName}/${ApplicationVersion}",
-                "id_name": "ApplicationName",
-                "id_regexp": "^[a-zA-Z0-9-_]{1,127}$",
-                "asff_name": "",
-                "cloudformation": "AWS::RoboMaker::RobotApplication",
-            },
-            "simulation_application": {
-                "arn_format": "arn:{partition}:robomaker:{region}:{account}:simulation-application/${ApplicationName}/${ApplicationVersion}",
-                "id_name": "ApplicationName",
-                "id_regexp": "^[a-zA-Z0-9-_]{1,127}$",
-                "asff_name": "",
-                "cloudformation": "AWS::RoboMaker::SimulationApplication",
-            },
-            "robot": {
-                "arn_format": "arn:{partition}:robomaker:{region}:{account}:robot/${RobotName}",
-                "id_name": "RobotName",
-                "id_regexp": "^[a-zA-Z0-9-_]{1,127}$",
-                "asff_name": "",
-                "cloudformation": "AWS::RoboMaker::Robot",
-            },
-            "simulation_job": {
-                "arn_format": "arn:{partition}:robomaker:{region}:{account}:simulation-job/${SimulationJobArn}",
-                "id_name": "SimulationJobArn",
-                "id_regexp": "^arn:[a-zA-Z0-9-]+:robomaker:[a-z]{2}(-gov)?-[a-z]+-\\d+:[a-z0-9]{12}:simulation-job:[a-zA-Z0-9-_]{1,128}(/\\d+)?$",
-                "asff_name": "",
-                "cloudformation": "AWS::RoboMaker::SimulationJob",
-            },
-            "fleet": {
-                "arn_format": "arn:{partition}:robomaker:{region}:{account}:fleet/${FleetName}",
-                "id_name": "FleetName",
-                "id_regexp": "^[a-zA-Z0-9-_]{1,127}$",
-                "asff_name": "",
-                "cloudformation": "AWS::RoboMaker::Fleet",
-            },
+        "stream_processor": {
+            "arn_format": "arn:{partition}:rekognition:{region}:{account}:stream-processor/${resource_id}",
+            "id_name": "StreamProcessorName",
+            "id_regexp": "^[a-zA-Z0-9-_]+$",
+            "asff_name": "",
+            "cloudformation": "AWS::Rekognition::StreamProcessor",
         },
-        "route53": {
-            "health_check": {
-                "arn_format": "arn:{partition}:route53:::healthcheck/{resource_id}",
-                "id_name": "HealthCheckId",
-                "id_regexp": "^[a-zA-Z0-9]+$",
-                "asff_name": "",
-                "cloudformation": "AWS::Route53::HealthCheck",
-            },
-            "hosted_zone": {
-                "arn_format": "arn:{partition}:route53:::hostedzone/{resource_id}",
-                "id_name": "HostedZoneId",
-                "id_regexp": "^Z[a-zA-Z0-9]+$",
-                "asff_name": "",
-                "cloudformation": "AWS::Route53::HostedZone",
-            },
-            "vpc_association_authorization": {
-                "arn_format": "arn:{partition}:route53:::vpc/{region}:{account}:authorizevpcassociation/{resource_id}/{vpc_id}",
-                "id_name": ["HostedZoneId"],
-                "id_regexp": "^vpc-[a-z0-9]+$",
-                "asff_name": "",
-                "cloudformation": "AWS::Route53::VPCAssociationAuthorization",
-            },
-            "resolver_endpoint": {
-                "arn_format": "arn:{partition}:route53resolver:{region}:{account}:resolver-endpoint/{resource_id}",
-                "id_name": "ResolverEndpointId",
-                "id_regexp": "^rslv-[a-z0-9]{17}$",
-                "asff_name": "",
-                "cloudformation": "AWS::Route53Resolver::ResolverEndpoint",
-            },
-            "resolver_rule": {
-                "arn_format": "arn:{partition}:route53resolver:{region}:{account}:resolver-rule/{resource_id}",
-                "id_name": "ResolverRuleId",
-                "id_regexp": "^rslvrule-[a-z0-9]{17}$",
-                "asff_name": "",
-                "cloudformation": "AWS::Route53Resolver::ResolverRule",
-            },
-            "resolver_rule_association": {
-                "arn_format": "arn:{partition}:route53resolver:{region}:{account}:resolver-rule-association/{resource_id}",
-                "id_name": "ResolverRuleAssociationId",
-                "id_regexp": "^rslvrassoc-[a-z0-9]{17}$",
-                "asff_name": "",
-                "cloudformation": "AWS::Route53Resolver::ResolverRuleAssociation",
-            },
+    },
+    "resource-groups": {
+        "group": {
+            "arn_format": "arn:{partition}:resource-groups:{region}:{account}:group/${resource_id}",
+            "id_name": "GroupName",
+            "id_regexp": "^[a-zA-Z0-9._\\-]+$",
+            "asff_name": "",
+            "cloudformation": "AWS::ResourceGroups::Group",
+        }
+    },
+    "robomaker": {
+        "robot_application": {
+            "arn_format": "arn:{partition}:robomaker:{region}:{account}:robot-application/${ApplicationName}/${ApplicationVersion}",
+            "id_name": "ApplicationName",
+            "id_regexp": "^[a-zA-Z0-9-_]{1,127}$",
+            "asff_name": "",
+            "cloudformation": "AWS::RoboMaker::RobotApplication",
         },
-        "s3": {
-            "bucket": {
-                "arn_format": "arn:{partition}:s3:::{resource_id}",
-                "id_name": "BucketName",
-                "id_regexp": "^[a-z0-9.-]{3,63}$",
-                "asff_name": "AwsS3Bucket",
-                "cloudformation": "AWS::S3::Bucket",
-            },
-            "object": {
-                "arn_format": "arn:{partition}:s3:::{bucket}/{resource_id}",
-                "id_name": "ObjectName",
-                "id_regexp": ".+",
-                "asff_name": "AwsS3Object",
-                "cloudformation": "AWS::S3::Object",
-            },
+        "simulation_application": {
+            "arn_format": "arn:{partition}:robomaker:{region}:{account}:simulation-application/${ApplicationName}/${ApplicationVersion}",
+            "id_name": "ApplicationName",
+            "id_regexp": "^[a-zA-Z0-9-_]{1,127}$",
+            "asff_name": "",
+            "cloudformation": "AWS::RoboMaker::SimulationApplication",
         },
-        "s3-object-lambda": {
-            "access_point": {
-                "arn_format": "arn:{partition}:s3-object-lambda:{region}:{account}:accesspoint/${resource_id}",
-                "id_name": "AccessPointName",
-                "id_regexp": "^[a-zA-Z0-9\\.\\-_]{1,64}$",
-                "asff_name": "",
-                "cloudformation": "AWS::S3ObjectLambda::AccessPoint",
-            },
-            "access_point_policy": {
-                "arn_format": "arn:{partition}:s3-object-lambda:{region}:{account}:accesspoint-policy/${resource_id}",
-                "id_name": "AccessPointName",
-                "id_regexp": "^[a-zA-Z0-9\\.\\-_]{1,64}$",
-                "asff_name": "",
-                "cloudformation": "AWS::S3ObjectLambda::AccessPointPolicy",
-            },
-            "access_point_configuration": {
-                "arn_format": "arn:{partition}:s3-object-lambda:{region}:{account}:accesspoint/${resource_id}/configuration",
-                "id_name": "AccessPointName",
-                "id_regexp": "^[a-zA-Z0-9\\.\\-_]{1,64}$",
-                "asff_name": "",
-                "cloudformation": "AWS::S3ObjectLambda::AccessPointConfiguration",
-            },
+        "robot": {
+            "arn_format": "arn:{partition}:robomaker:{region}:{account}:robot/${RobotName}",
+            "id_name": "RobotName",
+            "id_regexp": "^[a-zA-Z0-9-_]{1,127}$",
+            "asff_name": "",
+            "cloudformation": "AWS::RoboMaker::Robot",
         },
-        "sagemaker": {
-            "notebook_instance": {
-                "arn_format": "arn:{partition}:sagemaker:{region}:{account}:notebook-instance/${resource_id}",
-                "id_name": "NotebookInstanceName",
-                "id_regexp": "^[a-zA-Z0-9](-*[a-zA-Z0-9])*$",
-                "asff_name": "AwsSageMakerNotebookInstance",
-                "cloudformation": "AWS::SageMaker::NotebookInstance",
-            },
-            "notebook_instance_lifecycle_configuration": {
-                "arn_format": "arn:{partition}:sagemaker:{region}:{account}:notebook-instance-lifecycle-config/${resource_id}",
-                "id_name": "NotebookInstanceLifecycleConfigName",
-                "id_regexp": "^[a-zA-Z0-9](-*[a-zA-Z0-9])*$",
-                "asff_name": "",
-                "cloudformation": "AWS::SageMaker::NotebookInstanceLifecycleConfig",
-            },
-            "training_job": {
-                "arn_format": "arn:{partition}:sagemaker:{region}:{account}:training-job/${resource_id}",
-                "id_name": "TrainingJobName",
-                "id_regexp": "^[a-zA-Z0-9](-*[a-zA-Z0-9])*$",
-                "asff_name": "",
-                "cloudformation": "AWS::SageMaker::TrainingJob",
-            },
-            "processing_job": {
-                "arn_format": "arn:{partition}:sagemaker:{region}:{account}:processing-job/${resource_id}",
-                "id_name": "ProcessingJobName",
-                "id_regexp": "^[a-zA-Z0-9](-*[a-zA-Z0-9])*$",
-                "asff_name": "",
-                "cloudformation": "AWS::SageMaker::ProcessingJob",
-            },
-            "transform_job": {
-                "arn_format": "arn:{partition}:sagemaker:{region}:{account}:transform-job/${resource_id}",
-                "id_name": "TransformJobName",
-                "id_regexp": "^[a-zA-Z0-9](-*[a-zA-Z0-9])*$",
-                "asff_name": "",
-                "cloudformation": "AWS::SageMaker::TransformJob",
-            },
-            "model": {
-                "arn_format": "arn:{partition}:sagemaker:{region}:{account}:model/${resource_id}",
-                "id_name": "ModelName",
-                "id_regexp": "^[a-zA-Z0-9](-*[a-zA-Z0-9])*$",
-                "asff_name": "",
-                "cloudformation": "AWS::SageMaker::Model",
-            },
-            "endpoint_config": {
-                "arn_format": "arn:{partition}:sagemaker:{region}:{account}:endpoint-config/${resource_id}",
-                "id_name": "EndpointConfigName",
-                "id_regexp": "^[a-zA-Z0-9](-*[a-zA-Z0-9])*$",
-                "asff_name": "",
-                "cloudformation": "AWS::SageMaker::EndpointConfig",
-            },
-            "endpoint": {
-                "arn_format": "arn:{partition}:sagemaker:{region}:{account}:endpoint/${resource_id}",
-                "id_name": "EndpointName",
-                "id_regexp": "^[a-zA-Z0-9](-*[a-zA-Z0-9])*$",
-                "asff_name": "",
-                "cloudformation": "AWS::SageMaker::Endpoint",
-            },
-            "feature_group": {
-                "arn_format": "arn:{partition}:sagemaker:{region}:{account}:feature-group/${resource_id}",
-                "id_name": "FeatureGroupName",
-                "id_regexp": "^[a-zA-Z0-9]([a-zA-Z0-9_-]{0,62}[a-zA-Z0-9])?$",
-                "asff_name": "",
-                "cloudformation": "AWS::SageMaker::FeatureGroup",
-            },
+        "simulation_job": {
+            "arn_format": "arn:{partition}:robomaker:{region}:{account}:simulation-job/${SimulationJobArn}",
+            "id_name": "SimulationJobArn",
+            "id_regexp": "^arn:[a-zA-Z0-9-]+:robomaker:[a-z]{2}(-gov)?-[a-z]+-\\d+:[a-z0-9]{12}:simulation-job:[a-zA-Z0-9-_]{1,128}(/\\d+)?$",
+            "asff_name": "",
+            "cloudformation": "AWS::RoboMaker::SimulationJob",
         },
-        "sdb": {
-            "domain": {
-                "arn_format": "arn:{partition}:sdb:{region}:{account}:domain/${resource_id}",
-                "id_name": "DomainName",
-                "id_regexp": "^[a-zA-Z0-9_.-]{3,255}$",
-                "asff_name": "",
-                "cloudformation": "AWS::SDB::Domain",
-            }
+        "fleet": {
+            "arn_format": "arn:{partition}:robomaker:{region}:{account}:fleet/${FleetName}",
+            "id_name": "FleetName",
+            "id_regexp": "^[a-zA-Z0-9-_]{1,127}$",
+            "asff_name": "",
+            "cloudformation": "AWS::RoboMaker::Fleet",
         },
-        "secretsmanager": {
-            "secret": {
-                "arn_format": "arn:{partition}:secretsmanager:{region}:{account}:secret:${resource_id}",
-                "id_name": "SecretId",
-                "id_regexp": "^[a-zA-Z0-9/_+=.@-]{1,64}$",
-                "asff_name": "AwsSecretsManagerSecret",
-                "cloudformation": "AWS::SecretsManager::Secret",
-            }
+    },
+    "route53": {
+        "health_check": {
+            "arn_format": "arn:{partition}:route53:::healthcheck/{resource_id}",
+            "id_name": "HealthCheckId",
+            "id_regexp": "^[a-zA-Z0-9]+$",
+            "asff_name": "",
+            "cloudformation": "AWS::Route53::HealthCheck",
         },
-        "securityhub": {
-            "hub": {
-                "arn_format": "arn:{partition}:securityhub:{region}:{account}:hub/default",
-                "id_name": "none",
-                "id_regexp": "",
-                "asff_name": "",
-                "cloudformation": "AWS::SecurityHub::Hub",
-            },
-            "product_subscription": {
-                "arn_format": "arn:{partition}:securityhub:{region}:{account}:subscription/${resource_id}",
-                "id_name": "SubscriptionId",
-                "id_regexp": "^[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}$",
-                "asff_name": "",
-                "cloudformation": "AWS::SecurityHub::ProductSubscription",
-            },
+        "hosted_zone": {
+            "arn_format": "arn:{partition}:route53:::hostedzone/{resource_id}",
+            "id_name": "HostedZoneId",
+            "id_regexp": "^Z[a-zA-Z0-9]+$",
+            "asff_name": "",
+            "cloudformation": "AWS::Route53::HostedZone",
         },
-        "serverlessrepo": {
-            "application": {
-                "arn_format": "arn:{partition}:serverlessrepo:{region}:{account}:applications/${resource_id}",
-                "id_name": "ApplicationId",
-                "id_regexp": "^[a-zA-Z0-9-_]+$",
-                "asff_name": "",
-                "cloudformation": "AWS::ServerlessRepo::Application",
-            }
+        "vpc_association_authorization": {
+            "arn_format": "arn:{partition}:route53:::vpc/{region}:{account}:authorizevpcassociation/{resource_id}/{vpc_id}",
+            "id_name": ["HostedZoneId"],
+            "id_regexp": "^vpc-[a-z0-9]+$",
+            "asff_name": "",
+            "cloudformation": "AWS::Route53::VPCAssociationAuthorization",
         },
-        "servicecatalog": {
-            "product": {
-                "arn_format": "arn:{partition}:catalog:{region}:{account}:product/${resource_id}",
-                "id_name": "ProductId",
-                "id_regexp": "^[a-zA-Z0-9-_]{1,64}$",
-                "asff_name": "",
-                "cloudformation": "AWS::ServiceCatalog::CloudFormationProduct",
-            },
-            "portfolio": {
-                "arn_format": "arn:{partition}:catalog:{region}:{account}:portfolio/${resource_id}",
-                "id_name": "PortfolioId",
-                "id_regexp": "^[a-zA-Z0-9-_]{1,64}$",
-                "asff_name": "",
-                "cloudformation": "AWS::ServiceCatalog::CloudFormationProduct",
-            },
-            "portfolio_share": {
-                "arn_format": "arn:{partition}:catalog:{region}:{account}:share/${resource_id}",
-                "id_name": "ShareId",
-                "id_regexp": "^[a-f0-9]{64}$",
-                "asff_name": "",
-                "cloudformation": "AWS::ServiceCatalog::CloudFormationProduct",
-            },
-            "cloudformation_stack_set_constraint": {
-                "arn_format": "arn:{partition}:cloudformation:{region}:{account}:stack-set/${StackSetName}:constraint/${resource_id}",
-                "id_name": "ConstraintId",
-                "id_regexp": "^[a-zA-Z0-9-_]{1,64}$",
-                "asff_name": "",
-                "cloudformation": "AWS::ServiceCatalog::CloudFormationStackSetConstraint",
-            },
+        "resolver_endpoint": {
+            "arn_format": "arn:{partition}:route53resolver:{region}:{account}:resolver-endpoint/{resource_id}",
+            "id_name": "ResolverEndpointId",
+            "id_regexp": "^rslv-[a-z0-9]{17}$",
+            "asff_name": "",
+            "cloudformation": "AWS::Route53Resolver::ResolverEndpoint",
         },
-        "servicediscovery": {
-            "namespace": {
-                "arn_format": "arn:{partition}:servicediscovery:{region}:{account}:namespace/${resource_id}",
-                "id_name": "NamespaceId",
-                "id_regexp": "^[a-zA-Z0-9_]+$",
-                "asff_name": "",
-                "cloudformation": "AWS::ServiceDiscovery::Namespace",
-            },
-            "service": {
-                "arn_format": "arn:{partition}:servicediscovery:{region}:{account}:service/${resource_id}",
-                "id_name": "ServiceId",
-                "id_regexp": "^[a-zA-Z0-9_]+$",
-                "asff_name": "",
-                "cloudformation": "AWS::ServiceDiscovery::Service",
-            },
+        "resolver_rule": {
+            "arn_format": "arn:{partition}:route53resolver:{region}:{account}:resolver-rule/{resource_id}",
+            "id_name": "ResolverRuleId",
+            "id_regexp": "^rslvrule-[a-z0-9]{17}$",
+            "asff_name": "",
+            "cloudformation": "AWS::Route53Resolver::ResolverRule",
         },
-        "ses": {
-            "configuration_set": {
-                "arn_format": "arn:{partition}:ses:{region}:{account}:configuration-set/${resource_id}",
-                "id_name": "ConfigurationSetName",
-                "id_regexp": "^[a-zA-Z0-9_-]{1,64}$",
-                "asff_name": "",
-                "cloudformation": "AWS::SES::ConfigurationSet",
-            }
+        "resolver_rule_association": {
+            "arn_format": "arn:{partition}:route53resolver:{region}:{account}:resolver-rule-association/{resource_id}",
+            "id_name": "ResolverRuleAssociationId",
+            "id_regexp": "^rslvrassoc-[a-z0-9]{17}$",
+            "asff_name": "",
+            "cloudformation": "AWS::Route53Resolver::ResolverRuleAssociation",
         },
-        "shield": {
-            "protection": {
-                "arn_format": "arn:{partition}:shield::{account}:protection/${resource_id}",
-                "id_name": "ProtectionId",
-                "id_regexp": "^[a-zA-Z0-9_/-]{1,36}$",
-                "asff_name": "",
-                "cloudformation": "AWS::Shield::Protection",
-            }
+    },
+    "s3": {
+        "bucket": {
+            "arn_format": "arn:{partition}:s3:::{resource_id}",
+            "id_name": "BucketName",
+            "id_regexp": "^[a-z0-9.-]{3,63}$",
+            "asff_name": "AwsS3Bucket",
+            "cloudformation": "AWS::S3::Bucket",
         },
-        "signer": {
-            "signing_profile": {
-                "arn_format": "arn:{partition}:signer:{region}:{account}:signing-profiles/${resource_id}",
-                "id_name": "SigningProfileName",
-                "id_regexp": "^[a-zA-Z0-9_-]{1,64}$",
-                "asff_name": "",
-                "cloudformation": "AWS::Signer::SigningProfile",
-            }
+        "object": {
+            "arn_format": "arn:{partition}:s3:::{bucket}/{resource_id}",
+            "id_name": "ObjectName",
+            "id_regexp": ".+",
+            "asff_name": "AwsS3Object",
+            "cloudformation": "AWS::S3::Object",
         },
-        "sms": {
-            "app": {
-                "arn_format": "arn:{partition}:sms:{region}:{account}:app/${resource_id}",
-                "id_name": "AppId",
-                "id_regexp": "^[a-zA-Z0-9_-]{1,128}$",
-                "asff_name": "",
-                "cloudformation": "AWS::SMS::App",
-            },
-            "server": {
-                "arn_format": "arn:{partition}:sms:{region}:{account}:server/${resource_id}",
-                "id_name": "ServerId",
-                "id_regexp": "^[a-zA-Z0-9_-]{1,128}$",
-                "asff_name": "",
-                "cloudformation": "AWS::SMS::Server",
-            },
-            "replication_job": {
-                "arn_format": "arn:{partition}:sms:{region}:{account}:replication-job/${resource_id}",
-                "id_name": "ReplicationJobId",
-                "id_regexp": "^[a-zA-Z0-9_-]{1,128}$",
-                "asff_name": "",
-                "cloudformation": "AWS::SMS::ReplicationJob",
-            },
+    },
+    "s3-object-lambda": {
+        "access_point": {
+            "arn_format": "arn:{partition}:s3-object-lambda:{region}:{account}:accesspoint/${resource_id}",
+            "id_name": "AccessPointName",
+            "id_regexp": "^[a-zA-Z0-9\\.\\-_]{1,64}$",
+            "asff_name": "",
+            "cloudformation": "AWS::S3ObjectLambda::AccessPoint",
         },
-        "snowball": {
-            "job": {
-                "arn_format": "arn:{partition}:snowball:{region}:{account}:job/${JobId}",
-                "id_name": "JobId",
-                "id_regexp": "^[a-zA-Z0-9-]+$",
-                "asff_name": "",
-                "cloudformation": "AWS::Snowball::Job",
-            }
+        "access_point_policy": {
+            "arn_format": "arn:{partition}:s3-object-lambda:{region}:{account}:accesspoint-policy/${resource_id}",
+            "id_name": "AccessPointName",
+            "id_regexp": "^[a-zA-Z0-9\\.\\-_]{1,64}$",
+            "asff_name": "",
+            "cloudformation": "AWS::S3ObjectLambda::AccessPointPolicy",
         },
-        "sns": {
-            "topic": {
-                "arn_format": "arn:{partition}:sns:{region}:{account}:${TopicName}",
-                "id_name": "TopicName",
-                "id_regexp": "^[a-zA-Z0-9-_]{1,256}$",
-                "asff_name": "AwsSnsTopic",
-                "cloudformation": "AWS::SNS::Topic",
-            },
-            "subscription": {
-                "arn_format": "arn:{partition}:sns:{region}:{account}:${TopicName}:${SubscriptionId}",
-                "id_name": "SubscriptionId",
-                "id_regexp": "^[a-zA-Z0-9-_]{1,256}$",
-                "asff_name": "",
-                "cloudformation": "AWS::SNS::Subscription",
-            },
-            "platform_application_endpoint": {
-                "arn_format": "arn:{partition}:sns:{region}:{account}:app/${PlatformApplicationArn}/${EndpointId}",
-                "id_name": "EndpointId",
-                "id_regexp": "^[a-zA-Z0-9-_]{1,256}$",
-                "asff_name": "",
-                "cloudformation": "AWS::SNS::Endpoint",
-            },
+        "access_point_configuration": {
+            "arn_format": "arn:{partition}:s3-object-lambda:{region}:{account}:accesspoint/${resource_id}/configuration",
+            "id_name": "AccessPointName",
+            "id_regexp": "^[a-zA-Z0-9\\.\\-_]{1,64}$",
+            "asff_name": "",
+            "cloudformation": "AWS::S3ObjectLambda::AccessPointConfiguration",
         },
-        "sqs": {
-            "queue": {
-                "arn_format": "arn:{partition}:sqs:{region}:{account}:${QueueName}",
-                "id_name": "QueueName",
-                "id_regexp": "^[a-zA-Z0-9_-]{1,80}$",
-                "asff_name": "AwsSqsQueue",
-                "cloudformation": "AWS::SQS::Queue",
-            }
+    },
+    "sagemaker": {
+        "notebook_instance": {
+            "arn_format": "arn:{partition}:sagemaker:{region}:{account}:notebook-instance/${resource_id}",
+            "id_name": "NotebookInstanceName",
+            "id_regexp": "^[a-zA-Z0-9](-*[a-zA-Z0-9])*$",
+            "asff_name": "AwsSageMakerNotebookInstance",
+            "cloudformation": "AWS::SageMaker::NotebookInstance",
         },
-        "ssm": {
-            "document": {
-                "arn_format": "arn:{partition}:ssm:{region}:{account}:document/${DocumentName}",
-                "id_name": "DocumentName",
-                "id_regexp": "^[a-zA-Z0-9_/+.-]{3,128}$",
-                "asff_name": "",
-                "cloudformation": "AWS::SSM::Document",
-            },
-            "parameter": {
-                "arn_format": "arn:{partition}:ssm:{region}:{account}:parameter/${ParameterName}",
-                "id_name": "ParameterName",
-                "id_regexp": "^[a-zA-Z0-9_/+.-]{1,2048}$",
-                "asff_name": "",
-                "cloudformation": "AWS::SSM::Parameter",
-            },
-            "maintenance_window": {
-                "arn_format": "arn:{partition}:ssm:{region}:{account}:maintenancewindow/${WindowId}",
-                "id_name": "WindowId",
-                "id_regexp": "^[a-zA-Z0-9_-]{20,40}$",
-                "asff_name": "",
-                "cloudformation": "AWS::SSM::MaintenanceWindow",
-            },
-            "maintenance_window_task": {
-                "arn_format": "arn:{partition}:ssm:{region}:{account}:maintenancewindow/${WindowId}/task/${WindowTaskId}",
-                "id_name": "WindowTaskId",
-                "id_regexp": "^[a-zA-Z0-9_-]{20,40}$",
-                "asff_name": "",
-                "cloudformation": "AWS::SSM::MaintenanceWindowTask",
-            },
-            "patch_baseline": {
-                "arn_format": "arn:{partition}:ssm:{region}:{account}:patchbaseline/${BaselineId}",
-                "id_name": "BaselineId",
-                "id_regexp": "^[a-zA-Z0-9_-]{1,128}$",
-                "asff_name": "AwsSsmPatchCompliance",
-                "cloudformation": "AWS::SSM::PatchBaseline",
-            },
+        "notebook_instance_lifecycle_configuration": {
+            "arn_format": "arn:{partition}:sagemaker:{region}:{account}:notebook-instance-lifecycle-config/${resource_id}",
+            "id_name": "NotebookInstanceLifecycleConfigName",
+            "id_regexp": "^[a-zA-Z0-9](-*[a-zA-Z0-9])*$",
+            "asff_name": "",
+            "cloudformation": "AWS::SageMaker::NotebookInstanceLifecycleConfig",
         },
-        "sso": {
-            "instance": {
-                "arn_format": "arn:{partition}:sso:{region}:{account}:instance/${resource_id}",
-                "id_name": "InstanceId",
-                "id_regexp": "^[a-zA-Z0-9-]+$",
-                "asff_name": "",
-                "cloudformation": "AWS::SSO::Instance",
-            },
-            "permission_set": {
-                "arn_format": "arn:{partition}:sso:{region}:{account}:permissionSet/${resource_id}",
-                "id_name": "PermissionSetId",
-                "id_regexp": "^[a-zA-Z0-9-]+$",
-                "asff_name": "",
-                "cloudformation": "AWS::SSO::PermissionSet",
-            },
+        "training_job": {
+            "arn_format": "arn:{partition}:sagemaker:{region}:{account}:training-job/${resource_id}",
+            "id_name": "TrainingJobName",
+            "id_regexp": "^[a-zA-Z0-9](-*[a-zA-Z0-9])*$",
+            "asff_name": "",
+            "cloudformation": "AWS::SageMaker::TrainingJob",
         },
-        "sso-directory": {
-            "directory": {
-                "arn_format": "arn:{partition}:sso-directory:{region}:{account}:directory/${resource_id}",
-                "id_name": "DirectoryId",
-                "id_regexp": "^[a-zA-Z0-9-_]+$",
-                "asff_name": "",
-                "cloudformation": "AWS::SSO::Directory",
-            }
+        "processing_job": {
+            "arn_format": "arn:{partition}:sagemaker:{region}:{account}:processing-job/${resource_id}",
+            "id_name": "ProcessingJobName",
+            "id_regexp": "^[a-zA-Z0-9](-*[a-zA-Z0-9])*$",
+            "asff_name": "",
+            "cloudformation": "AWS::SageMaker::ProcessingJob",
         },
-        "stepfunctions": {
-            "state_machine": {
-                "arn_format": "arn:{partition}:states:{region}:{account}:stateMachine:${resource_id}",
-                "id_name": "StateMachineName",
-                "id_regexp": "^[a-zA-Z0-9-_]+$",
-                "asff_name": "",
-                "cloudformation": "AWS::StepFunctions::StateMachine",
-            }
+        "transform_job": {
+            "arn_format": "arn:{partition}:sagemaker:{region}:{account}:transform-job/${resource_id}",
+            "id_name": "TransformJobName",
+            "id_regexp": "^[a-zA-Z0-9](-*[a-zA-Z0-9])*$",
+            "asff_name": "",
+            "cloudformation": "AWS::SageMaker::TransformJob",
         },
-        "storagegateway": {
-            "gateway": {
-                "arn_format": "arn:{partition}:storagegateway:{region}:{account}:gateway/${resource_id}",
-                "id_name": "GatewayId",
-                "id_regexp": "^[a-zA-Z0-9-_]+$",
-                "asff_name": "",
-                "cloudformation": "AWS::StorageGateway::Gateway",
-            },
-            "share": {
-                "arn_format": "arn:{partition}:storagegateway:{region}:{account}:share/${resource_id}",
-                "id_name": "ShareId",
-                "id_regexp": "^[a-zA-Z0-9-_]+$",
-                "asff_name": "",
-                "cloudformation": "AWS::StorageGateway::NFSFileShare",
-            },
-            "tape": {
-                "arn_format": "arn:{partition}:storagegateway:{region}:{account}:tape/${resource_id}",
-                "id_name": "TapeARN",
-                "id_regexp": "^[a-zA-Z0-9-:/_\\.\\(\\)]+$",
-                "asff_name": "",
-                "cloudformation": "AWS::StorageGateway::Tape",
-            },
-            "volume": {
-                "arn_format": "arn:{partition}:storagegateway:{region}:{account}:gateway/${gateway_id}/volume/${volume_id}",
-                "id_name": "VolumeId",
-                "id_regexp": "^[a-zA-Z0-9-_]+$",
-                "asff_name": "",
-                "cloudformation": "AWS::StorageGateway::StorediSCSIVolume",
-            },
+        "model": {
+            "arn_format": "arn:{partition}:sagemaker:{region}:{account}:model/${resource_id}",
+            "id_name": "ModelName",
+            "id_regexp": "^[a-zA-Z0-9](-*[a-zA-Z0-9])*$",
+            "asff_name": "",
+            "cloudformation": "AWS::SageMaker::Model",
         },
-        "sts": {
-            "assumed_role": {
-                "arn_format": "arn:{partition}:sts::{account}:assumed-role/${resource_name}/${resource_id}",
-                "id_name": "RoleSessionName",
-                "id_regexp": "^[\\w+=,.@-]+$",
-                "asff_name": "",
-                "cloudformation": "AWS::STS::AssumedRole",
-            },
-            "federated_user": {
-                "arn_format": "arn:{partition}:sts::{account}:federated-user/${resource_id}",
-                "id_name": "UserName",
-                "id_regexp": "^[\\w+=,.@-]+$",
-                "asff_name": "",
-                "cloudformation": "AWS::STS::FederatedUser",
-            },
-            "oidc_provider": {
-                "arn_format": "arn:{partition}:iam::{account}:oidc-provider/${resource_id}",
-                "id_name": "Url",
-                "id_regexp": "^(https|http)://.*$",
-                "asff_name": "",
-                "cloudformation": "AWS::IAM::OpenIDConnectProvider",
-            },
-            "saml_provider": {
-                "arn_format": "arn:{partition}:iam::{account}:saml-provider/${resource_id}",
-                "id_name": "Name",
-                "id_regexp": "^[\\w+=,.@-]+$",
-                "asff_name": "",
-                "cloudformation": "AWS::IAM::SAMLProvider",
-            },
+        "endpoint_config": {
+            "arn_format": "arn:{partition}:sagemaker:{region}:{account}:endpoint-config/${resource_id}",
+            "id_name": "EndpointConfigName",
+            "id_regexp": "^[a-zA-Z0-9](-*[a-zA-Z0-9])*$",
+            "asff_name": "",
+            "cloudformation": "AWS::SageMaker::EndpointConfig",
         },
-        "swf": {
-            "domain": {
-                "arn_format": "arn:{partition}:swf:{region}:{account}:domain/${resource_id}",
-                "id_name": "DomainName",
-                "id_regexp": "^[a-zA-Z0-9-_]+$",
-                "asff_name": "",
-                "cloudformation": "AWS::SWF::Domain",
-            },
-            "workflow_type": {
-                "arn_format": "arn:{partition}:swf:{region}:{account}:workflowType/${DomainName}/${resource_id}",
-                "id_name": "WorkflowTypeName",
-                "id_regexp": "^[a-zA-Z0-9-_]+$",
-                "asff_name": "",
-                "cloudformation": "AWS::SWF::WorkflowType",
-            },
-            "activity_type": {
-                "arn_format": "arn:{partition}:swf:{region}:{account}:activityType/${DomainName}/${resource_id}",
-                "id_name": "ActivityTypeName",
-                "id_regexp": "^[a-zA-Z0-9-_]+$",
-                "asff_name": "",
-                "cloudformation": "AWS::SWF::ActivityType",
-            },
-            "workflow_execution": {
-                "arn_format": "arn:{partition}:swf:{region}:{account}:workflow/${DomainName}/${WorkflowType}:${resource_id}",
-                "id_name": "WorkflowExecutionId",
-                "id_regexp": "^[-a-zA-Z0-9_]+(?:\\.[-a-zA-Z0-9_]+)*$",
-                "asff_name": "",
-                "cloudformation": "AWS::SWF::WorkflowExecution",
-            },
-            "activity_execution": {
-                "arn_format": "arn:{partition}:swf:{region}:{account}:activity/${DomainName}/${ActivityType}:${resource_id}",
-                "id_name": "ActivityId",
-                "id_regexp": "^[a-zA-Z0-9-_]+$",
-                "asff_name": "",
-                "cloudformation": "AWS::SWF::ActivityTask",
-            },
+        "endpoint": {
+            "arn_format": "arn:{partition}:sagemaker:{region}:{account}:endpoint/${resource_id}",
+            "id_name": "EndpointName",
+            "id_regexp": "^[a-zA-Z0-9](-*[a-zA-Z0-9])*$",
+            "asff_name": "",
+            "cloudformation": "AWS::SageMaker::Endpoint",
         },
-        "synthetics": {
-            "canary": {
-                "arn_format": "arn:{partition}:synthetics:{region}:{account}:canary:${resource_id}",
-                "id_name": "CanaryName",
-                "id_regexp": "^[a-zA-Z0-9_-]{1,63}$",
-                "asff_name": "",
-                "cloudformation": "AWS::Synthetics::Canary",
-            },
-            "canary_run": {
-                "arn_format": "arn:{partition}:synthetics:{region}:{account}:canary:${CanaryName}:run:${resource_id}",
-                "id_name": "CanaryRunId",
-                "id_regexp": "^[a-zA-Z0-9_-]{1,63}$",
-                "asff_name": "",
-                "cloudformation": "AWS::Synthetics::CanaryRun",
-            },
+        "feature_group": {
+            "arn_format": "arn:{partition}:sagemaker:{region}:{account}:feature-group/${resource_id}",
+            "id_name": "FeatureGroupName",
+            "id_regexp": "^[a-zA-Z0-9]([a-zA-Z0-9_-]{0,62}[a-zA-Z0-9])?$",
+            "asff_name": "",
+            "cloudformation": "AWS::SageMaker::FeatureGroup",
         },
-        "textract": {
-            "document": {
-                "arn_format": "arn:{partition}:textract:{region}:{account}:document/${resource_id}",
-                "id_name": "DocumentId",
-                "id_regexp": "^[a-f0-9]{32}$",
-                "asff_name": "",
-                "cloudformation": "AWS::Textract::Document",
-            }
+    },
+    "sdb": {
+        "domain": {
+            "arn_format": "arn:{partition}:sdb:{region}:{account}:domain/${resource_id}",
+            "id_name": "DomainName",
+            "id_regexp": "^[a-zA-Z0-9_.-]{3,255}$",
+            "asff_name": "",
+            "cloudformation": "AWS::SDB::Domain",
+        }
+    },
+    "secretsmanager": {
+        "secret": {
+            "arn_format": "arn:{partition}:secretsmanager:{region}:{account}:secret:${resource_id}",
+            "id_name": "SecretId",
+            "id_regexp": "^[a-zA-Z0-9/_+=.@-]{1,64}$",
+            "asff_name": "AwsSecretsManagerSecret",
+            "cloudformation": "AWS::SecretsManager::Secret",
+        }
+    },
+    "securityhub": {
+        "hub": {
+            "arn_format": "arn:{partition}:securityhub:{region}:{account}:hub/default",
+            "id_name": "none",
+            "id_regexp": "",
+            "asff_name": "",
+            "cloudformation": "AWS::SecurityHub::Hub",
         },
-        "transcribe": {
-            "vocabulary": {
-                "arn_format": "arn:{partition}:transcribe:{region}:{account}:vocabulary/${resource_id}",
-                "id_name": "VocabularyName",
-                "id_regexp": "^[a-zA-Z0-9-_]+$",
-                "asff_name": "",
-                "cloudformation": "AWS::Transcribe::Vocabulary",
-            }
+        "product_subscription": {
+            "arn_format": "arn:{partition}:securityhub:{region}:{account}:subscription/${resource_id}",
+            "id_name": "SubscriptionId",
+            "id_regexp": "^[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}$",
+            "asff_name": "",
+            "cloudformation": "AWS::SecurityHub::ProductSubscription",
         },
-        "transfer": {
-            "server": {
-                "arn_format": "arn:{partition}:transfer:{region}:{account}:server/${resource_id}",
-                "id_name": "ServerId",
-                "id_regexp": "^[a-zA-Z0-9-_]+$",
-                "asff_name": "",
-                "cloudformation": "AWS::Transfer::Server",
-            },
-            "user": {
-                "arn_format": "arn:{partition}:transfer:{region}:{account}:user/${ServerId}/${resource_id}",
-                "id_name": "UserName",
-                "id_regexp": "^[a-zA-Z0-9-_]+$",
-                "asff_name": "",
-                "cloudformation": "AWS::Transfer::User",
-            },
+    },
+    "serverlessrepo": {
+        "application": {
+            "arn_format": "arn:{partition}:serverlessrepo:{region}:{account}:applications/${resource_id}",
+            "id_name": "ApplicationId",
+            "id_regexp": "^[a-zA-Z0-9-_]+$",
+            "asff_name": "",
+            "cloudformation": "AWS::ServerlessRepo::Application",
+        }
+    },
+    "servicecatalog": {
+        "product": {
+            "arn_format": "arn:{partition}:catalog:{region}:{account}:product/${resource_id}",
+            "id_name": "ProductId",
+            "id_regexp": "^[a-zA-Z0-9-_]{1,64}$",
+            "asff_name": "",
+            "cloudformation": "AWS::ServiceCatalog::CloudFormationProduct",
         },
-        "translate": {
-            "terminology": {
-                "arn_format": "arn:{partition}:translate:{region}:{account}:terminology/${resource_id}",
-                "id_name": "TerminologyName",
-                "id_regexp": "^[a-zA-Z0-9\\-\\_]+$",
-                "asff_name": "",
-                "cloudformation": "AWS::Translate::Terminology",
-            }
+        "portfolio": {
+            "arn_format": "arn:{partition}:catalog:{region}:{account}:portfolio/${resource_id}",
+            "id_name": "PortfolioId",
+            "id_regexp": "^[a-zA-Z0-9-_]{1,64}$",
+            "asff_name": "",
+            "cloudformation": "AWS::ServiceCatalog::CloudFormationProduct",
         },
-        "waf": {
-            "ipset": {
-                "arn_format": "arn:{partition}:waf:{region}:{account}:ipset/${resource_id}",
-                "id_name": "IpSetId",
-                "id_regexp": "^[a-zA-Z0-9]+$",
-                "asff_name": "",
-                "cloudformation": "AWS::WAF::IPSet",
-            },
-            "rule": {
-                "arn_format": "arn:{partition}:waf:{region}:{account}:rule/${resource_id}",
-                "id_name": "RuleId",
-                "id_regexp": "^[a-zA-Z0-9]+$",
-                "asff_name": "AwsWafRule",
-                "cloudformation": "AWS::WAF::Rule",
-            },
-            "rule_group": {
-                "arn_format": "arn:{partition}:waf::{account}:rulegroup/${resource_name}/${resource_id}",
-                "id_name": "RuleGroupId",
-                "id_regexp": "^[a-zA-Z0-9]+$",
-                "asff_name": "AwsWafRuleGroup",
-                "cloudformation": "AWS::WAF::RuleGroup",
-            },
-            "web_acl": {
-                "arn_format": "arn:{partition}:waf:{region}:{account}:webacl/${resource_id}",
-                "id_name": "WebACLId",
-                "id_regexp": "^[a-zA-Z0-9]+$",
-                "asff_name": "AwsWafWebAcl",
-                "cloudformation": "AWS::WAF::WebACL",
-            },
-            "global_web_acl": {
-                "arn_format": "arn:{partition}:waf::{account}:global-webacl/${resource_name}/${resource_id}",
-                "id_name": "WebACLId",
-                "id_regexp": "^[a-zA-Z0-9]+$",
-                "asff_name": "",
-                "cloudformation": "AWS::WAFv2::WebACL",
-            },
-            "rate_based_rule": {
-                "arn_format": "arn:{partition}:waf::{account}:ratebasedrule/${resource_name}/${resource_id}",
-                "id_name": "RuleId",
-                "id_regexp": "^[a-zA-Z0-9]+$",
-                "asff_name": "AwsWafRateBasedRule",
-                "cloudformation": "AWS::WAF::RateBasedRule",
-            },
+        "portfolio_share": {
+            "arn_format": "arn:{partition}:catalog:{region}:{account}:share/${resource_id}",
+            "id_name": "ShareId",
+            "id_regexp": "^[a-f0-9]{64}$",
+            "asff_name": "",
+            "cloudformation": "AWS::ServiceCatalog::CloudFormationProduct",
         },
-        "waf-regional": {
-            "ipset": {
-                "arn_format": "arn:{partition}:waf-regional:{region}:{account}:ipset/${resource_id}",
-                "id_name": "IpSetId",
-                "id_regexp": "^[a-zA-Z0-9-]+$",
-                "asff_name": "",
-                "cloudformation": "AWS::WAF::IPSet",
-            },
-            "regional_rule": {
-                "arn_format": "arn:{partition}:waf-regional:{region}:{account}:rule/${resource_id}",
-                "id_name": "RuleId",
-                "id_regexp": "^[a-zA-Z0-9-]+$",
-                "asff_name": "AwsWafRegionalRule",
-                "cloudformation": "AWS::WAF::Rule",
-            },
-            "regional_web_acl": {
-                "arn_format": "arn:{partition}:waf-regional:{region}:{account}:webacl/${resource_id}",
-                "id_name": "WebACLId",
-                "id_regexp": "^[a-zA-Z0-9-]+$",
-                "asff_name": "AwsWafRegionalWebAcl",
-                "cloudformation": "AWS::WAF::WebACL",
-            },
-            "regional_rule_group": {
-                "arn_format": "arn:{partition}:waf-regional:{region}:{account}:rulegroup/${RuleGroupName}/${resource_id}",
-                "id_name": "RuleGroupId",
-                "id_regexp": "^[a-zA-Z0-9-]+$",
-                "asff_name": "AwsWafRegionalRuleGroup",
-                "cloudformation": "AWS::WAF::RuleGroup",
-            },
-            "regional_rate_based_rule": {
-                "arn_format": "arn:{partition}:waf-regional:{region}:{account}:rule/${resource_id}",
-                "id_name": "RuleId",
-                "id_regexp": "^[a-zA-Z0-9-]+$",
-                "asff_name": "AwsWafRegionalRateBasedRule",
-                "cloudformation": "AWS::WAF::RateBasedRule",
-            },
+        "cloudformation_stack_set_constraint": {
+            "arn_format": "arn:{partition}:cloudformation:{region}:{account}:stack-set/${StackSetName}:constraint/${resource_id}",
+            "id_name": "ConstraintId",
+            "id_regexp": "^[a-zA-Z0-9-_]{1,64}$",
+            "asff_name": "",
+            "cloudformation": "AWS::ServiceCatalog::CloudFormationStackSetConstraint",
         },
-        "wafv2": {
-            "ip_set": {
-                "arn_format": "arn:{partition}:wafv2:{region}:{account}:/ipset/${resource_scope}/${resource_id}",
-                "id_name": "Id",
-                "id_regexp": "^[a-zA-Z0-9-]+$",
-                "asff_name": "",
-                "cloudformation": "AWS::WAFv2::IPSet",
-            },
-            "rule_group": {
-                "arn_format": "arn:{partition}:wafv2:{region}:{account}:/rulegroup/${resource_scope}/${resource_id}",
-                "id_name": "Id",
-                "id_regexp": "^[a-zA-Z0-9-]+$",
-                "asff_name": "AwsWafv2RuleGroup",
-                "cloudformation": "AWS::WAFv2::RuleGroup",
-            },
-            "web_acl": {
-                "arn_format": "arn:{partition}:wafv2:{region}:{account}:/webacl/${resource_scope}/${resource_id}",
-                "id_name": "Id",
-                "id_regexp": "^[a-zA-Z0-9-]+$",
-                "asff_name": "AwsWafv2WebAcl",
-                "cloudformation": "AWS::WAFv2::WebACL",
-            },
+    },
+    "servicediscovery": {
+        "namespace": {
+            "arn_format": "arn:{partition}:servicediscovery:{region}:{account}:namespace/${resource_id}",
+            "id_name": "NamespaceId",
+            "id_regexp": "^[a-zA-Z0-9_]+$",
+            "asff_name": "",
+            "cloudformation": "AWS::ServiceDiscovery::Namespace",
         },
-        "wellarchitected": {
-            "workload": {
-                "arn_format": "arn:{partition}:wellarchitected:{region}:{account}:workload/${resource_id}",
-                "id_name": "WorkloadId",
-                "id_regexp": "^[a-zA-Z0-9-]+$",
-                "asff_name": "",
-                "cloudformation": "AWS::WellArchitected::Workload",
-            }
+        "service": {
+            "arn_format": "arn:{partition}:servicediscovery:{region}:{account}:service/${resource_id}",
+            "id_name": "ServiceId",
+            "id_regexp": "^[a-zA-Z0-9_]+$",
+            "asff_name": "",
+            "cloudformation": "AWS::ServiceDiscovery::Service",
         },
-        "workdocs": {
-            "document": {
-                "arn_format": "arn:{partition}:workdocs:{region}:{account}:${FolderHierarchy}/${resource_id}",
-                "id_name": "DocumentName",
-                "id_regexp": "^[a-zA-Z0-9-_.()]+$",
-                "asff_name": "",
-                "cloudformation": "AWS::WorkDocs::Document",
-            },
-            "folder": {
-                "arn_format": "arn:{partition}:workdocs:{region}:{account}:${FolderHierarchy}/${resource_id}",
-                "id_name": "FolderName",
-                "id_regexp": "^[a-zA-Z0-9-_.()]+$",
-                "asff_name": "",
-                "cloudformation": "AWS::WorkDocs::Folder",
-            },
-            "user": {
-                "arn_format": "arn:{partition}:workdocs:{region}:{account}:user/${resource_id}",
-                "id_name": "UserId",
-                "id_regexp": "^[a-zA-Z0-9_-]+$",
-                "asff_name": "",
-                "cloudformation": "AWS::WorkDocs::User",
-            },
+    },
+    "ses": {
+        "configuration_set": {
+            "arn_format": "arn:{partition}:ses:{region}:{account}:configuration-set/${resource_id}",
+            "id_name": "ConfigurationSetName",
+            "id_regexp": "^[a-zA-Z0-9_-]{1,64}$",
+            "asff_name": "",
+            "cloudformation": "AWS::SES::ConfigurationSet",
+        }
+    },
+    "shield": {
+        "protection": {
+            "arn_format": "arn:{partition}:shield::{account}:protection/${resource_id}",
+            "id_name": "ProtectionId",
+            "id_regexp": "^[a-zA-Z0-9_/-]{1,36}$",
+            "asff_name": "",
+            "cloudformation": "AWS::Shield::Protection",
+        }
+    },
+    "signer": {
+        "signing_profile": {
+            "arn_format": "arn:{partition}:signer:{region}:{account}:signing-profiles/${resource_id}",
+            "id_name": "SigningProfileName",
+            "id_regexp": "^[a-zA-Z0-9_-]{1,64}$",
+            "asff_name": "",
+            "cloudformation": "AWS::Signer::SigningProfile",
+        }
+    },
+    "sms": {
+        "app": {
+            "arn_format": "arn:{partition}:sms:{region}:{account}:app/${resource_id}",
+            "id_name": "AppId",
+            "id_regexp": "^[a-zA-Z0-9_-]{1,128}$",
+            "asff_name": "",
+            "cloudformation": "AWS::SMS::App",
         },
-        "worklink": {
-            "fleet": {
-                "arn_format": "arn:{partition}:worklink:{region}:{account}:fleet/${resource_id}",
-                "id_name": "FleetArnName",
-                "id_regexp": "^.+$",
-                "asff_name": "",
-                "cloudformation": "AWS::WorkLink::Fleet",
-            },
-            "website_certificate_authority_association": {
-                "arn_format": "arn:{partition}:worklink:{region}:{account}:website-certificate-authority-association/${resource_id}",
-                "id_name": "WebsiteCertificateAuthorityAssociationId",
-                "id_regexp": "^[a-zA-Z0-9]+$",
-                "asff_name": "",
-                "cloudformation": "AWS::WorkLink::WebsiteCertificateAuthorityAssociation",
-            },
+        "server": {
+            "arn_format": "arn:{partition}:sms:{region}:{account}:server/${resource_id}",
+            "id_name": "ServerId",
+            "id_regexp": "^[a-zA-Z0-9_-]{1,128}$",
+            "asff_name": "",
+            "cloudformation": "AWS::SMS::Server",
         },
-        "workmail": {
-            "organization": {
-                "arn_format": "arn:{partition}:workmail:{region}:{account}:organization/${resource_id}",
-                "id_name": "OrganizationId",
-                "id_regexp": "^[a-zA-Z0-9-_]+$",
-                "asff_name": "",
-                "cloudformation": "AWS::WorkMail::Organization",
-            },
-            "resource": {
-                "arn_format": "arn:{partition}:workmail:{region}:{account}:resource/${resource_id}",
-                "id_name": "ResourceId",
-                "id_regexp": "^[a-zA-Z0-9-_]+$",
-                "asff_name": "",
-                "cloudformation": "AWS::WorkMail::Resource",
-            },
-            "user": {
-                "arn_format": "arn:{partition}:workmail:{region}:{account}:user/${resource_id}",
-                "id_name": "UserId",
-                "id_regexp": "^[a-zA-Z0-9-_@.]+$",
-                "asff_name": "",
-                "cloudformation": "AWS::WorkMail::User",
-            },
+        "replication_job": {
+            "arn_format": "arn:{partition}:sms:{region}:{account}:replication-job/${resource_id}",
+            "id_name": "ReplicationJobId",
+            "id_regexp": "^[a-zA-Z0-9_-]{1,128}$",
+            "asff_name": "",
+            "cloudformation": "AWS::SMS::ReplicationJob",
         },
-        "workspaces": {
-            "directory": {
-                "arn_format": "arn:{partition}:workspaces:{region}:{account}:directory/${resource_id}",
-                "id_name": "DirectoryId",
-                "id_regexp": "^[a-zA-Z0-9_-]{10,64}$",
-                "asff_name": "",
-                "cloudformation": "AWS::WorkSpaces::Directory",
-            },
-            "workspace": {
-                "arn_format": "arn:{partition}:workspaces:{region}:{account}:workspace/${resource_id}",
-                "id_name": "WorkspaceId",
-                "id_regexp": "^[a-zA-Z0-9_-]{13,68}$",
-                "asff_name": "",
-                "cloudformation": "AWS::WorkSpaces::Workspace",
-            },
+    },
+    "snowball": {
+        "job": {
+            "arn_format": "arn:{partition}:snowball:{region}:{account}:job/${JobId}",
+            "id_name": "JobId",
+            "id_regexp": "^[a-zA-Z0-9-]+$",
+            "asff_name": "",
+            "cloudformation": "AWS::Snowball::Job",
+        }
+    },
+    "sns": {
+        "topic": {
+            "arn_format": "arn:{partition}:sns:{region}:{account}:${TopicName}",
+            "id_name": "TopicName",
+            "id_regexp": "^[a-zA-Z0-9-_]{1,256}$",
+            "asff_name": "AwsSnsTopic",
+            "cloudformation": "AWS::SNS::Topic",
         },
-    }
+        "subscription": {
+            "arn_format": "arn:{partition}:sns:{region}:{account}:${TopicName}:${SubscriptionId}",
+            "id_name": "SubscriptionId",
+            "id_regexp": "^[a-zA-Z0-9-_]{1,256}$",
+            "asff_name": "",
+            "cloudformation": "AWS::SNS::Subscription",
+        },
+        "platform_application_endpoint": {
+            "arn_format": "arn:{partition}:sns:{region}:{account}:app/${PlatformApplicationArn}/${EndpointId}",
+            "id_name": "EndpointId",
+            "id_regexp": "^[a-zA-Z0-9-_]{1,256}$",
+            "asff_name": "",
+            "cloudformation": "AWS::SNS::Endpoint",
+        },
+    },
+    "sqs": {
+        "queue": {
+            "arn_format": "arn:{partition}:sqs:{region}:{account}:${QueueName}",
+            "id_name": "QueueName",
+            "id_regexp": "^[a-zA-Z0-9_-]{1,80}$",
+            "asff_name": "AwsSqsQueue",
+            "cloudformation": "AWS::SQS::Queue",
+        }
+    },
+    "ssm": {
+        "document": {
+            "arn_format": "arn:{partition}:ssm:{region}:{account}:document/${DocumentName}",
+            "id_name": "DocumentName",
+            "id_regexp": "^[a-zA-Z0-9_/+.-]{3,128}$",
+            "asff_name": "",
+            "cloudformation": "AWS::SSM::Document",
+        },
+        "parameter": {
+            "arn_format": "arn:{partition}:ssm:{region}:{account}:parameter/${ParameterName}",
+            "id_name": "ParameterName",
+            "id_regexp": "^[a-zA-Z0-9_/+.-]{1,2048}$",
+            "asff_name": "",
+            "cloudformation": "AWS::SSM::Parameter",
+        },
+        "maintenance_window": {
+            "arn_format": "arn:{partition}:ssm:{region}:{account}:maintenancewindow/${WindowId}",
+            "id_name": "WindowId",
+            "id_regexp": "^[a-zA-Z0-9_-]{20,40}$",
+            "asff_name": "",
+            "cloudformation": "AWS::SSM::MaintenanceWindow",
+        },
+        "maintenance_window_task": {
+            "arn_format": "arn:{partition}:ssm:{region}:{account}:maintenancewindow/${WindowId}/task/${WindowTaskId}",
+            "id_name": "WindowTaskId",
+            "id_regexp": "^[a-zA-Z0-9_-]{20,40}$",
+            "asff_name": "",
+            "cloudformation": "AWS::SSM::MaintenanceWindowTask",
+        },
+        "patch_baseline": {
+            "arn_format": "arn:{partition}:ssm:{region}:{account}:patchbaseline/${BaselineId}",
+            "id_name": "BaselineId",
+            "id_regexp": "^[a-zA-Z0-9_-]{1,128}$",
+            "asff_name": "AwsSsmPatchCompliance",
+            "cloudformation": "AWS::SSM::PatchBaseline",
+        },
+    },
+    "sso": {
+        "instance": {
+            "arn_format": "arn:{partition}:sso:{region}:{account}:instance/${resource_id}",
+            "id_name": "InstanceId",
+            "id_regexp": "^[a-zA-Z0-9-]+$",
+            "asff_name": "",
+            "cloudformation": "AWS::SSO::Instance",
+        },
+        "permission_set": {
+            "arn_format": "arn:{partition}:sso:{region}:{account}:permissionSet/${resource_id}",
+            "id_name": "PermissionSetId",
+            "id_regexp": "^[a-zA-Z0-9-]+$",
+            "asff_name": "",
+            "cloudformation": "AWS::SSO::PermissionSet",
+        },
+    },
+    "sso-directory": {
+        "directory": {
+            "arn_format": "arn:{partition}:sso-directory:{region}:{account}:directory/${resource_id}",
+            "id_name": "DirectoryId",
+            "id_regexp": "^[a-zA-Z0-9-_]+$",
+            "asff_name": "",
+            "cloudformation": "AWS::SSO::Directory",
+        }
+    },
+    "stepfunctions": {
+        "state_machine": {
+            "arn_format": "arn:{partition}:states:{region}:{account}:stateMachine:${resource_id}",
+            "id_name": "StateMachineName",
+            "id_regexp": "^[a-zA-Z0-9-_]+$",
+            "asff_name": "",
+            "cloudformation": "AWS::StepFunctions::StateMachine",
+        }
+    },
+    "storagegateway": {
+        "gateway": {
+            "arn_format": "arn:{partition}:storagegateway:{region}:{account}:gateway/${resource_id}",
+            "id_name": "GatewayId",
+            "id_regexp": "^[a-zA-Z0-9-_]+$",
+            "asff_name": "",
+            "cloudformation": "AWS::StorageGateway::Gateway",
+        },
+        "share": {
+            "arn_format": "arn:{partition}:storagegateway:{region}:{account}:share/${resource_id}",
+            "id_name": "ShareId",
+            "id_regexp": "^[a-zA-Z0-9-_]+$",
+            "asff_name": "",
+            "cloudformation": "AWS::StorageGateway::NFSFileShare",
+        },
+        "tape": {
+            "arn_format": "arn:{partition}:storagegateway:{region}:{account}:tape/${resource_id}",
+            "id_name": "TapeARN",
+            "id_regexp": "^[a-zA-Z0-9-:/_\\.\\(\\)]+$",
+            "asff_name": "",
+            "cloudformation": "AWS::StorageGateway::Tape",
+        },
+        "volume": {
+            "arn_format": "arn:{partition}:storagegateway:{region}:{account}:gateway/${gateway_id}/volume/${volume_id}",
+            "id_name": "VolumeId",
+            "id_regexp": "^[a-zA-Z0-9-_]+$",
+            "asff_name": "",
+            "cloudformation": "AWS::StorageGateway::StorediSCSIVolume",
+        },
+    },
+    "sts": {
+        "assumed_role": {
+            "arn_format": "arn:{partition}:sts::{account}:assumed-role/${resource_name}/${resource_id}",
+            "id_name": "RoleSessionName",
+            "id_regexp": "^[\\w+=,.@-]+$",
+            "asff_name": "",
+            "cloudformation": "AWS::STS::AssumedRole",
+        },
+        "federated_user": {
+            "arn_format": "arn:{partition}:sts::{account}:federated-user/${resource_id}",
+            "id_name": "UserName",
+            "id_regexp": "^[\\w+=,.@-]+$",
+            "asff_name": "",
+            "cloudformation": "AWS::STS::FederatedUser",
+        },
+        "oidc_provider": {
+            "arn_format": "arn:{partition}:iam::{account}:oidc-provider/${resource_id}",
+            "id_name": "Url",
+            "id_regexp": "^(https|http)://.*$",
+            "asff_name": "",
+            "cloudformation": "AWS::IAM::OpenIDConnectProvider",
+        },
+        "saml_provider": {
+            "arn_format": "arn:{partition}:iam::{account}:saml-provider/${resource_id}",
+            "id_name": "Name",
+            "id_regexp": "^[\\w+=,.@-]+$",
+            "asff_name": "",
+            "cloudformation": "AWS::IAM::SAMLProvider",
+        },
+    },
+    "swf": {
+        "domain": {
+            "arn_format": "arn:{partition}:swf:{region}:{account}:domain/${resource_id}",
+            "id_name": "DomainName",
+            "id_regexp": "^[a-zA-Z0-9-_]+$",
+            "asff_name": "",
+            "cloudformation": "AWS::SWF::Domain",
+        },
+        "workflow_type": {
+            "arn_format": "arn:{partition}:swf:{region}:{account}:workflowType/${DomainName}/${resource_id}",
+            "id_name": "WorkflowTypeName",
+            "id_regexp": "^[a-zA-Z0-9-_]+$",
+            "asff_name": "",
+            "cloudformation": "AWS::SWF::WorkflowType",
+        },
+        "activity_type": {
+            "arn_format": "arn:{partition}:swf:{region}:{account}:activityType/${DomainName}/${resource_id}",
+            "id_name": "ActivityTypeName",
+            "id_regexp": "^[a-zA-Z0-9-_]+$",
+            "asff_name": "",
+            "cloudformation": "AWS::SWF::ActivityType",
+        },
+        "workflow_execution": {
+            "arn_format": "arn:{partition}:swf:{region}:{account}:workflow/${DomainName}/${WorkflowType}:${resource_id}",
+            "id_name": "WorkflowExecutionId",
+            "id_regexp": "^[-a-zA-Z0-9_]+(?:\\.[-a-zA-Z0-9_]+)*$",
+            "asff_name": "",
+            "cloudformation": "AWS::SWF::WorkflowExecution",
+        },
+        "activity_execution": {
+            "arn_format": "arn:{partition}:swf:{region}:{account}:activity/${DomainName}/${ActivityType}:${resource_id}",
+            "id_name": "ActivityId",
+            "id_regexp": "^[a-zA-Z0-9-_]+$",
+            "asff_name": "",
+            "cloudformation": "AWS::SWF::ActivityTask",
+        },
+    },
+    "synthetics": {
+        "canary": {
+            "arn_format": "arn:{partition}:synthetics:{region}:{account}:canary:${resource_id}",
+            "id_name": "CanaryName",
+            "id_regexp": "^[a-zA-Z0-9_-]{1,63}$",
+            "asff_name": "",
+            "cloudformation": "AWS::Synthetics::Canary",
+        },
+        "canary_run": {
+            "arn_format": "arn:{partition}:synthetics:{region}:{account}:canary:${CanaryName}:run:${resource_id}",
+            "id_name": "CanaryRunId",
+            "id_regexp": "^[a-zA-Z0-9_-]{1,63}$",
+            "asff_name": "",
+            "cloudformation": "AWS::Synthetics::CanaryRun",
+        },
+    },
+    "textract": {
+        "document": {
+            "arn_format": "arn:{partition}:textract:{region}:{account}:document/${resource_id}",
+            "id_name": "DocumentId",
+            "id_regexp": "^[a-f0-9]{32}$",
+            "asff_name": "",
+            "cloudformation": "AWS::Textract::Document",
+        }
+    },
+    "transcribe": {
+        "vocabulary": {
+            "arn_format": "arn:{partition}:transcribe:{region}:{account}:vocabulary/${resource_id}",
+            "id_name": "VocabularyName",
+            "id_regexp": "^[a-zA-Z0-9-_]+$",
+            "asff_name": "",
+            "cloudformation": "AWS::Transcribe::Vocabulary",
+        }
+    },
+    "transfer": {
+        "server": {
+            "arn_format": "arn:{partition}:transfer:{region}:{account}:server/${resource_id}",
+            "id_name": "ServerId",
+            "id_regexp": "^[a-zA-Z0-9-_]+$",
+            "asff_name": "",
+            "cloudformation": "AWS::Transfer::Server",
+        },
+        "user": {
+            "arn_format": "arn:{partition}:transfer:{region}:{account}:user/${ServerId}/${resource_id}",
+            "id_name": "UserName",
+            "id_regexp": "^[a-zA-Z0-9-_]+$",
+            "asff_name": "",
+            "cloudformation": "AWS::Transfer::User",
+        },
+    },
+    "translate": {
+        "terminology": {
+            "arn_format": "arn:{partition}:translate:{region}:{account}:terminology/${resource_id}",
+            "id_name": "TerminologyName",
+            "id_regexp": "^[a-zA-Z0-9\\-\\_]+$",
+            "asff_name": "",
+            "cloudformation": "AWS::Translate::Terminology",
+        }
+    },
+    "waf": {
+        "ipset": {
+            "arn_format": "arn:{partition}:waf:{region}:{account}:ipset/${resource_id}",
+            "id_name": "IpSetId",
+            "id_regexp": "^[a-zA-Z0-9]+$",
+            "asff_name": "",
+            "cloudformation": "AWS::WAF::IPSet",
+        },
+        "rule": {
+            "arn_format": "arn:{partition}:waf:{region}:{account}:rule/${resource_id}",
+            "id_name": "RuleId",
+            "id_regexp": "^[a-zA-Z0-9]+$",
+            "asff_name": "AwsWafRule",
+            "cloudformation": "AWS::WAF::Rule",
+        },
+        "rule_group": {
+            "arn_format": "arn:{partition}:waf::{account}:rulegroup/${resource_name}/${resource_id}",
+            "id_name": "RuleGroupId",
+            "id_regexp": "^[a-zA-Z0-9]+$",
+            "asff_name": "AwsWafRuleGroup",
+            "cloudformation": "AWS::WAF::RuleGroup",
+        },
+        "web_acl": {
+            "arn_format": "arn:{partition}:waf:{region}:{account}:webacl/${resource_id}",
+            "id_name": "WebACLId",
+            "id_regexp": "^[a-zA-Z0-9]+$",
+            "asff_name": "AwsWafWebAcl",
+            "cloudformation": "AWS::WAF::WebACL",
+        },
+        "global_web_acl": {
+            "arn_format": "arn:{partition}:waf::{account}:global-webacl/${resource_name}/${resource_id}",
+            "id_name": "WebACLId",
+            "id_regexp": "^[a-zA-Z0-9]+$",
+            "asff_name": "",
+            "cloudformation": "AWS::WAFv2::WebACL",
+        },
+        "rate_based_rule": {
+            "arn_format": "arn:{partition}:waf::{account}:ratebasedrule/${resource_name}/${resource_id}",
+            "id_name": "RuleId",
+            "id_regexp": "^[a-zA-Z0-9]+$",
+            "asff_name": "AwsWafRateBasedRule",
+            "cloudformation": "AWS::WAF::RateBasedRule",
+        },
+    },
+    "waf-regional": {
+        "ipset": {
+            "arn_format": "arn:{partition}:waf-regional:{region}:{account}:ipset/${resource_id}",
+            "id_name": "IpSetId",
+            "id_regexp": "^[a-zA-Z0-9-]+$",
+            "asff_name": "",
+            "cloudformation": "AWS::WAF::IPSet",
+        },
+        "regional_rule": {
+            "arn_format": "arn:{partition}:waf-regional:{region}:{account}:rule/${resource_id}",
+            "id_name": "RuleId",
+            "id_regexp": "^[a-zA-Z0-9-]+$",
+            "asff_name": "AwsWafRegionalRule",
+            "cloudformation": "AWS::WAF::Rule",
+        },
+        "regional_web_acl": {
+            "arn_format": "arn:{partition}:waf-regional:{region}:{account}:webacl/${resource_id}",
+            "id_name": "WebACLId",
+            "id_regexp": "^[a-zA-Z0-9-]+$",
+            "asff_name": "AwsWafRegionalWebAcl",
+            "cloudformation": "AWS::WAF::WebACL",
+        },
+        "regional_rule_group": {
+            "arn_format": "arn:{partition}:waf-regional:{region}:{account}:rulegroup/${RuleGroupName}/${resource_id}",
+            "id_name": "RuleGroupId",
+            "id_regexp": "^[a-zA-Z0-9-]+$",
+            "asff_name": "AwsWafRegionalRuleGroup",
+            "cloudformation": "AWS::WAF::RuleGroup",
+        },
+        "regional_rate_based_rule": {
+            "arn_format": "arn:{partition}:waf-regional:{region}:{account}:rule/${resource_id}",
+            "id_name": "RuleId",
+            "id_regexp": "^[a-zA-Z0-9-]+$",
+            "asff_name": "AwsWafRegionalRateBasedRule",
+            "cloudformation": "AWS::WAF::RateBasedRule",
+        },
+    },
+    "wafv2": {
+        "ip_set": {
+            "arn_format": "arn:{partition}:wafv2:{region}:{account}:/ipset/${resource_scope}/${resource_id}",
+            "id_name": "Id",
+            "id_regexp": "^[a-zA-Z0-9-]+$",
+            "asff_name": "",
+            "cloudformation": "AWS::WAFv2::IPSet",
+        },
+        "rule_group": {
+            "arn_format": "arn:{partition}:wafv2:{region}:{account}:/rulegroup/${resource_scope}/${resource_id}",
+            "id_name": "Id",
+            "id_regexp": "^[a-zA-Z0-9-]+$",
+            "asff_name": "AwsWafv2RuleGroup",
+            "cloudformation": "AWS::WAFv2::RuleGroup",
+        },
+        "web_acl": {
+            "arn_format": "arn:{partition}:wafv2:{region}:{account}:/webacl/${resource_scope}/${resource_id}",
+            "id_name": "Id",
+            "id_regexp": "^[a-zA-Z0-9-]+$",
+            "asff_name": "AwsWafv2WebAcl",
+            "cloudformation": "AWS::WAFv2::WebACL",
+        },
+    },
+    "wellarchitected": {
+        "workload": {
+            "arn_format": "arn:{partition}:wellarchitected:{region}:{account}:workload/${resource_id}",
+            "id_name": "WorkloadId",
+            "id_regexp": "^[a-zA-Z0-9-]+$",
+            "asff_name": "",
+            "cloudformation": "AWS::WellArchitected::Workload",
+        }
+    },
+    "workdocs": {
+        "document": {
+            "arn_format": "arn:{partition}:workdocs:{region}:{account}:${FolderHierarchy}/${resource_id}",
+            "id_name": "DocumentName",
+            "id_regexp": "^[a-zA-Z0-9-_.()]+$",
+            "asff_name": "",
+            "cloudformation": "AWS::WorkDocs::Document",
+        },
+        "folder": {
+            "arn_format": "arn:{partition}:workdocs:{region}:{account}:${FolderHierarchy}/${resource_id}",
+            "id_name": "FolderName",
+            "id_regexp": "^[a-zA-Z0-9-_.()]+$",
+            "asff_name": "",
+            "cloudformation": "AWS::WorkDocs::Folder",
+        },
+        "user": {
+            "arn_format": "arn:{partition}:workdocs:{region}:{account}:user/${resource_id}",
+            "id_name": "UserId",
+            "id_regexp": "^[a-zA-Z0-9_-]+$",
+            "asff_name": "",
+            "cloudformation": "AWS::WorkDocs::User",
+        },
+    },
+    "worklink": {
+        "fleet": {
+            "arn_format": "arn:{partition}:worklink:{region}:{account}:fleet/${resource_id}",
+            "id_name": "FleetArnName",
+            "id_regexp": "^.+$",
+            "asff_name": "",
+            "cloudformation": "AWS::WorkLink::Fleet",
+        },
+        "website_certificate_authority_association": {
+            "arn_format": "arn:{partition}:worklink:{region}:{account}:website-certificate-authority-association/${resource_id}",
+            "id_name": "WebsiteCertificateAuthorityAssociationId",
+            "id_regexp": "^[a-zA-Z0-9]+$",
+            "asff_name": "",
+            "cloudformation": "AWS::WorkLink::WebsiteCertificateAuthorityAssociation",
+        },
+    },
+    "workmail": {
+        "organization": {
+            "arn_format": "arn:{partition}:workmail:{region}:{account}:organization/${resource_id}",
+            "id_name": "OrganizationId",
+            "id_regexp": "^[a-zA-Z0-9-_]+$",
+            "asff_name": "",
+            "cloudformation": "AWS::WorkMail::Organization",
+        },
+        "resource": {
+            "arn_format": "arn:{partition}:workmail:{region}:{account}:resource/${resource_id}",
+            "id_name": "ResourceId",
+            "id_regexp": "^[a-zA-Z0-9-_]+$",
+            "asff_name": "",
+            "cloudformation": "AWS::WorkMail::Resource",
+        },
+        "user": {
+            "arn_format": "arn:{partition}:workmail:{region}:{account}:user/${resource_id}",
+            "id_name": "UserId",
+            "id_regexp": "^[a-zA-Z0-9-_@.]+$",
+            "asff_name": "",
+            "cloudformation": "AWS::WorkMail::User",
+        },
+    },
+    "workspaces": {
+        "directory": {
+            "arn_format": "arn:{partition}:workspaces:{region}:{account}:directory/${resource_id}",
+            "id_name": "DirectoryId",
+            "id_regexp": "^[a-zA-Z0-9_-]{10,64}$",
+            "asff_name": "",
+            "cloudformation": "AWS::WorkSpaces::Directory",
+        },
+        "workspace": {
+            "arn_format": "arn:{partition}:workspaces:{region}:{account}:workspace/${resource_id}",
+            "id_name": "WorkspaceId",
+            "id_regexp": "^[a-zA-Z0-9_-]{13,68}$",
+            "asff_name": "",
+            "cloudformation": "AWS::WorkSpaces::Workspace",
+        },
+    },
+}

@@ -1,5 +1,6 @@
 import argparse
 
+
 def get_parser():
     """Configure Parser"""
     parser = argparse.ArgumentParser(
@@ -9,9 +10,7 @@ def get_parser():
     """,
     )
 
-    group_functions = parser.add_argument_group(
-        "Functions"
-    )
+    group_functions = parser.add_argument_group("Functions")
     group_functions.add_argument(
         "--generate-arn",
         action=argparse.BooleanOptionalAction,
@@ -55,9 +54,7 @@ def get_parser():
         required=False,
     )
 
-    group_data = parser.add_argument_group(
-        "Data"
-    )
+    group_data = parser.add_argument_group("Data")
     group_data.add_argument(
         "--service",
         default=None,
@@ -107,14 +104,8 @@ def get_parser():
         required=False,
     )
 
-
-
-
-
     # Group: Debug Options
-    group_debug = parser.add_argument_group(
-        "Debug Options"
-    )
+    group_debug = parser.add_argument_group("Debug Options")
     group_debug.add_argument(
         "--log-level",
         choices=["ERROR", "WARNING", "INFO", "DEBUG"],

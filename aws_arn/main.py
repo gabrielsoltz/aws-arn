@@ -2,13 +2,13 @@
 
 import sys
 
-
 try:
-    from get_parser import get_parser
     from __init__ import *
+    from get_parser import get_parser
 except ModuleNotFoundError:
-    from aws_arn.get_parser import get_parser
     from aws_arn.__init__ import *
+    from aws_arn.get_parser import get_parser
+
 
 def main():
     parser = get_parser()
@@ -39,13 +39,13 @@ def main():
 
     if args.generate_arn:
         print(generate_arn(id, service, sub_service, region, account, partition))
-    
+
     if args.validate_id:
         print(check_resource_id_regexp(id, service, sub_service))
 
     if args.get_service_from_asff_resource:
         print(get_sub_service_from_arn(asff_resource))
 
+
 if __name__ == "__main__":
     main()
-
