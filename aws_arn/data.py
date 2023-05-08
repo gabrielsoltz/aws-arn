@@ -135,13 +135,6 @@ aws_arn_data = {
         "rest_api": {
             "arn_format": "arn:{partition}:apigateway:{region}::/restapis/{resource_id}",
             "id_name": "ApiId",
-            "id_regexp": "[a-zA-Z0-9\\.\\-_]+",
-            "asff_name": "",
-            "cloudformation": "AWS::ApiGateway::RestApi",
-        },
-        "rest_api": {
-            "arn_format": "arn:{partition}:apigateway:{region}::/restapis/{resource_id}",
-            "id_name": "ApiId",
             "id_regexp": "[a-zA-Z0-9\\-]+",
             "asff_name": "",
             "cloudformation": "AWS::ApiGateway::RestApi",
