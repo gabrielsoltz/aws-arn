@@ -49,12 +49,12 @@ import aws_arn
 arn = aws_arn.generate_arn('i-1234568901', 'ec2', 'instance', 'us-east-1', '012345789012', 'aws')
 
 print (arn)
+
+arn:aws:ec2:us-east-1:012345789012:instance/i-1234568901
 ```
 
 ## Generate ARN using Terraform resource name
 ```
-arn:aws:ec2:us-east-1:012345789012:instance/i-1234568901
-
 arn = aws_arn.generate_arn_from_terraform('i-1234568901', 'aws_instance', 'us-east-1', '012345789012', 'aws')
 
 print (arn)
@@ -69,7 +69,6 @@ arn = aws_arn.generate_arn_from_cloudformation('i-1234568901', 'AWS::EC2::Instan
 print (arn)
 
 arn:aws:ec2:us-east-1:012345789012:instance/i-1234568901
-
 ```
 
 # Use it as CLI
