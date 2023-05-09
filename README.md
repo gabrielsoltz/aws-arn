@@ -13,6 +13,25 @@ Isn't anyoning trying to guess the ARN for a specific AWS resource? This is a co
 - Generate ARNs for any AWS resource by passing in the resource ID and other parameters
 - Get the service and sub_service from an ASFF Resource
 
+# Contributing to this list
+
+ARNs are defined under [aws_arn/data.py](aws_arn/data.py). 
+
+Format:
+
+```
+    "acm": { --> The Service Name (we follow boto3 naming conventions)
+        "certificate": {  --> The Resource Name (we follow boto3 naming conventions)
+            "arn_format": "arn:{partition}:acm:{region}:{account}:certificate/{resource_id}",
+            "id_name": "CertificateId",  --> The Resource Id name
+            "id_regexp": "([a-z0-9-]+)", --> The Resource Id regexp
+            "asff_name": "AwsCertificateManagerCertificate",   --> The ASFF Resource Name
+            "cloudformation": "AWS::CertificateManager::Certificate",  --> The CloudFormation Resource Name
+            "terraform": "aws_acm_certificate",  --> The Terraform Resource Name
+        }
+    },
+```
+
 # To Do:
 
 - CloudFormation and Terraform resources for all ARNs
