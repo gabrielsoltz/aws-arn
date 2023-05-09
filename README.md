@@ -12,7 +12,10 @@ See the full list of ARNs [here](#full-list-of-arns).
 
 # Features
 
-- Generate ARNs for any AWS resource by passing in the resource ID and other parameters
+- Generate ARNs for any AWS resource by passing in the resource ID, region and partition
+    - Using service and resoruce name
+    - Using Terraform resource name
+    - Using Cloudformation resource name
 - Get the ASFF Resource Name for any AWS resource (e.g. `AwsCertificateManagerCertificate`)
 - Get the Cloudformation Resource Name for any AWS resource (e.g. `AWS::CertificateManager::Certificate`)
 - Get the Terraform Resource Name for any AWS resource (e.g. `aws_acm_certificate`)
