@@ -34,11 +34,6 @@ Format:
     },
 ```
 
-# To Do:
-
-- CloudFormation and Terraform resources for all ARNs
-
-
 # Use it as a module
 
 ## Generate ARN using service and resource name
