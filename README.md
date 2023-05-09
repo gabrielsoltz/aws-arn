@@ -8,6 +8,8 @@ Isn't anyoning trying to guess the ARN for a specific AWS resource? This is a co
 - Total number of services:  153
 - Total number of resources:  468
 
+See the full list of ARNs [here](#full-list-of-arns).
+
 # Features
 
 - Generate ARNs for any AWS resource by passing in the resource ID and other parameters
