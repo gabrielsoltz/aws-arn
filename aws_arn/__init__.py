@@ -31,20 +31,46 @@ def list_asff_resources():
                 print(aws_arn_data[services][sub_services]["asff_name"])
 
 
+# def generate_markdown_table():
+#     header = "| Service | ARN Format |\n| --- | --- |\n"
+#     rows = []
+#     for service in aws_arn_data:
+#         arn_breaks = ""
+#         for sub_service in aws_arn_data[service]:
+#             arn_breaks += (
+#                 sub_service
+#                 + ": `"
+#                 + aws_arn_data[service][sub_service]["arn_format"]
+#                 + "`<br>"
+#             )
+#         rows.append(f"| {service} | {arn_breaks} |")
+#     return header + "\n".join(rows)
+
 def generate_markdown_table():
-    header = "| Service | ARN Format |\n| --- | --- |\n"
-    rows = []
-    for service in aws_arn_data:
-        arn_breaks = ""
-        for sub_service in aws_arn_data[service]:
-            arn_breaks += (
-                sub_service
-                + ": `"
-                + aws_arn_data[service][sub_service]["arn_format"]
-                + "`<br>"
-            )
-        rows.append(f"| {service} | {arn_breaks} |")
-    return header + "\n".join(rows)
+    headers = ['Service', 'Resource', 'ARN Format', 'ID Name', 'ID Regexp', 'ASFF Name', 'CloudFormation', 'Terraform']
+    table = [headers]
+
+    for service, resources in aws_arn_data.items():
+        for resource, attributes in resources.items():
+            row = [
+                service,
+                resource,
+                attributes.get('arn_format', ''),
+                attributes.get('id_name', ''),
+                ''.join(attributes.get('id_regexp', '')),
+                attributes.get('asff_name', ''),
+                attributes.get('cloudformation', ''),
+                attributes.get('terraform', '')
+            ]
+            table.append(row)
+
+    table_str = '| ' + ' | '.join(headers) + ' |\n'
+    table_str += '|-' + '-|-'.join(['--' for _ in headers]) + '-|\n'
+
+    for row in table[1:]:
+        table_str += '| ' + ' | '.join([str(item) for item in row]) + ' |\n'
+
+    return table_str
 
 
 def generate_arn(
