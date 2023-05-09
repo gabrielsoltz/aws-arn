@@ -41,13 +41,18 @@ Format:
 
 # Use it as a module
 
+## Generate ARN using service and resource name
+
 ```
 import aws_arn
 
 arn = aws_arn.generate_arn('i-1234568901', 'ec2', 'instance', 'us-east-1', '012345789012', 'aws')
 
 print (arn)
+```
 
+## Generate ARN using Terraform resource name
+```
 arn:aws:ec2:us-east-1:012345789012:instance/i-1234568901
 
 arn = aws_arn.generate_arn_from_terraform('i-1234568901', 'aws_instance', 'us-east-1', '012345789012', 'aws')
@@ -55,7 +60,10 @@ arn = aws_arn.generate_arn_from_terraform('i-1234568901', 'aws_instance', 'us-ea
 print (arn)
 
 arn:aws:ec2:us-east-1:012345789012:instance/i-1234568901
+```
 
+## Generate ARN using Cloudformation resource name
+```
 arn = aws_arn.generate_arn_from_cloudformation('i-1234568901', 'AWS::EC2::Instance', 'us-east-1', '012345789012', 'aws')
 
 print (arn)
@@ -66,20 +74,22 @@ arn:aws:ec2:us-east-1:012345789012:instance/i-1234568901
 
 # Use it as CLI
 
+## Generate ARN using service and resource name
 ```
 ./aws-arn --generate-arn --id test --service ec2 --sub-service instance --region us-east-1 --account 012345789012 --partition aws
 
 arn:aws:ec2:us-east-1:012345789012:instance/test
+```
 
-
-./aws-arn --get-service-from-terraform --terraform aws_instance
-
-('ec2', 'instance')
-
+## Generate ARN using Terraform resource name
+```
 ./aws-arn --generate-arn-from-terraform --id test --terraform aws_instance --region us-east-1 --account 012345789012 --partition aws
 
 arn:aws:ec2:us-east-1:012345789012:instance/test
+```
 
+## Generate ARN using Cloudformation resource name
+```
 ./aws-arn --generate-arn-from-cloudformation --id test --cloudformation AWS::EC2::Instance --region us-east-1 --account 012345789012 --partition aws
 
 arn:aws:ec2:us-east-1:012345789012:instance/test

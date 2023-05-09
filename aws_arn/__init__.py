@@ -30,22 +30,6 @@ def list_asff_resources():
             if aws_arn_data[services][sub_services]["asff_name"] != "":
                 print(aws_arn_data[services][sub_services]["asff_name"])
 
-
-# def generate_markdown_table():
-#     header = "| Service | ARN Format |\n| --- | --- |\n"
-#     rows = []
-#     for service in aws_arn_data:
-#         arn_breaks = ""
-#         for sub_service in aws_arn_data[service]:
-#             arn_breaks += (
-#                 sub_service
-#                 + ": `"
-#                 + aws_arn_data[service][sub_service]["arn_format"]
-#                 + "`<br>"
-#             )
-#         rows.append(f"| {service} | {arn_breaks} |")
-#     return header + "\n".join(rows)
-
 def generate_markdown_table():
     headers = ['Service', 'Resource', 'ARN Format', 'ID Name', 'ID Regexp', 'ASFF Name', 'CloudFormation', 'Terraform']
     table = [headers]
