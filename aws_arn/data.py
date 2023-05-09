@@ -373,7 +373,7 @@ aws_arn_data = {
             "terraform": "aws_cloudformation_change_set",
         },
         "stack": {
-            "arn_format": "arn:{partition}:cloudformation:{region}:{account}:stack/{stack_name}/{stack_id}",
+            "arn_format": "arn:{partition}:cloudformation:{region}:{account}:stack/{resource_id}/{stack_id}",
             "id_name": "StackName",
             "id_regexp": "([a-zA-Z][-a-zA-Z0-9]*)",
             "asff_name": "AwsCloudFormationStack",
@@ -487,7 +487,7 @@ aws_arn_data = {
             "terraform": "aws_codeartifact_repository",
         },
         "package": {
-            "arn_format": "arn:{partition}:codeartifact:{region}:{account}:repository/{domain_name}/{repository_name}/package/{package_format}/{package_name}@{package_version}",
+            "arn_format": "arn:{partition}:codeartifact:{region}:{account}:repository/{domain_name}/{repository_name}/package/{package_format}/{resource_id}@{package_version}",
             "id_name": "PackageName",
             "id_regexp": "([a-zA-Z0-9._-]+@[a-zA-Z0-9._-]+)",
             "asff_name": "",
@@ -573,24 +573,24 @@ aws_arn_data = {
     },
     "cognito-idp": {
         "identity_provider": {
-            "arn_format": "arn:{partition}:cognito-idp:{region}:{account}:userpool/{user_pool_id}:identityprovider/{identity_provider_name}",
-            "id_name": "identity_provider_name",
+            "arn_format": "arn:{partition}:cognito-idp:{region}:{account}:userpool/{user_pool_id}:identityprovider/{resource_id}",
+            "id_name": "IdentityProviderName",
             "id_regexp": "([a-zA-Z0-9_\\.\\-]+)",
             "asff_name": "",
             "cloudformation": "AWS::Cognito::UserPoolIdentityProvider",
             "terraform": "aws_cognito_identity_provider",
         },
         "resource_server": {
-            "arn_format": "arn:{partition}:cognito-idp:{region}:{account}:userpool/{user_pool_id}/resource-server/{resource_server_id}",
-            "id_name": "resource_server_id",
+            "arn_format": "arn:{partition}:cognito-idp:{region}:{account}:userpool/{user_pool_id}/resource-server/{resource_id}",
+            "id_name": "ResourceServerIdentifier",
             "id_regexp": "([a-zA-Z0-9_\\.\\-]+)",
             "asff_name": "",
             "cloudformation": "AWS::Cognito::UserPoolResourceServer",
             "terraform": "aws_cognito_user_pool_resource_server",
         },
         "user_pool": {
-            "arn_format": "arn:{partition}:cognito-idp:{region}:{account}:userpool/{user_pool_id}",
-            "id_name": "user_pool_id",
+            "arn_format": "arn:{partition}:cognito-idp:{region}:{account}:userpool/{resource_id}",
+            "id_name": "UserPoolId",
             "id_regexp": "([a-zA-Z0-9_\\.\\-]+)",
             "asff_name": "",
             "cloudformation": "AWS::Cognito::UserPool",
@@ -693,7 +693,7 @@ aws_arn_data = {
     },
     "cur": {
         "report_definition": {
-            "arn_format": "arn:{partition}:cur:${ReportName}-${YYYYMM}-${AdditionalArtifact}-{region}-{account}",
+            "arn_format": "arn:{partition}:cur:{ReportName}-{YYYYMM}-{AdditionalArtifact}-{region}-{account}",
             "id_name": "ReportName",
             "id_regexp": "([a-zA-Z0-9-_.]+)",
             "asff_name": "",
@@ -757,7 +757,7 @@ aws_arn_data = {
     },
     "devicefarm": {
         "project": {
-            "arn_format": "arn:{partition}:devicefarm:{region}:{account}:project:${resource_id}",
+            "arn_format": "arn:{partition}:devicefarm:{region}:{account}:project:{resource_id}",
             "id_name": "ProjectArnSuffix",
             "id_regexp": "([a-zA-Z0-9-_.]+)",
             "asff_name": "",
@@ -765,7 +765,7 @@ aws_arn_data = {
             "terraform": "aws_devicefarm_project",
         },
         "device_instance": {
-            "arn_format": "arn:{partition}:devicefarm:{region}:{account}:device-instance:${resource_id}",
+            "arn_format": "arn:{partition}:devicefarm:{region}:{account}:device-instance:{resource_id}",
             "id_name": "DeviceInstanceArnSuffix",
             "id_regexp": "([a-zA-Z0-9-_.]+)",
             "asff_name": "",
@@ -773,7 +773,7 @@ aws_arn_data = {
             "terraform": "aws_devicefarm_device_instance",
         },
         "device_pool": {
-            "arn_format": "arn:{partition}:devicefarm:{region}:{account}:devicepool:${resource_id}",
+            "arn_format": "arn:{partition}:devicefarm:{region}:{account}:devicepool:{resource_id}",
             "id_name": "DevicePoolArnSuffix",
             "id_regexp": "([a-zA-Z0-9-_.]+)",
             "asff_name": "",
@@ -781,7 +781,7 @@ aws_arn_data = {
             "terraform": "aws_devicefarm_device_pool",
         },
         "run": {
-            "arn_format": "arn:{partition}:devicefarm:{region}:{account}:run:${resource_id}",
+            "arn_format": "arn:{partition}:devicefarm:{region}:{account}:run:{resource_id}",
             "id_name": "RunArnSuffix",
             "id_regexp": "([a-zA-Z0-9-_.]+)",
             "asff_name": "",
@@ -789,7 +789,7 @@ aws_arn_data = {
             "terraform": "aws_devicefarm_run",
         },
         "job": {
-            "arn_format": "arn:{partition}:devicefarm:{region}:{account}:job:${resource_id}",
+            "arn_format": "arn:{partition}:devicefarm:{region}:{account}:job:{resource_id}",
             "id_name": "JobArnSuffix",
             "id_regexp": "([a-zA-Z0-9-_.]+)",
             "asff_name": "",
@@ -797,7 +797,7 @@ aws_arn_data = {
             "terraform": "aws_devicefarm_job",
         },
         "suite": {
-            "arn_format": "arn:{partition}:devicefarm:{region}:{account}:suite:${resource_id}",
+            "arn_format": "arn:{partition}:devicefarm:{region}:{account}:suite:{resource_id}",
             "id_name": "SuiteArnSuffix",
             "id_regexp": "([a-zA-Z0-9-_.]+)",
             "asff_name": "",
@@ -805,7 +805,7 @@ aws_arn_data = {
             "terraform": "aws_devicefarm_suite",
         },
         "test": {
-            "arn_format": "arn:{partition}:devicefarm:{region}:{account}:test:${resource_id}",
+            "arn_format": "arn:{partition}:devicefarm:{region}:{account}:test:{resource_id}",
             "id_name": "TestArnSuffix",
             "id_regexp": "([a-zA-Z0-9-_.]+)",
             "asff_name": "",
@@ -1173,7 +1173,7 @@ aws_arn_data = {
     },
     "ec2-instance-connect": {
         "connect": {
-            "arn_format": "arn:{partition}:ec2-instance-connect:{region}:{account}:connect/${InstanceId}",
+            "arn_format": "arn:{partition}:ec2-instance-connect:{region}:{account}:connect/{resource_id}",
             "id_name": "InstanceId",
             "id_regexp": "([a-zA-Z0-9\\-]+)",
             "asff_name": "",
@@ -1225,7 +1225,7 @@ aws_arn_data = {
             "terraform": "aws_ecs_task",
         },
         "service": {
-            "arn_format": "arn:{partition}:ecs:{region}:{account}:service/{cluster_name}/{service_name}",
+            "arn_format": "arn:{partition}:ecs:{region}:{account}:service/{cluster_name}/{resource_id}",
             "id_name": "ServiceName",
             "id_regexp": "([a-zA-Z0-9-_.]+)",
             "parent_id_name": "ClusterName",
@@ -1615,7 +1615,7 @@ aws_arn_data = {
             "terraform": "aws_glue_catalog_database",
         },
         "dev_endpoint": {
-            "arn_format": "arn:{partition}:glue:{region}:{account}:devEndpoint/{resource_name}",
+            "arn_format": "arn:{partition}:glue:{region}:{account}:devEndpoint/{resource_id}",
             "id_name": "DevEndpointName",
             "id_regexp": "[-0-9a-zA-Z]+",
             "asff_name": "",
@@ -1623,7 +1623,7 @@ aws_arn_data = {
             "terraform": "aws_glue_dev_endpoint",
         },
         "job": {
-            "arn_format": "arn:{partition}:glue:{region}:{account}:job/{resource_name}",
+            "arn_format": "arn:{partition}:glue:{region}:{account}:job/{resource_id}",
             "id_name": "JobName",
             "id_regexp": "[-0-9a-zA-Z]+",
             "asff_name": "",
@@ -1639,7 +1639,7 @@ aws_arn_data = {
             "terraform": "aws_glue_catalog_partition",
         },
         "trigger": {
-            "arn_format": "arn:{partition}:glue:{region}:{account}:trigger/{resource_name}",
+            "arn_format": "arn:{partition}:glue:{region}:{account}:trigger/{resource_id}",
             "id_name": "TriggerName",
             "id_regexp": "[-0-9a-zA-Z]+",
             "asff_name": "",
@@ -1647,7 +1647,7 @@ aws_arn_data = {
             "terraform": "aws_glue_trigger",
         },
         "workflow": {
-            "arn_format": "arn:{partition}:glue:{region}:{account}:workflow/{resource_name}",
+            "arn_format": "arn:{partition}:glue:{region}:{account}:workflow/{resource_id}",
             "id_name": "WorkflowName",
             "id_regexp": "[-0-9a-zA-Z]+",
             "asff_name": "",
@@ -1815,25 +1815,25 @@ aws_arn_data = {
             "terraform": "aws_iam_virtual_mfa_device",
         },
         "group_policy": {
-            "arn_format": "arn:{partition}:iam::{account}:group/{group_id}/policy/{policy_id}",
-            "id_name": ["GroupName", "PolicyName"],
-            "id_regexp": ["^[\\w+=,.@-]{1,128}$", "^[\\w+=,.@-]{1,128}$"],
+            "arn_format": "arn:{partition}:iam::{account}:group/{group_id}/policy/{resource_id}",
+            "id_name": "PolicyName",
+            "id_regexp": "^[\\w+=,.@-]{1,128}$",
             "asff_name": "",
             "cloudformation": "AWS::IAM::Policy",
             "terraform": "aws_iam_group_policy_attachment",
         },
         "role_policy": {
-            "arn_format": "arn:{partition}:iam::{account}:role/{role_id}/policy/{policy_id}",
-            "id_name": ["RoleName", "PolicyName"],
-            "id_regexp": ["^[\\w+=,.@-]{1,64}$", "^[\\w+=,.@-]{1,128}$"],
+            "arn_format": "arn:{partition}:iam::{account}:role/{role_id}/policy/{resource_id}",
+            "id_name": "PolicyName",
+            "id_regexp": "^[\\w+=,.@-]{1,128}$",
             "asff_name": "",
             "cloudformation": "AWS::IAM::Policy",
             "terraform": "aws_iam_role_policy_attachment",
         },
         "user_policy": {
-            "arn_format": "arn:{partition}:iam::{account}:user/{user_id}/policy/{policy_id}",
-            "id_name": ["UserName", "PolicyName"],
-            "id_regexp": ["^[\\w+=,.@-]{1,64}$", "^[\\w+=,.@-]{1,128}$"],
+            "arn_format": "arn:{partition}:iam::{account}:user/{user_id}/policy/{resource_id}",
+            "id_name": "PolicyName",
+            "id_regexp": "^[\\w+=,.@-]{1,128}$",
             "asff_name": "",
             "cloudformation": "AWS::IAM::Policy",
             "terraform": "aws_iam_user_policy_attachment",
@@ -1909,7 +1909,7 @@ aws_arn_data = {
     },
     "iot": {
         "authorizer": {
-            "arn_format": "arn:{partition}:iot:{region}:{account}:authorizer/${AuthorizerName}",
+            "arn_format": "arn:{partition}:iot:{region}:{account}:authorizer/{resource_id}",
             "id_name": "AuthorizerName",
             "id_regexp": "^([a-zA-Z0-9:_-]){1,128}$",
             "asff_name": "",
@@ -1917,7 +1917,7 @@ aws_arn_data = {
             "terraform": "aws_iot_authorizer",
         },
         "billing_group": {
-            "arn_format": "arn:{partition}:iot:{region}:{account}:billinggroup/${BillingGroupName}",
+            "arn_format": "arn:{partition}:iot:{region}:{account}:billinggroup/{resource_id}",
             "id_name": "BillingGroupName",
             "id_regexp": "^([a-zA-Z0-9:_-]){1,128}$",
             "asff_name": "",
@@ -1925,7 +1925,7 @@ aws_arn_data = {
             "terraform": "aws_iot_billing_group",
         },
         "certificate": {
-            "arn_format": "arn:{partition}:iot:{region}:{account}:cert/${CertificateId}",
+            "arn_format": "arn:{partition}:iot:{region}:{account}:cert/{resource_id}",
             "id_name": "CertificateId",
             "id_regexp": "^([a-f0-9]){64}$",
             "asff_name": "",
@@ -1933,7 +1933,7 @@ aws_arn_data = {
             "terraform": "aws_iot_certificate",
         },
         "dimension": {
-            "arn_format": "arn:{partition}:iot:{region}:{account}:dimension/${DimensionName}",
+            "arn_format": "arn:{partition}:iot:{region}:{account}:dimension/{resource_id}",
             "id_name": "DimensionName",
             "id_regexp": "^([a-zA-Z0-9:_-]){1,128}$",
             "asff_name": "",
@@ -1941,7 +1941,7 @@ aws_arn_data = {
             "terraform": "aws_iot_dimension",
         },
         "policy": {
-            "arn_format": "arn:{partition}:iot:{region}:{account}:policy/${PolicyName}",
+            "arn_format": "arn:{partition}:iot:{region}:{account}:policy/{resource_id}",
             "id_name": "PolicyName",
             "id_regexp": "^([a-zA-Z0-9:_-]){1,128}$",
             "asff_name": "",
@@ -1949,7 +1949,7 @@ aws_arn_data = {
             "terraform": "aws_iot_policy",
         },
         "provisioning_template": {
-            "arn_format": "arn:{partition}:iot:{region}:{account}:provisioningtemplate/${TemplateName}",
+            "arn_format": "arn:{partition}:iot:{region}:{account}:provisioningtemplate/{resource_id}",
             "id_name": "TemplateName",
             "id_regexp": "^([a-zA-Z0-9:_-]){1,128}$",
             "asff_name": "",
@@ -1957,7 +1957,7 @@ aws_arn_data = {
             "terraform": "aws_iot_provisioning_template",
         },
         "rule": {
-            "arn_format": "arn:{partition}:iot:{region}:{account}:rule/${RuleName}",
+            "arn_format": "arn:{partition}:iot:{region}:{account}:rule/{resource_id}",
             "id_name": "RuleName",
             "id_regexp": "^([a-zA-Z0-9:_-]){1,128}$",
             "asff_name": "",
@@ -1965,7 +1965,7 @@ aws_arn_data = {
             "terraform": "aws_iot_topic_rule",
         },
         "scheduled_audit": {
-            "arn_format": "arn:{partition}:iot:{region}:{account}:scheduledaudit/${ScheduledAuditName}",
+            "arn_format": "arn:{partition}:iot:{region}:{account}:scheduledaudit/{resource_id}",
             "id_name": "ScheduledAuditName",
             "id_regexp": "^([a-zA-Z0-9:_-]){1,128}$",
             "asff_name": "",
@@ -2039,7 +2039,7 @@ aws_arn_data = {
     },
     "iot-device-tester": {
         "test_suite_run": {
-            "arn_format": "arn:{partition}:iot-device-tester:{region}:{account}:test-suite-run:${SuiteDefinitionId}/{resource_id}",
+            "arn_format": "arn:{partition}:iot-device-tester:{region}:{account}:test-suite-run:{SuiteDefinitionId}/{resource_id}",
             "id_name": "SuiteRunId",
             "id_regexp": "^[a-zA-Z0-9-_]{1,128}$",
             "asff_name": "",
@@ -2173,7 +2173,7 @@ aws_arn_data = {
     },
     "kinesis-video-archived-media": {
         "archive": {
-            "arn_format": "arn:{partition}:kinesisvideo:{region}:{account}:archive/{stream_id}/{archive_id}",
+            "arn_format": "arn:{partition}:kinesisvideo:{region}:{account}:archive/{stream_id}/{resource_id}",
             "id_name": "ArchiveId",
             "id_regexp": "^[a-zA-Z0-9_.-]{1,128}$",
             "asff_name": "",
@@ -2181,7 +2181,7 @@ aws_arn_data = {
             "terraform": "aws_kinesis_video_archive",
         },
         "stream": {
-            "arn_format": "arn:{partition}:kinesisvideo:{region}:{account}:stream/{stream_id}/{stream_arn}",
+            "arn_format": "arn:{partition}:kinesisvideo:{region}:{account}:stream/{stream_id}/{resource_id}",
             "id_name": "StreamARN",
             "id_regexp": "^arn:aws:kinesisvideo:[a-z0-9-]+:[0-9]+:stream/[a-zA-Z0-9_.-]{1,256}/[0-9]+/[0-9]+$",
             "asff_name": "",
@@ -2191,7 +2191,7 @@ aws_arn_data = {
     },
     "kinesis-video-media": {
         "stream": {
-            "arn_format": "arn:{partition}:kinesisvideo:{region}:{account}:stream/{stream_id}/{stream_arn}",
+            "arn_format": "arn:{partition}:kinesisvideo:{region}:{account}:stream/{stream_id}/{resource_id}",
             "id_name": "StreamARN",
             "id_regexp": "^arn:aws:kinesisvideo:[a-z0-9-]+:[0-9]+:stream/[a-zA-Z0-9_.-]{1,256}/[0-9]+/[0-9]+$",
             "asff_name": "",
@@ -2201,7 +2201,7 @@ aws_arn_data = {
     },
     "kinesis-video-signaling": {
         "channel": {
-            "arn_format": "arn:{partition}:kinesisvideo:{region}:{account}:channel/{channel_name}/{channel_arn}",
+            "arn_format": "arn:{partition}:kinesisvideo:{region}:{account}:channel/{channel_name}/{resource_id}",
             "id_name": "ChannelARN",
             "id_regexp": "^arn:aws:kinesisvideo:[a-z0-9-]+:[0-9]+:channel/[a-zA-Z0-9_.-]{1,256}/[0-9]+/[0-9]+$",
             "asff_name": "",
@@ -2477,7 +2477,7 @@ aws_arn_data = {
     },
     "managedblockchain": {
         "network": {
-            "arn_format": "arn:{partition}:managedblockchain:{region}:{account}:network/${NetworkId}",
+            "arn_format": "arn:{partition}:managedblockchain:{region}:{account}:network/{resource_id}",
             "id_name": "NetworkId",
             "id_regexp": "^[a-zA-Z0-9]{1,32}$",
             "asff_name": "",
@@ -2485,7 +2485,7 @@ aws_arn_data = {
             "terraform": "aws_managed_blockchain_network",
         },
         "node": {
-            "arn_format": "arn:{partition}:managedblockchain:{region}:{account}:node/${NetworkId}/${MemberId}/${NodeId}",
+            "arn_format": "arn:{partition}:managedblockchain:{region}:{account}:node/{NetworkId}/{MemberId}/{resource_id}",
             "id_name": "NodeId",
             "id_regexp": "^[a-zA-Z0-9]{1,32}$",
             "asff_name": "",
@@ -2493,7 +2493,7 @@ aws_arn_data = {
             "terraform": "aws_managed_blockchain_node",
         },
         "proposal": {
-            "arn_format": "arn:{partition}:managedblockchain:{region}:{account}:proposal/${NetworkId}/${ProposalId}",
+            "arn_format": "arn:{partition}:managedblockchain:{region}:{account}:proposal/{NetworkId}/{resource_id}",
             "id_name": "ProposalId",
             "id_regexp": "^[a-zA-Z0-9]{1,32}$",
             "asff_name": "",
@@ -2901,7 +2901,7 @@ aws_arn_data = {
     },
     "pi": {
         "dimension": {
-            "arn_format": "arn:{partition}:pi:{region}:{account}:dimension:${resource_id}",
+            "arn_format": "arn:{partition}:pi:{region}:{account}:dimension:{resource_id}",
             "id_name": "DimensionName",
             "id_regexp": "^[a-zA-Z0-9_]+$",
             "asff_name": "",
@@ -2911,7 +2911,7 @@ aws_arn_data = {
     },
     "pinpoint": {
         "app": {
-            "arn_format": "arn:{partition}:mobiletargeting:{region}:{account}:apps/${resource_id}",
+            "arn_format": "arn:{partition}:mobiletargeting:{region}:{account}:apps/{resource_id}",
             "id_name": "ApplicationId",
             "id_regexp": "^[a-zA-Z0-9]{1,64}$",
             "asff_name": "",
@@ -2919,7 +2919,7 @@ aws_arn_data = {
             "terraform": "aws_pinpoint_app",
         },
         "adm_channel": {
-            "arn_format": "arn:{partition}:mobiletargeting:{region}:{account}:apps/${ApplicationId}/channels/adm",
+            "arn_format": "arn:{partition}:mobiletargeting:{region}:{account}:apps/{resource_id}/channels/adm",
             "id_name": "ApplicationId",
             "id_regexp": "^[a-zA-Z0-9]{1,64}$",
             "asff_name": "",
@@ -2927,7 +2927,7 @@ aws_arn_data = {
             "terraform": "aws_pinpoint_adm_channel",
         },
         "apns_channel": {
-            "arn_format": "arn:{partition}:mobiletargeting:{region}:{account}:apps/${ApplicationId}/channels/apns",
+            "arn_format": "arn:{partition}:mobiletargeting:{region}:{account}:apps/{resource_id}/channels/apns",
             "id_name": "ApplicationId",
             "id_regexp": "^[a-zA-Z0-9]{1,64}$",
             "asff_name": "",
@@ -2935,7 +2935,7 @@ aws_arn_data = {
             "terraform": "aws_pinpoint_apns_channel",
         },
         "apns_sandbox_channel": {
-            "arn_format": "arn:{partition}:mobiletargeting:{region}:{account}:apps/${ApplicationId}/channels/apns_sandbox",
+            "arn_format": "arn:{partition}:mobiletargeting:{region}:{account}:apps/{resource_id}/channels/apns_sandbox",
             "id_name": "ApplicationId",
             "id_regexp": "^[a-zA-Z0-9]{1,64}$",
             "asff_name": "",
@@ -2943,7 +2943,7 @@ aws_arn_data = {
             "terraform": "aws_pinpoint_apns_sandbox_channel",
         },
         "baidu_channel": {
-            "arn_format": "arn:{partition}:mobiletargeting:{region}:{account}:apps/${ApplicationId}/channels/baidu",
+            "arn_format": "arn:{partition}:mobiletargeting:{region}:{account}:apps/{resource_id}/channels/baidu",
             "id_name": "ApplicationId",
             "id_regexp": "^[a-zA-Z0-9]{1,64}$",
             "asff_name": "",
@@ -2951,7 +2951,7 @@ aws_arn_data = {
             "terraform": "aws_pinpoint_baidu_channel",
         },
         "email_channel": {
-            "arn_format": "arn:{partition}:mobiletargeting:{region}:{account}:apps/${ApplicationId}/channels/email",
+            "arn_format": "arn:{partition}:mobiletargeting:{region}:{account}:apps/{resource_id}/channels/email",
             "id_name": "ApplicationId",
             "id_regexp": "^[a-zA-Z0-9]{1,64}$",
             "asff_name": "",
@@ -2959,7 +2959,7 @@ aws_arn_data = {
             "terraform": "aws_pinpoint_email_channel",
         },
         "gcm_channel": {
-            "arn_format": "arn:{partition}:mobiletargeting:{region}:{account}:apps/${ApplicationId}/channels/gcm",
+            "arn_format": "arn:{partition}:mobiletargeting:{region}:{account}:apps/{resource_id}/channels/gcm",
             "id_name": "ApplicationId",
             "id_regexp": "^[a-zA-Z0-9]{1,64}$",
             "asff_name": "",
@@ -2967,7 +2967,7 @@ aws_arn_data = {
             "terraform": "aws_pinpoint_gcm_channel",
         },
         "sms_channel": {
-            "arn_format": "arn:{partition}:mobiletargeting:{region}:{account}:apps/${ApplicationId}/channels/sms}",
+            "arn_format": "arn:{partition}:mobiletargeting:{region}:{account}:apps/{resource_id}/channels/sms}",
             "id_name": "ApplicationId",
             "id_regexp": "^[a-zA-Z0-9]{1,64}$",
             "asff_name": "",
@@ -2987,7 +2987,7 @@ aws_arn_data = {
     },
     "qldb": {
         "ledger": {
-            "arn_format": "arn:{partition}:qldb:{region}:{account}:ledger/${resource_id}",
+            "arn_format": "arn:{partition}:qldb:{region}:{account}:ledger/{resource_id}",
             "id_name": "LedgerName",
             "id_regexp": "^[a-zA-Z0-9_-]{1,32}$",
             "asff_name": "",
@@ -3015,7 +3015,7 @@ aws_arn_data = {
     },
     "ram": {
         "resource_share": {
-            "arn_format": "arn:{partition}:ram:{region}:{account}:resource-share/${resource_id}",
+            "arn_format": "arn:{partition}:ram:{region}:{account}:resource-share/{resource_id}",
             "id_name": "ResourceShareName",
             "id_regexp": "^[a-zA-Z0-9-]{1,64}$",
             "asff_name": "",
@@ -3023,7 +3023,7 @@ aws_arn_data = {
             "terraform": "aws_ram_resource_share",
         },
         "resource_share_invitation": {
-            "arn_format": "arn:{partition}:ram:{region}:{account}:resource-share-invitation/${resource_id}",
+            "arn_format": "arn:{partition}:ram:{region}:{account}:resource-share-invitation/{resource_id}",
             "id_name": "ResourceShareInvitationId",
             "id_regexp": "^[a-zA-Z0-9-]{1,64}$",
             "asff_name": "",
@@ -3105,7 +3105,7 @@ aws_arn_data = {
             "terraform": "aws_db_event_subscription",
         },
         "global_cluster": {
-            "arn_format": "arn:{partition}:rds:{region}:{account}:global-cluster:${resource_id}",
+            "arn_format": "arn:{partition}:rds:{region}:{account}:global-cluster:{resource_id}",
             "id_name": "GlobalClusterIdentifier",
             "id_regexp": "^[a-zA-Z0-9-]{1,63}$",
             "asff_name": "",
@@ -3125,7 +3125,7 @@ aws_arn_data = {
     },
     "redshift": {
         "cluster": {
-            "arn_format": "arn:{partition}:redshift:{region}:{account}:cluster:${resource_id}",
+            "arn_format": "arn:{partition}:redshift:{region}:{account}:cluster:{resource_id}",
             "id_name": "ClusterName",
             "id_regexp": "^([a-z0-9][a-z0-9-]*[a-z0-9]|[a-z0-9])$",
             "asff_name": "AwsRedshiftCluster",
@@ -3133,7 +3133,7 @@ aws_arn_data = {
             "terraform": "aws_redshift_cluster",
         },
         "snapshot": {
-            "arn_format": "arn:{partition}:redshift:{region}:{account}:snapshot:${resource_id}",
+            "arn_format": "arn:{partition}:redshift:{region}:{account}:snapshot:{resource_id}",
             "id_name": "SnapshotName",
             "id_regexp": "^([a-z0-9][a-z0-9-]*[a-z0-9]|[a-z0-9])$",
             "asff_name": "",
@@ -3143,7 +3143,7 @@ aws_arn_data = {
     },
     "rekognition": {
         "collection": {
-            "arn_format": "arn:{partition}:rekognition:{region}:{account}:collection/${resource_id}",
+            "arn_format": "arn:{partition}:rekognition:{region}:{account}:collection/{resource_id}",
             "id_name": "CollectionId",
             "id_regexp": "^[a-zA-Z0-9-_]+$",
             "asff_name": "",
@@ -3151,7 +3151,7 @@ aws_arn_data = {
             "terraform": "aws_rekognition_collection",
         },
         "stream_processor": {
-            "arn_format": "arn:{partition}:rekognition:{region}:{account}:stream-processor/${resource_id}",
+            "arn_format": "arn:{partition}:rekognition:{region}:{account}:stream-processor/{resource_id}",
             "id_name": "StreamProcessorName",
             "id_regexp": "^[a-zA-Z0-9-_]+$",
             "asff_name": "",
@@ -3161,7 +3161,7 @@ aws_arn_data = {
     },
     "resource-groups": {
         "group": {
-            "arn_format": "arn:{partition}:resource-groups:{region}:{account}:group/${resource_id}",
+            "arn_format": "arn:{partition}:resource-groups:{region}:{account}:group/{resource_id}",
             "id_name": "GroupName",
             "id_regexp": "^[a-zA-Z0-9._\\-]+$",
             "asff_name": "",
@@ -3171,7 +3171,7 @@ aws_arn_data = {
     },
     "robomaker": {
         "robot_application": {
-            "arn_format": "arn:{partition}:robomaker:{region}:{account}:robot-application/${ApplicationName}/${ApplicationVersion}",
+            "arn_format": "arn:{partition}:robomaker:{region}:{account}:robot-application/{resource_id}/{ApplicationVersion}",
             "id_name": "ApplicationName",
             "id_regexp": "^[a-zA-Z0-9-_]{1,127}$",
             "asff_name": "",
@@ -3179,7 +3179,7 @@ aws_arn_data = {
             "terraform": "aws_robomaker_robot_application",
         },
         "simulation_application": {
-            "arn_format": "arn:{partition}:robomaker:{region}:{account}:simulation-application/${ApplicationName}/${ApplicationVersion}",
+            "arn_format": "arn:{partition}:robomaker:{region}:{account}:simulation-application/{resource_id}/{ApplicationVersion}",
             "id_name": "ApplicationName",
             "id_regexp": "^[a-zA-Z0-9-_]{1,127}$",
             "asff_name": "",
@@ -3187,7 +3187,7 @@ aws_arn_data = {
             "terraform": "aws_robomaker_simulation_application",
         },
         "robot": {
-            "arn_format": "arn:{partition}:robomaker:{region}:{account}:robot/${RobotName}",
+            "arn_format": "arn:{partition}:robomaker:{region}:{account}:robot/{resource_id}",
             "id_name": "RobotName",
             "id_regexp": "^[a-zA-Z0-9-_]{1,127}$",
             "asff_name": "",
@@ -3195,7 +3195,7 @@ aws_arn_data = {
             "terraform": "aws_robomaker_robot",
         },
         "simulation_job": {
-            "arn_format": "arn:{partition}:robomaker:{region}:{account}:simulation-job/${SimulationJobArn}",
+            "arn_format": "arn:{partition}:robomaker:{region}:{account}:simulation-job/{resource_id}",
             "id_name": "SimulationJobArn",
             "id_regexp": "^arn:[a-zA-Z0-9-]+:robomaker:[a-z]{2}(-gov)?-[a-z]+-\\d+:[a-z0-9]{12}:simulation-job:[a-zA-Z0-9-_]{1,128}(/\\d+)?$",
             "asff_name": "",
@@ -3203,7 +3203,7 @@ aws_arn_data = {
             "terraform": "aws_robomaker_simulation_job",
         },
         "fleet": {
-            "arn_format": "arn:{partition}:robomaker:{region}:{account}:fleet/${FleetName}",
+            "arn_format": "arn:{partition}:robomaker:{region}:{account}:fleet/{resource_id}",
             "id_name": "FleetName",
             "id_regexp": "^[a-zA-Z0-9-_]{1,127}$",
             "asff_name": "",
@@ -3230,7 +3230,7 @@ aws_arn_data = {
         },
         "vpc_association_authorization": {
             "arn_format": "arn:{partition}:route53:::vpc/{region}:{account}:authorizevpcassociation/{resource_id}/{vpc_id}",
-            "id_name": ["HostedZoneId"],
+            "id_name": "HostedZoneId",
             "id_regexp": "^vpc-[a-z0-9]+$",
             "asff_name": "",
             "cloudformation": "AWS::Route53::VPCAssociationAuthorization",
@@ -3281,7 +3281,7 @@ aws_arn_data = {
     },
     "s3-object-lambda": {
         "access_point": {
-            "arn_format": "arn:{partition}:s3-object-lambda:{region}:{account}:accesspoint/${resource_id}",
+            "arn_format": "arn:{partition}:s3-object-lambda:{region}:{account}:accesspoint/{resource_id}",
             "id_name": "AccessPointName",
             "id_regexp": "^[a-zA-Z0-9\\.\\-_]{1,64}$",
             "asff_name": "",
@@ -3289,7 +3289,7 @@ aws_arn_data = {
             "terraform": "aws_s3object_lambda_access_point",
         },
         "access_point_policy": {
-            "arn_format": "arn:{partition}:s3-object-lambda:{region}:{account}:accesspoint-policy/${resource_id}",
+            "arn_format": "arn:{partition}:s3-object-lambda:{region}:{account}:accesspoint-policy/{resource_id}",
             "id_name": "AccessPointName",
             "id_regexp": "^[a-zA-Z0-9\\.\\-_]{1,64}$",
             "asff_name": "",
@@ -3297,7 +3297,7 @@ aws_arn_data = {
             "terraform": "aws_s3object_lambda_access_point_policy",
         },
         "access_point_configuration": {
-            "arn_format": "arn:{partition}:s3-object-lambda:{region}:{account}:accesspoint/${resource_id}/configuration",
+            "arn_format": "arn:{partition}:s3-object-lambda:{region}:{account}:accesspoint/{resource_id}/configuration",
             "id_name": "AccessPointName",
             "id_regexp": "^[a-zA-Z0-9\\.\\-_]{1,64}$",
             "asff_name": "",
@@ -3307,7 +3307,7 @@ aws_arn_data = {
     },
     "sagemaker": {
         "notebook_instance": {
-            "arn_format": "arn:{partition}:sagemaker:{region}:{account}:notebook-instance/${resource_id}",
+            "arn_format": "arn:{partition}:sagemaker:{region}:{account}:notebook-instance/{resource_id}",
             "id_name": "NotebookInstanceName",
             "id_regexp": "^[a-zA-Z0-9](-*[a-zA-Z0-9])*$",
             "asff_name": "AwsSageMakerNotebookInstance",
@@ -3315,7 +3315,7 @@ aws_arn_data = {
             "terraform": "aws_sagemaker_notebook_instance",
         },
         "notebook_instance_lifecycle_configuration": {
-            "arn_format": "arn:{partition}:sagemaker:{region}:{account}:notebook-instance-lifecycle-config/${resource_id}",
+            "arn_format": "arn:{partition}:sagemaker:{region}:{account}:notebook-instance-lifecycle-config/{resource_id}",
             "id_name": "NotebookInstanceLifecycleConfigName",
             "id_regexp": "^[a-zA-Z0-9](-*[a-zA-Z0-9])*$",
             "asff_name": "",
@@ -3323,7 +3323,7 @@ aws_arn_data = {
             "terraform": "aws_sagemaker_notebook_instance_lifecycle_configuration",
         },
         "training_job": {
-            "arn_format": "arn:{partition}:sagemaker:{region}:{account}:training-job/${resource_id}",
+            "arn_format": "arn:{partition}:sagemaker:{region}:{account}:training-job/{resource_id}",
             "id_name": "TrainingJobName",
             "id_regexp": "^[a-zA-Z0-9](-*[a-zA-Z0-9])*$",
             "asff_name": "",
@@ -3331,7 +3331,7 @@ aws_arn_data = {
             "terraform": "aws_sagemaker_training_job",
         },
         "processing_job": {
-            "arn_format": "arn:{partition}:sagemaker:{region}:{account}:processing-job/${resource_id}",
+            "arn_format": "arn:{partition}:sagemaker:{region}:{account}:processing-job/{resource_id}",
             "id_name": "ProcessingJobName",
             "id_regexp": "^[a-zA-Z0-9](-*[a-zA-Z0-9])*$",
             "asff_name": "",
@@ -3339,7 +3339,7 @@ aws_arn_data = {
             "terraform": "aws_sagemaker_processing_job",
         },
         "transform_job": {
-            "arn_format": "arn:{partition}:sagemaker:{region}:{account}:transform-job/${resource_id}",
+            "arn_format": "arn:{partition}:sagemaker:{region}:{account}:transform-job/{resource_id}",
             "id_name": "TransformJobName",
             "id_regexp": "^[a-zA-Z0-9](-*[a-zA-Z0-9])*$",
             "asff_name": "",
@@ -3347,7 +3347,7 @@ aws_arn_data = {
             "terraform": "aws_sagemaker_transform_job",
         },
         "model": {
-            "arn_format": "arn:{partition}:sagemaker:{region}:{account}:model/${resource_id}",
+            "arn_format": "arn:{partition}:sagemaker:{region}:{account}:model/{resource_id}",
             "id_name": "ModelName",
             "id_regexp": "^[a-zA-Z0-9](-*[a-zA-Z0-9])*$",
             "asff_name": "",
@@ -3355,7 +3355,7 @@ aws_arn_data = {
             "terraform": "aws_sagemaker_model",
         },
         "endpoint_config": {
-            "arn_format": "arn:{partition}:sagemaker:{region}:{account}:endpoint-config/${resource_id}",
+            "arn_format": "arn:{partition}:sagemaker:{region}:{account}:endpoint-config/{resource_id}",
             "id_name": "EndpointConfigName",
             "id_regexp": "^[a-zA-Z0-9](-*[a-zA-Z0-9])*$",
             "asff_name": "",
@@ -3363,7 +3363,7 @@ aws_arn_data = {
             "terraform": "aws_sagemaker_endpoint_configuration",
         },
         "endpoint": {
-            "arn_format": "arn:{partition}:sagemaker:{region}:{account}:endpoint/${resource_id}",
+            "arn_format": "arn:{partition}:sagemaker:{region}:{account}:endpoint/{resource_id}",
             "id_name": "EndpointName",
             "id_regexp": "^[a-zA-Z0-9](-*[a-zA-Z0-9])*$",
             "asff_name": "",
@@ -3371,7 +3371,7 @@ aws_arn_data = {
             "terraform": "aws_sagemaker_endpoint",
         },
         "feature_group": {
-            "arn_format": "arn:{partition}:sagemaker:{region}:{account}:feature-group/${resource_id}",
+            "arn_format": "arn:{partition}:sagemaker:{region}:{account}:feature-group/{resource_id}",
             "id_name": "FeatureGroupName",
             "id_regexp": "^[a-zA-Z0-9]([a-zA-Z0-9_-]{0,62}[a-zA-Z0-9])?$",
             "asff_name": "",
@@ -3381,7 +3381,7 @@ aws_arn_data = {
     },
     "sdb": {
         "domain": {
-            "arn_format": "arn:{partition}:sdb:{region}:{account}:domain/${resource_id}",
+            "arn_format": "arn:{partition}:sdb:{region}:{account}:domain/{resource_id}",
             "id_name": "DomainName",
             "id_regexp": "^[a-zA-Z0-9_.-]{3,255}$",
             "asff_name": "",
@@ -3391,7 +3391,7 @@ aws_arn_data = {
     },
     "secretsmanager": {
         "secret": {
-            "arn_format": "arn:{partition}:secretsmanager:{region}:{account}:secret:${resource_id}",
+            "arn_format": "arn:{partition}:secretsmanager:{region}:{account}:secret:{resource_id}",
             "id_name": "SecretId",
             "id_regexp": "^[a-zA-Z0-9/_+=.@-]{1,64}$",
             "asff_name": "AwsSecretsManagerSecret",
@@ -3409,7 +3409,7 @@ aws_arn_data = {
             "terraform": "aws_securityhub_account",
         },
         "product_subscription": {
-            "arn_format": "arn:{partition}:securityhub:{region}:{account}:subscription/${resource_id}",
+            "arn_format": "arn:{partition}:securityhub:{region}:{account}:subscription/{resource_id}",
             "id_name": "SubscriptionId",
             "id_regexp": "^[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}$",
             "asff_name": "",
@@ -3419,7 +3419,7 @@ aws_arn_data = {
     },
     "serverlessrepo": {
         "application": {
-            "arn_format": "arn:{partition}:serverlessrepo:{region}:{account}:applications/${resource_id}",
+            "arn_format": "arn:{partition}:serverlessrepo:{region}:{account}:applications/{resource_id}",
             "id_name": "ApplicationId",
             "id_regexp": "^[a-zA-Z0-9-_]+$",
             "asff_name": "",
@@ -3429,7 +3429,7 @@ aws_arn_data = {
     },
     "servicecatalog": {
         "product": {
-            "arn_format": "arn:{partition}:catalog:{region}:{account}:product/${resource_id}",
+            "arn_format": "arn:{partition}:catalog:{region}:{account}:product/{resource_id}",
             "id_name": "ProductId",
             "id_regexp": "^[a-zA-Z0-9-_]{1,64}$",
             "asff_name": "",
@@ -3437,7 +3437,7 @@ aws_arn_data = {
             "terraform": "aws_servicecatalog_cloudformation_product",
         },
         "portfolio": {
-            "arn_format": "arn:{partition}:catalog:{region}:{account}:portfolio/${resource_id}",
+            "arn_format": "arn:{partition}:catalog:{region}:{account}:portfolio/{resource_id}",
             "id_name": "PortfolioId",
             "id_regexp": "^[a-zA-Z0-9-_]{1,64}$",
             "asff_name": "",
@@ -3445,7 +3445,7 @@ aws_arn_data = {
             "terraform": "aws_servicecatalog_portfolio",
         },
         "portfolio_share": {
-            "arn_format": "arn:{partition}:catalog:{region}:{account}:share/${resource_id}",
+            "arn_format": "arn:{partition}:catalog:{region}:{account}:share/{resource_id}",
             "id_name": "ShareId",
             "id_regexp": "^[a-f0-9]{64}$",
             "asff_name": "",
@@ -3453,7 +3453,7 @@ aws_arn_data = {
             "terraform": "aws_servicecatalog_portfolio_share",
         },
         "cloudformation_stack_set_constraint": {
-            "arn_format": "arn:{partition}:cloudformation:{region}:{account}:stack-set/${StackSetName}:constraint/${resource_id}",
+            "arn_format": "arn:{partition}:cloudformation:{region}:{account}:stack-set/{StackSetName}:constraint/{resource_id}",
             "id_name": "ConstraintId",
             "id_regexp": "^[a-zA-Z0-9-_]{1,64}$",
             "asff_name": "",
@@ -3463,7 +3463,7 @@ aws_arn_data = {
     },
     "servicediscovery": {
         "namespace": {
-            "arn_format": "arn:{partition}:servicediscovery:{region}:{account}:namespace/${resource_id}",
+            "arn_format": "arn:{partition}:servicediscovery:{region}:{account}:namespace/{resource_id}",
             "id_name": "NamespaceId",
             "id_regexp": "^[a-zA-Z0-9_]+$",
             "asff_name": "",
@@ -3471,7 +3471,7 @@ aws_arn_data = {
             "terraform": "aws_service_discovery_private_dns_namespace",
         },
         "service": {
-            "arn_format": "arn:{partition}:servicediscovery:{region}:{account}:service/${resource_id}",
+            "arn_format": "arn:{partition}:servicediscovery:{region}:{account}:service/{resource_id}",
             "id_name": "ServiceId",
             "id_regexp": "^[a-zA-Z0-9_]+$",
             "asff_name": "",
@@ -3481,7 +3481,7 @@ aws_arn_data = {
     },
     "ses": {
         "configuration_set": {
-            "arn_format": "arn:{partition}:ses:{region}:{account}:configuration-set/${resource_id}",
+            "arn_format": "arn:{partition}:ses:{region}:{account}:configuration-set/{resource_id}",
             "id_name": "ConfigurationSetName",
             "id_regexp": "^[a-zA-Z0-9_-]{1,64}$",
             "asff_name": "",
@@ -3491,7 +3491,7 @@ aws_arn_data = {
     },
     "shield": {
         "protection": {
-            "arn_format": "arn:{partition}:shield::{account}:protection/${resource_id}",
+            "arn_format": "arn:{partition}:shield::{account}:protection/{resource_id}",
             "id_name": "ProtectionId",
             "id_regexp": "^[a-zA-Z0-9_/-]{1,36}$",
             "asff_name": "",
@@ -3501,7 +3501,7 @@ aws_arn_data = {
     },
     "signer": {
         "signing_profile": {
-            "arn_format": "arn:{partition}:signer:{region}:{account}:signing-profiles/${resource_id}",
+            "arn_format": "arn:{partition}:signer:{region}:{account}:signing-profiles/{resource_id}",
             "id_name": "SigningProfileName",
             "id_regexp": "^[a-zA-Z0-9_-]{1,64}$",
             "asff_name": "",
@@ -3511,7 +3511,7 @@ aws_arn_data = {
     },
     "sms": {
         "app": {
-            "arn_format": "arn:{partition}:sms:{region}:{account}:app/${resource_id}",
+            "arn_format": "arn:{partition}:sms:{region}:{account}:app/{resource_id}",
             "id_name": "AppId",
             "id_regexp": "^[a-zA-Z0-9_-]{1,128}$",
             "asff_name": "",
@@ -3519,7 +3519,7 @@ aws_arn_data = {
             "terraform": "aws_sms_app",
         },
         "server": {
-            "arn_format": "arn:{partition}:sms:{region}:{account}:server/${resource_id}",
+            "arn_format": "arn:{partition}:sms:{region}:{account}:server/{resource_id}",
             "id_name": "ServerId",
             "id_regexp": "^[a-zA-Z0-9_-]{1,128}$",
             "asff_name": "",
@@ -3527,7 +3527,7 @@ aws_arn_data = {
             "terraform": "aws_sms_server",
         },
         "replication_job": {
-            "arn_format": "arn:{partition}:sms:{region}:{account}:replication-job/${resource_id}",
+            "arn_format": "arn:{partition}:sms:{region}:{account}:replication-job/{resource_id}",
             "id_name": "ReplicationJobId",
             "id_regexp": "^[a-zA-Z0-9_-]{1,128}$",
             "asff_name": "",
@@ -3537,7 +3537,7 @@ aws_arn_data = {
     },
     "snowball": {
         "job": {
-            "arn_format": "arn:{partition}:snowball:{region}:{account}:job/${JobId}",
+            "arn_format": "arn:{partition}:snowball:{region}:{account}:job/{resource_id}",
             "id_name": "JobId",
             "id_regexp": "^[a-zA-Z0-9-]+$",
             "asff_name": "",
@@ -3547,7 +3547,7 @@ aws_arn_data = {
     },
     "sns": {
         "topic": {
-            "arn_format": "arn:{partition}:sns:{region}:{account}:${TopicName}",
+            "arn_format": "arn:{partition}:sns:{region}:{account}:{resource_id}",
             "id_name": "TopicName",
             "id_regexp": "^[a-zA-Z0-9-_]{1,256}$",
             "asff_name": "AwsSnsTopic",
@@ -3555,7 +3555,7 @@ aws_arn_data = {
             "terraform": "aws_sns_topic",
         },
         "subscription": {
-            "arn_format": "arn:{partition}:sns:{region}:{account}:${TopicName}:${SubscriptionId}",
+            "arn_format": "arn:{partition}:sns:{region}:{account}:{TopicName}:{resource_id}",
             "id_name": "SubscriptionId",
             "id_regexp": "^[a-zA-Z0-9-_]{1,256}$",
             "asff_name": "",
@@ -3563,7 +3563,7 @@ aws_arn_data = {
             "terraform": "aws_sns_topic_subscription",
         },
         "platform_application_endpoint": {
-            "arn_format": "arn:{partition}:sns:{region}:{account}:app/${PlatformApplicationArn}/${EndpointId}",
+            "arn_format": "arn:{partition}:sns:{region}:{account}:app/{PlatformApplicationArn}/{resource_id}",
             "id_name": "EndpointId",
             "id_regexp": "^[a-zA-Z0-9-_]{1,256}$",
             "asff_name": "",
@@ -3573,7 +3573,7 @@ aws_arn_data = {
     },
     "sqs": {
         "queue": {
-            "arn_format": "arn:{partition}:sqs:{region}:{account}:${QueueName}",
+            "arn_format": "arn:{partition}:sqs:{region}:{account}:{resource_id}",
             "id_name": "QueueName",
             "id_regexp": "^[a-zA-Z0-9_-]{1,80}$",
             "asff_name": "AwsSqsQueue",
@@ -3583,7 +3583,7 @@ aws_arn_data = {
     },
     "ssm": {
         "document": {
-            "arn_format": "arn:{partition}:ssm:{region}:{account}:document/${DocumentName}",
+            "arn_format": "arn:{partition}:ssm:{region}:{account}:document/{resource_id}",
             "id_name": "DocumentName",
             "id_regexp": "^[a-zA-Z0-9_/+.-]{3,128}$",
             "asff_name": "",
@@ -3591,7 +3591,7 @@ aws_arn_data = {
             "terraform": "aws_ssm_document",
         },
         "parameter": {
-            "arn_format": "arn:{partition}:ssm:{region}:{account}:parameter/${ParameterName}",
+            "arn_format": "arn:{partition}:ssm:{region}:{account}:parameter/{resource_id}",
             "id_name": "ParameterName",
             "id_regexp": "^[a-zA-Z0-9_/+.-]{1,2048}$",
             "asff_name": "",
@@ -3599,7 +3599,7 @@ aws_arn_data = {
             "terraform": "aws_ssm_parameter",
         },
         "maintenance_window": {
-            "arn_format": "arn:{partition}:ssm:{region}:{account}:maintenancewindow/${WindowId}",
+            "arn_format": "arn:{partition}:ssm:{region}:{account}:maintenancewindow/{resource_id}",
             "id_name": "WindowId",
             "id_regexp": "^[a-zA-Z0-9_-]{20,40}$",
             "asff_name": "",
@@ -3607,7 +3607,7 @@ aws_arn_data = {
             "terraform": "aws_ssm_maintenance_window",
         },
         "maintenance_window_task": {
-            "arn_format": "arn:{partition}:ssm:{region}:{account}:maintenancewindow/${WindowId}/task/${WindowTaskId}",
+            "arn_format": "arn:{partition}:ssm:{region}:{account}:maintenancewindow/{WindowId}/task/{resource_id}",
             "id_name": "WindowTaskId",
             "id_regexp": "^[a-zA-Z0-9_-]{20,40}$",
             "asff_name": "",
@@ -3615,7 +3615,7 @@ aws_arn_data = {
             "terraform": "aws_ssm_maintenance_window_task",
         },
         "patch_baseline": {
-            "arn_format": "arn:{partition}:ssm:{region}:{account}:patchbaseline/${BaselineId}",
+            "arn_format": "arn:{partition}:ssm:{region}:{account}:patchbaseline/{resource_id}",
             "id_name": "BaselineId",
             "id_regexp": "^[a-zA-Z0-9_-]{1,128}$",
             "asff_name": "AwsSsmPatchCompliance",
@@ -3625,7 +3625,7 @@ aws_arn_data = {
     },
     "sso": {
         "instance": {
-            "arn_format": "arn:{partition}:sso:{region}:{account}:instance/${resource_id}",
+            "arn_format": "arn:{partition}:sso:{region}:{account}:instance/{resource_id}",
             "id_name": "InstanceId",
             "id_regexp": "^[a-zA-Z0-9-]+$",
             "asff_name": "",
@@ -3633,7 +3633,7 @@ aws_arn_data = {
             "terraform": "aws_sso_instance",
         },
         "permission_set": {
-            "arn_format": "arn:{partition}:sso:{region}:{account}:permissionSet/${resource_id}",
+            "arn_format": "arn:{partition}:sso:{region}:{account}:permissionSet/{resource_id}",
             "id_name": "PermissionSetId",
             "id_regexp": "^[a-zA-Z0-9-]+$",
             "asff_name": "",
@@ -3643,7 +3643,7 @@ aws_arn_data = {
     },
     "sso-directory": {
         "directory": {
-            "arn_format": "arn:{partition}:sso-directory:{region}:{account}:directory/${resource_id}",
+            "arn_format": "arn:{partition}:sso-directory:{region}:{account}:directory/{resource_id}",
             "id_name": "DirectoryId",
             "id_regexp": "^[a-zA-Z0-9-_]+$",
             "asff_name": "",
@@ -3653,7 +3653,7 @@ aws_arn_data = {
     },
     "stepfunctions": {
         "state_machine": {
-            "arn_format": "arn:{partition}:states:{region}:{account}:stateMachine:${resource_id}",
+            "arn_format": "arn:{partition}:states:{region}:{account}:stateMachine:{resource_id}",
             "id_name": "StateMachineName",
             "id_regexp": "^[a-zA-Z0-9-_]+$",
             "asff_name": "",
@@ -3663,7 +3663,7 @@ aws_arn_data = {
     },
     "storagegateway": {
         "gateway": {
-            "arn_format": "arn:{partition}:storagegateway:{region}:{account}:gateway/${resource_id}",
+            "arn_format": "arn:{partition}:storagegateway:{region}:{account}:gateway/{resource_id}",
             "id_name": "GatewayId",
             "id_regexp": "^[a-zA-Z0-9-_]+$",
             "asff_name": "",
@@ -3671,7 +3671,7 @@ aws_arn_data = {
             "terraform": "aws_storagegateway_gateway",
         },
         "share": {
-            "arn_format": "arn:{partition}:storagegateway:{region}:{account}:share/${resource_id}",
+            "arn_format": "arn:{partition}:storagegateway:{region}:{account}:share/{resource_id}",
             "id_name": "ShareId",
             "id_regexp": "^[a-zA-Z0-9-_]+$",
             "asff_name": "",
@@ -3679,7 +3679,7 @@ aws_arn_data = {
             "terraform": "aws_storagegateway_nfs_file_share",
         },
         "tape": {
-            "arn_format": "arn:{partition}:storagegateway:{region}:{account}:tape/${resource_id}",
+            "arn_format": "arn:{partition}:storagegateway:{region}:{account}:tape/{resource_id}",
             "id_name": "TapeARN",
             "id_regexp": "^[a-zA-Z0-9-:/_\\.\\(\\)]+$",
             "asff_name": "",
@@ -3687,7 +3687,7 @@ aws_arn_data = {
             "terraform": "aws_storagegateway_tape",
         },
         "volume": {
-            "arn_format": "arn:{partition}:storagegateway:{region}:{account}:gateway/${gateway_id}/volume/${volume_id}",
+            "arn_format": "arn:{partition}:storagegateway:{region}:{account}:gateway/{gateway_id}/volume/{resource_id}",
             "id_name": "VolumeId",
             "id_regexp": "^[a-zA-Z0-9-_]+$",
             "asff_name": "",
@@ -3697,7 +3697,7 @@ aws_arn_data = {
     },
     "sts": {
         "assumed_role": {
-            "arn_format": "arn:{partition}:sts::{account}:assumed-role/${resource_name}/${resource_id}",
+            "arn_format": "arn:{partition}:sts::{account}:assumed-role/{resource_name}/{resource_id}",
             "id_name": "RoleSessionName",
             "id_regexp": "^[\\w+=,.@-]+$",
             "asff_name": "",
@@ -3705,7 +3705,7 @@ aws_arn_data = {
             "terraform": "aws_iam_role",
         },
         "federated_user": {
-            "arn_format": "arn:{partition}:sts::{account}:federated-user/${resource_id}",
+            "arn_format": "arn:{partition}:sts::{account}:federated-user/{resource_id}",
             "id_name": "UserName",
             "id_regexp": "^[\\w+=,.@-]+$",
             "asff_name": "",
@@ -3713,7 +3713,7 @@ aws_arn_data = {
             "terraform": "aws_iam_user",
         },
         "oidc_provider": {
-            "arn_format": "arn:{partition}:iam::{account}:oidc-provider/${resource_id}",
+            "arn_format": "arn:{partition}:iam::{account}:oidc-provider/{resource_id}",
             "id_name": "Url",
             "id_regexp": "^(https|http)://.*$",
             "asff_name": "",
@@ -3721,7 +3721,7 @@ aws_arn_data = {
             "terraform": "aws_iam_openid_connect_provider",
         },
         "saml_provider": {
-            "arn_format": "arn:{partition}:iam::{account}:saml-provider/${resource_id}",
+            "arn_format": "arn:{partition}:iam::{account}:saml-provider/{resource_id}",
             "id_name": "Name",
             "id_regexp": "^[\\w+=,.@-]+$",
             "asff_name": "",
@@ -3731,7 +3731,7 @@ aws_arn_data = {
     },
     "swf": {
         "domain": {
-            "arn_format": "arn:{partition}:swf:{region}:{account}:domain/${resource_id}",
+            "arn_format": "arn:{partition}:swf:{region}:{account}:domain/{resource_id}",
             "id_name": "DomainName",
             "id_regexp": "^[a-zA-Z0-9-_]+$",
             "asff_name": "",
@@ -3739,7 +3739,7 @@ aws_arn_data = {
             "terraform": "aws_swf_domain",
         },
         "workflow_type": {
-            "arn_format": "arn:{partition}:swf:{region}:{account}:workflowType/${DomainName}/${resource_id}",
+            "arn_format": "arn:{partition}:swf:{region}:{account}:workflowType/{DomainName}/{resource_id}",
             "id_name": "WorkflowTypeName",
             "id_regexp": "^[a-zA-Z0-9-_]+$",
             "asff_name": "",
@@ -3747,7 +3747,7 @@ aws_arn_data = {
             "terraform": "aws_swf_workflow_type",
         },
         "activity_type": {
-            "arn_format": "arn:{partition}:swf:{region}:{account}:activityType/${DomainName}/${resource_id}",
+            "arn_format": "arn:{partition}:swf:{region}:{account}:activityType/{DomainName}/{resource_id}",
             "id_name": "ActivityTypeName",
             "id_regexp": "^[a-zA-Z0-9-_]+$",
             "asff_name": "",
@@ -3755,7 +3755,7 @@ aws_arn_data = {
             "terraform": "aws_swf_activity_type",
         },
         "workflow_execution": {
-            "arn_format": "arn:{partition}:swf:{region}:{account}:workflow/${DomainName}/${WorkflowType}:${resource_id}",
+            "arn_format": "arn:{partition}:swf:{region}:{account}:workflow/{DomainName}/{WorkflowType}:{resource_id}",
             "id_name": "WorkflowExecutionId",
             "id_regexp": "^[-a-zA-Z0-9_]+(?:\\.[-a-zA-Z0-9_]+)*$",
             "asff_name": "",
@@ -3763,7 +3763,7 @@ aws_arn_data = {
             "terraform": "aws_swf_workflow_execution",
         },
         "activity_execution": {
-            "arn_format": "arn:{partition}:swf:{region}:{account}:activity/${DomainName}/${ActivityType}:${resource_id}",
+            "arn_format": "arn:{partition}:swf:{region}:{account}:activity/{DomainName}/{ActivityType}:{resource_id}",
             "id_name": "ActivityId",
             "id_regexp": "^[a-zA-Z0-9-_]+$",
             "asff_name": "",
@@ -3773,7 +3773,7 @@ aws_arn_data = {
     },
     "synthetics": {
         "canary": {
-            "arn_format": "arn:{partition}:synthetics:{region}:{account}:canary:${resource_id}",
+            "arn_format": "arn:{partition}:synthetics:{region}:{account}:canary:{resource_id}",
             "id_name": "CanaryName",
             "id_regexp": "^[a-zA-Z0-9_-]{1,63}$",
             "asff_name": "",
@@ -3781,7 +3781,7 @@ aws_arn_data = {
             "terraform": "aws_synthetics_canary",
         },
         "canary_run": {
-            "arn_format": "arn:{partition}:synthetics:{region}:{account}:canary:${CanaryName}:run:${resource_id}",
+            "arn_format": "arn:{partition}:synthetics:{region}:{account}:canary:{CanaryName}:run:{resource_id}",
             "id_name": "CanaryRunId",
             "id_regexp": "^[a-zA-Z0-9_-]{1,63}$",
             "asff_name": "",
@@ -3791,7 +3791,7 @@ aws_arn_data = {
     },
     "textract": {
         "document": {
-            "arn_format": "arn:{partition}:textract:{region}:{account}:document/${resource_id}",
+            "arn_format": "arn:{partition}:textract:{region}:{account}:document/{resource_id}",
             "id_name": "DocumentId",
             "id_regexp": "^[a-f0-9]{32}$",
             "asff_name": "",
@@ -3801,7 +3801,7 @@ aws_arn_data = {
     },
     "transcribe": {
         "vocabulary": {
-            "arn_format": "arn:{partition}:transcribe:{region}:{account}:vocabulary/${resource_id}",
+            "arn_format": "arn:{partition}:transcribe:{region}:{account}:vocabulary/{resource_id}",
             "id_name": "VocabularyName",
             "id_regexp": "^[a-zA-Z0-9-_]+$",
             "asff_name": "",
@@ -3811,7 +3811,7 @@ aws_arn_data = {
     },
     "transfer": {
         "server": {
-            "arn_format": "arn:{partition}:transfer:{region}:{account}:server/${resource_id}",
+            "arn_format": "arn:{partition}:transfer:{region}:{account}:server/{resource_id}",
             "id_name": "ServerId",
             "id_regexp": "^[a-zA-Z0-9-_]+$",
             "asff_name": "",
@@ -3819,7 +3819,7 @@ aws_arn_data = {
             "terraform": "aws_transfer_server",
         },
         "user": {
-            "arn_format": "arn:{partition}:transfer:{region}:{account}:user/${ServerId}/${resource_id}",
+            "arn_format": "arn:{partition}:transfer:{region}:{account}:user/{ServerId}/{resource_id}",
             "id_name": "UserName",
             "id_regexp": "^[a-zA-Z0-9-_]+$",
             "asff_name": "",
@@ -3829,7 +3829,7 @@ aws_arn_data = {
     },
     "translate": {
         "terminology": {
-            "arn_format": "arn:{partition}:translate:{region}:{account}:terminology/${resource_id}",
+            "arn_format": "arn:{partition}:translate:{region}:{account}:terminology/{resource_id}",
             "id_name": "TerminologyName",
             "id_regexp": "^[a-zA-Z0-9\\-\\_]+$",
             "asff_name": "",
@@ -3839,7 +3839,7 @@ aws_arn_data = {
     },
     "waf": {
         "ipset": {
-            "arn_format": "arn:{partition}:waf:{region}:{account}:ipset/${resource_id}",
+            "arn_format": "arn:{partition}:waf:{region}:{account}:ipset/{resource_id}",
             "id_name": "IpSetId",
             "id_regexp": "^[a-zA-Z0-9]+$",
             "asff_name": "",
@@ -3847,7 +3847,7 @@ aws_arn_data = {
             "terraform": "aws_waf_ipset",
         },
         "rule": {
-            "arn_format": "arn:{partition}:waf:{region}:{account}:rule/${resource_id}",
+            "arn_format": "arn:{partition}:waf:{region}:{account}:rule/{resource_id}",
             "id_name": "RuleId",
             "id_regexp": "^[a-zA-Z0-9]+$",
             "asff_name": "AwsWafRule",
@@ -3855,7 +3855,7 @@ aws_arn_data = {
             "terraform": "aws_waf_rule",
         },
         "rule_group": {
-            "arn_format": "arn:{partition}:waf::{account}:rulegroup/${resource_name}/${resource_id}",
+            "arn_format": "arn:{partition}:waf::{account}:rulegroup/{resource_name}/{resource_id}",
             "id_name": "RuleGroupId",
             "id_regexp": "^[a-zA-Z0-9]+$",
             "asff_name": "AwsWafRuleGroup",
@@ -3863,7 +3863,7 @@ aws_arn_data = {
             "terraform": "aws_waf_rule_group",
         },
         "web_acl": {
-            "arn_format": "arn:{partition}:waf:{region}:{account}:webacl/${resource_id}",
+            "arn_format": "arn:{partition}:waf:{region}:{account}:webacl/{resource_id}",
             "id_name": "WebACLId",
             "id_regexp": "^[a-zA-Z0-9]+$",
             "asff_name": "AwsWafWebAcl",
@@ -3871,7 +3871,7 @@ aws_arn_data = {
             "terraform": "aws_waf_web_acl",
         },
         "global_web_acl": {
-            "arn_format": "arn:{partition}:waf::{account}:global-webacl/${resource_name}/${resource_id}",
+            "arn_format": "arn:{partition}:waf::{account}:global-webacl/{resource_name}/{resource_id}",
             "id_name": "WebACLId",
             "id_regexp": "^[a-zA-Z0-9]+$",
             "asff_name": "",
@@ -3879,7 +3879,7 @@ aws_arn_data = {
             "terraform": "aws_wafv2_web_acl",
         },
         "rate_based_rule": {
-            "arn_format": "arn:{partition}:waf::{account}:ratebasedrule/${resource_name}/${resource_id}",
+            "arn_format": "arn:{partition}:waf::{account}:ratebasedrule/{resource_name}/{resource_id}",
             "id_name": "RuleId",
             "id_regexp": "^[a-zA-Z0-9]+$",
             "asff_name": "AwsWafRateBasedRule",
@@ -3889,7 +3889,7 @@ aws_arn_data = {
     },
     "waf-regional": {
         "ipset": {
-            "arn_format": "arn:{partition}:waf-regional:{region}:{account}:ipset/${resource_id}",
+            "arn_format": "arn:{partition}:waf-regional:{region}:{account}:ipset/{resource_id}",
             "id_name": "IpSetId",
             "id_regexp": "^[a-zA-Z0-9-]+$",
             "asff_name": "",
@@ -3897,7 +3897,7 @@ aws_arn_data = {
             "terraform": "aws_waf_ipset",
         },
         "regional_rule": {
-            "arn_format": "arn:{partition}:waf-regional:{region}:{account}:rule/${resource_id}",
+            "arn_format": "arn:{partition}:waf-regional:{region}:{account}:rule/{resource_id}",
             "id_name": "RuleId",
             "id_regexp": "^[a-zA-Z0-9-]+$",
             "asff_name": "AwsWafRegionalRule",
@@ -3905,7 +3905,7 @@ aws_arn_data = {
             "terraform": "aws_waf_rule",
         },
         "regional_web_acl": {
-            "arn_format": "arn:{partition}:waf-regional:{region}:{account}:webacl/${resource_id}",
+            "arn_format": "arn:{partition}:waf-regional:{region}:{account}:webacl/{resource_id}",
             "id_name": "WebACLId",
             "id_regexp": "^[a-zA-Z0-9-]+$",
             "asff_name": "AwsWafRegionalWebAcl",
@@ -3913,7 +3913,7 @@ aws_arn_data = {
             "terraform": "aws_waf_web_acl",
         },
         "regional_rule_group": {
-            "arn_format": "arn:{partition}:waf-regional:{region}:{account}:rulegroup/${RuleGroupName}/${resource_id}",
+            "arn_format": "arn:{partition}:waf-regional:{region}:{account}:rulegroup/{RuleGroupName}/{resource_id}",
             "id_name": "RuleGroupId",
             "id_regexp": "^[a-zA-Z0-9-]+$",
             "asff_name": "AwsWafRegionalRuleGroup",
@@ -3921,7 +3921,7 @@ aws_arn_data = {
             "terraform": "aws_waf_rule_group",
         },
         "regional_rate_based_rule": {
-            "arn_format": "arn:{partition}:waf-regional:{region}:{account}:rule/${resource_id}",
+            "arn_format": "arn:{partition}:waf-regional:{region}:{account}:rule/{resource_id}",
             "id_name": "RuleId",
             "id_regexp": "^[a-zA-Z0-9-]+$",
             "asff_name": "AwsWafRegionalRateBasedRule",
@@ -3931,7 +3931,7 @@ aws_arn_data = {
     },
     "wafv2": {
         "ip_set": {
-            "arn_format": "arn:{partition}:wafv2:{region}:{account}:/ipset/${resource_scope}/${resource_id}",
+            "arn_format": "arn:{partition}:wafv2:{region}:{account}:/ipset/{resource_scope}/{resource_id}",
             "id_name": "Id",
             "id_regexp": "^[a-zA-Z0-9-]+$",
             "asff_name": "",
@@ -3939,7 +3939,7 @@ aws_arn_data = {
             "terraform": "aws_wafv2_ip_set",
         },
         "rule_group": {
-            "arn_format": "arn:{partition}:wafv2:{region}:{account}:/rulegroup/${resource_scope}/${resource_id}",
+            "arn_format": "arn:{partition}:wafv2:{region}:{account}:/rulegroup/{resource_scope}/{resource_id}",
             "id_name": "Id",
             "id_regexp": "^[a-zA-Z0-9-]+$",
             "asff_name": "AwsWafv2RuleGroup",
@@ -3947,7 +3947,7 @@ aws_arn_data = {
             "terraform": "aws_wafv2_rule_group",
         },
         "web_acl": {
-            "arn_format": "arn:{partition}:wafv2:{region}:{account}:/webacl/${resource_scope}/${resource_id}",
+            "arn_format": "arn:{partition}:wafv2:{region}:{account}:/webacl/{resource_scope}/{resource_id}",
             "id_name": "Id",
             "id_regexp": "^[a-zA-Z0-9-]+$",
             "asff_name": "AwsWafv2WebAcl",
@@ -3957,7 +3957,7 @@ aws_arn_data = {
     },
     "wellarchitected": {
         "workload": {
-            "arn_format": "arn:{partition}:wellarchitected:{region}:{account}:workload/${resource_id}",
+            "arn_format": "arn:{partition}:wellarchitected:{region}:{account}:workload/{resource_id}",
             "id_name": "WorkloadId",
             "id_regexp": "^[a-zA-Z0-9-]+$",
             "asff_name": "",
@@ -3967,7 +3967,7 @@ aws_arn_data = {
     },
     "workdocs": {
         "document": {
-            "arn_format": "arn:{partition}:workdocs:{region}:{account}:${FolderHierarchy}/${resource_id}",
+            "arn_format": "arn:{partition}:workdocs:{region}:{account}:{FolderHierarchy}/{resource_id}",
             "id_name": "DocumentName",
             "id_regexp": "^[a-zA-Z0-9-_.()]+$",
             "asff_name": "",
@@ -3975,7 +3975,7 @@ aws_arn_data = {
             "terraform": "aws_workdocs_document",
         },
         "folder": {
-            "arn_format": "arn:{partition}:workdocs:{region}:{account}:${FolderHierarchy}/${resource_id}",
+            "arn_format": "arn:{partition}:workdocs:{region}:{account}:{FolderHierarchy}/{resource_id}",
             "id_name": "FolderName",
             "id_regexp": "^[a-zA-Z0-9-_.()]+$",
             "asff_name": "",
@@ -3983,7 +3983,7 @@ aws_arn_data = {
             "terraform": "aws_workdocs_folder",
         },
         "user": {
-            "arn_format": "arn:{partition}:workdocs:{region}:{account}:user/${resource_id}",
+            "arn_format": "arn:{partition}:workdocs:{region}:{account}:user/{resource_id}",
             "id_name": "UserId",
             "id_regexp": "^[a-zA-Z0-9_-]+$",
             "asff_name": "",
@@ -3993,7 +3993,7 @@ aws_arn_data = {
     },
     "worklink": {
         "fleet": {
-            "arn_format": "arn:{partition}:worklink:{region}:{account}:fleet/${resource_id}",
+            "arn_format": "arn:{partition}:worklink:{region}:{account}:fleet/{resource_id}",
             "id_name": "FleetArnName",
             "id_regexp": "^.+$",
             "asff_name": "",
@@ -4001,7 +4001,7 @@ aws_arn_data = {
             "terraform": "aws_worklink_fleet",
         },
         "website_certificate_authority_association": {
-            "arn_format": "arn:{partition}:worklink:{region}:{account}:website-certificate-authority-association/${resource_id}",
+            "arn_format": "arn:{partition}:worklink:{region}:{account}:website-certificate-authority-association/{resource_id}",
             "id_name": "WebsiteCertificateAuthorityAssociationId",
             "id_regexp": "^[a-zA-Z0-9]+$",
             "asff_name": "",
@@ -4011,7 +4011,7 @@ aws_arn_data = {
     },
     "workmail": {
         "organization": {
-            "arn_format": "arn:{partition}:workmail:{region}:{account}:organization/${resource_id}",
+            "arn_format": "arn:{partition}:workmail:{region}:{account}:organization/{resource_id}",
             "id_name": "OrganizationId",
             "id_regexp": "^[a-zA-Z0-9-_]+$",
             "asff_name": "",
@@ -4019,7 +4019,7 @@ aws_arn_data = {
             "terraform": "aws_workmail_organization",
         },
         "resource": {
-            "arn_format": "arn:{partition}:workmail:{region}:{account}:resource/${resource_id}",
+            "arn_format": "arn:{partition}:workmail:{region}:{account}:resource/{resource_id}",
             "id_name": "ResourceId",
             "id_regexp": "^[a-zA-Z0-9-_]+$",
             "asff_name": "",
@@ -4027,7 +4027,7 @@ aws_arn_data = {
             "terraform": "aws_workmail_resource",
         },
         "user": {
-            "arn_format": "arn:{partition}:workmail:{region}:{account}:user/${resource_id}",
+            "arn_format": "arn:{partition}:workmail:{region}:{account}:user/{resource_id}",
             "id_name": "UserId",
             "id_regexp": "^[a-zA-Z0-9-_@.]+$",
             "asff_name": "",
@@ -4037,7 +4037,7 @@ aws_arn_data = {
     },
     "workspaces": {
         "directory": {
-            "arn_format": "arn:{partition}:workspaces:{region}:{account}:directory/${resource_id}",
+            "arn_format": "arn:{partition}:workspaces:{region}:{account}:directory/{resource_id}",
             "id_name": "DirectoryId",
             "id_regexp": "^[a-zA-Z0-9_-]{10,64}$",
             "asff_name": "",
@@ -4045,7 +4045,7 @@ aws_arn_data = {
             "terraform": "aws_workspaces_directory",
         },
         "workspace": {
-            "arn_format": "arn:{partition}:workspaces:{region}:{account}:workspace/${resource_id}",
+            "arn_format": "arn:{partition}:workspaces:{region}:{account}:workspace/{resource_id}",
             "id_name": "WorkspaceId",
             "id_regexp": "^[a-zA-Z0-9_-]{13,68}$",
             "asff_name": "",

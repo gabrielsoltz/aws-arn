@@ -36,12 +36,14 @@ def generate_markdown_table():
 
     for service, resources in aws_arn_data.items():
         for resource, attributes in resources.items():
+            arn_format = "`" + attributes.get('arn_format', '') + "`"
+            id_regexp = "`" + str(attributes.get('id_regexp', '')) + "`"
             row = [
                 service,
                 resource,
-                attributes.get('arn_format', ''),
+                arn_format,
                 attributes.get('id_name', ''),
-                ''.join(attributes.get('id_regexp', '')),
+                id_regexp,
                 attributes.get('asff_name', ''),
                 attributes.get('cloudformation', ''),
                 attributes.get('terraform', '')
