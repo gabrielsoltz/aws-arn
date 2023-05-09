@@ -11,7 +11,9 @@ Isn't anyoning trying to guess the ARN for a specific AWS resource? This is a co
 # Features
 
 - Generate ARNs for any AWS resource by passing in the resource ID and other parameters
-- Get the service and sub_service from an ASFF Resource
+- Get the ASFF Resource Name for any AWS resource (e.g. `AwsCertificateManagerCertificate`)
+- Get the Cloudformation Resource Name for any AWS resource (e.g. `AWS::CertificateManager::Certificate`)
+- Get the Terraform Resource Name for any AWS resource (e.g. `aws_acm_certificate`)
 
 # Contributing to this list
 
