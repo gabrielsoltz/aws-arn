@@ -50,6 +50,18 @@ print (arn)
 
 arn:aws:ec2:us-east-1:012345789012:instance/i-1234568901
 
+arn = aws_arn.generate_arn_from_terraform('i-1234568901', 'aws_instance', 'us-east-1', '012345789012', 'aws')
+
+print (arn)
+
+arn:aws:ec2:us-east-1:012345789012:instance/i-1234568901
+
+arn = aws_arn.generate_arn_from_cloudformation('i-1234568901', 'AWS::EC2::Instance', 'us-east-1', '012345789012', 'aws')
+
+print (arn)
+
+arn:aws:ec2:us-east-1:012345789012:instance/i-1234568901
+
 ```
 
 # Use it as CLI
@@ -58,6 +70,20 @@ arn:aws:ec2:us-east-1:012345789012:instance/i-1234568901
 ./aws-arn --generate-arn --id test --service ec2 --sub-service instance --region us-east-1 --account 012345789012 --partition aws
 
 arn:aws:ec2:us-east-1:012345789012:instance/test
+
+
+./aws-arn --get-service-from-terraform --terraform aws_instance
+
+('ec2', 'instance')
+
+./aws-arn --generate-arn-from-terraform --id test --terraform aws_instance --region us-east-1 --account 012345789012 --partition aws
+
+arn:aws:ec2:us-east-1:012345789012:instance/test
+
+./aws-arn --generate-arn-from-cloudformation --id test --cloudformation AWS::EC2::Instance --region us-east-1 --account 012345789012 --partition aws
+
+arn:aws:ec2:us-east-1:012345789012:instance/test
+
 ```
 
 ## Full List of ARNs
