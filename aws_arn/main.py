@@ -23,6 +23,8 @@ def main():
     region = args.region or ""
     account = args.account or ""
     partition = args.partition or ""
+    terraform = args.terraform or ""
+    cloudformation = args.cloudformation or ""
 
     # List services
     if args.list_services:
@@ -46,6 +48,17 @@ def main():
     if args.get_service_from_asff_resource:
         print(get_sub_service_from_arn(asff_resource))
 
+    if args.get_service_from_terraform:
+        print(get_service_from_terraform(terraform))
+
+    if args.generate_arn_from_terraform:
+        print(generate_arn_from_terraform(id, terraform, region, account, partition))
+
+    if args.get_service_from_cloudformation:
+        print(get_service_from_cloudformation(cloudformation))
+
+    if args.generate_arn_from_cloudformation:
+        print(generate_arn_from_cloudformation(id, cloudformation, region, account, partition))
 
 if __name__ == "__main__":
     main()

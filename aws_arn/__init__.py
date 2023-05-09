@@ -30,21 +30,31 @@ def list_asff_resources():
             if aws_arn_data[services][sub_services]["asff_name"] != "":
                 print(aws_arn_data[services][sub_services]["asff_name"])
 
-
 def generate_markdown_table():
-    header = "| Service | ARN Format |\n| --- | --- |\n"
-    rows = []
-    for service in aws_arn_data:
-        arn_breaks = ""
-        for sub_service in aws_arn_data[service]:
-            arn_breaks += (
-                sub_service
-                + ": `"
-                + aws_arn_data[service][sub_service]["arn_format"]
-                + "`<br>"
-            )
-        rows.append(f"| {service} | {arn_breaks} |")
-    return header + "\n".join(rows)
+    headers = ['Service', 'Resource', 'ARN Format', 'ID Name', 'ID Regexp', 'ASFF Name', 'CloudFormation', 'Terraform']
+    table = [headers]
+
+    for service, resources in aws_arn_data.items():
+        for resource, attributes in resources.items():
+            row = [
+                service,
+                resource,
+                attributes.get('arn_format', ''),
+                attributes.get('id_name', ''),
+                ''.join(attributes.get('id_regexp', '')),
+                attributes.get('asff_name', ''),
+                attributes.get('cloudformation', ''),
+                attributes.get('terraform', '')
+            ]
+            table.append(row)
+
+    table_str = '| ' + ' | '.join(headers) + ' |\n'
+    table_str += '|-' + '-|-'.join(['--' for _ in headers]) + '-|\n'
+
+    for row in table[1:]:
+        table_str += '| ' + ' | '.join([str(item) for item in row]) + ' |\n'
+
+    return table_str
 
 
 def generate_arn(
@@ -64,7 +74,6 @@ def generate_arn(
         print("Invalid resource type or sub resource type", e)
         return False
     return arn
-
 
 def check_resource_id_regexp(resource_id, resource_type, sub_resource_type):
     import re
@@ -114,3 +123,68 @@ def get_service_from_asff_resource(asff_resource):
             if aws_arn_data[service][sub_service]["asff_name"] == asff_resource:
                 return service, sub_service
     return False
+
+def get_service_from_terraform(terraform):
+    for service in aws_arn_data:
+        for sub_service in aws_arn_data[service]:
+            if aws_arn_data[service][sub_service]["terraform"] == terraform:
+                return service, sub_service
+    return False
+
+def get_service_from_cloudformation(cloudformation):
+    for service in aws_arn_data:
+        for sub_service in aws_arn_data[service]:
+            if aws_arn_data[service][sub_service]["cloudformation"] == cloudformation:
+                return service, sub_service
+    return False
+
+def generate_arn_from_asff(
+    resource_id,
+    asff_resource,
+    region,
+    account,
+    partition,
+):
+    service, sub_service = get_service_from_asff_resource(asff_resource)
+    try:
+        arn = aws_arn_data[service][sub_service]["arn_format"].format(
+            partition=partition, region=region, account=account, resource_id=resource_id
+        )
+    except KeyError as e:
+        print("Invalid resource type or sub resource type", e)
+        return False
+    return arn
+
+def generate_arn_from_terraform(
+    resource_id,
+    terraform,
+    region,
+    account,
+    partition,
+):
+    service, sub_service = get_service_from_terraform(terraform)
+    try:
+        arn = aws_arn_data[service][sub_service]["arn_format"].format(
+            partition=partition, region=region, account=account, resource_id=resource_id
+        )
+    except KeyError as e:
+        print("Invalid resource type or sub resource type", e)
+        return False
+    return arn
+
+def generate_arn_from_cloudformation(
+    resource_id,
+    cloudformation,
+    region,
+    account,
+    partition,
+):
+    service, sub_service = get_service_from_cloudformation(cloudformation)
+    try:
+        arn = aws_arn_data[service][sub_service]["arn_format"].format(
+            partition=partition, region=region, account=account, resource_id=resource_id
+        )
+    except KeyError as e:
+        print("Invalid resource type or sub resource type", e)
+        return False
+    return arn

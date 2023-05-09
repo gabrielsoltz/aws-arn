@@ -18,6 +18,18 @@ def get_parser():
         required=False,
     )
     group_functions.add_argument(
+        "--generate-arn-from-terraform",
+        action=argparse.BooleanOptionalAction,
+        help="Generate ARN for a resource from Terraform resource",
+        required=False,
+    )
+    group_functions.add_argument(
+        "--generate-arn-from-cloudformation",
+        action=argparse.BooleanOptionalAction,
+        help="Generate ARN for a resource from Cloudformation resource",
+        required=False,
+    )
+    group_functions.add_argument(
         "--validate-id",
         action=argparse.BooleanOptionalAction,
         help="Validate resource_id for a resource",
@@ -33,6 +45,18 @@ def get_parser():
         "--get-service-from-asff-resource",
         action=argparse.BooleanOptionalAction,
         help="Get service and sub service from ASFF resource",
+        required=False,
+    )
+    group_functions.add_argument(
+        "--get-service-from-terraform",
+        action=argparse.BooleanOptionalAction,
+        help="Get service and sub service from Terraform resource",
+        required=False,
+    )
+    group_functions.add_argument(
+        "--get-service-from-cloudformation",
+        action=argparse.BooleanOptionalAction,
+        help="Get service and sub service from Cloudformation resource",
         required=False,
     )
     group_functions.add_argument(
@@ -99,6 +123,18 @@ def get_parser():
     )
     group_data.add_argument(
         "--partition",
+        default=None,
+        help="Partition",
+        required=False,
+    )
+    group_data.add_argument(
+        "--terraform",
+        default=None,
+        help="Partition",
+        required=False,
+    )
+    group_data.add_argument(
+        "--cloudformation",
         default=None,
         help="Partition",
         required=False,
