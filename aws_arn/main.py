@@ -58,7 +58,12 @@ def main():
         print(get_service_from_cloudformation(cloudformation))
 
     if args.generate_arn_from_cloudformation:
-        print(generate_arn_from_cloudformation(id, cloudformation, region, account, partition))
+        print(
+            generate_arn_from_cloudformation(
+                id, cloudformation, region, account, partition
+            )
+        )
+
 
 if __name__ == "__main__":
     main()

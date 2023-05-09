@@ -2,7 +2,7 @@ from setuptools import setup
 
 setup(
     name="aws-arn",
-    version="0.0.7",
+    version="0.0.8",
     description="A library to work with AWS ARNs",
     packages=["aws_arn"],
     install_requires=[],
@@ -24,3 +24,6 @@ setup(
         "Operating System :: OS Independent",
     ],
 )
+
+
+# twine upload dist/*
