@@ -1,9 +1,11 @@
 # aws-arn
-A complete list of all AWS ARNs
+A complete list of all AWS ARNs with their respective Cloudformation, Terraform and ASFF resource names.
 
-Isn't anyoning trying to guess the ARN for a specific AWS resource? This is a complete list of all AWS ARNs. The list is sorted alphabetically by service and resource.  This is the only complete list of AWS ARNs available anywhere.
+This is a complete list of all AWS ARNs. The list is sorted alphabetically by service and resource. This is the only complete list of AWS ARNs available anywhere.
 
-> :warning: **Work in progress**: This is a work in progress.  Not all services and resources are included yet.  Please open an issue or pull request if you find any errors or omissions.
+You can use this repository as documentation, or you can use it as a module or CLI to generate ARNs for any AWS resource.
+
+> :warning: **Work in progress**: This is a work in progress. Not all services and resources are included yet. Please open an issue or pull request if you find any errors or omissions.
 
 - Total number of services:  153
 - Total number of resources:  468
@@ -41,6 +43,8 @@ Format:
 
 # Use it as a module
 
+`pip3 install aws-arn`
+
 ## Generate ARN using service and resource name
 
 ```
@@ -72,6 +76,9 @@ arn:aws:ec2:us-east-1:012345789012:instance/i-1234568901
 ```
 
 # Use it as CLI
+
+`git clone git@github.com:gabrielsoltz/aws-arn.git`
+`./aws-arn --help`
 
 ## Generate ARN using service and resource name
 ```
