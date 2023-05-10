@@ -3,6 +3,8 @@ A complete list of all AWS ARNs with their respective Cloudformation, Terraform 
 
 This is a complete list of all AWS ARNs. The list is sorted alphabetically by service and resource. This is the only complete list of AWS ARNs available anywhere.
 
+This is also a python module and CLI to generate ARNs for any AWS resource by passing in the resource ID, region and partition.
+
 You can use this repository as documentation, or you can use it as a module or CLI to generate ARNs for any AWS resource.
 
 > :warning: **Work in progress**: This is a work in progress. Not all services and resources are included yet. Please open an issue or pull request if you find any errors or omissions.
@@ -15,12 +17,19 @@ See the full list of ARNs [here](#full-list-of-arns).
 # Features
 
 - Generate ARNs for any AWS resource by passing in the resource ID, region and partition
-    - Using service and resoruce name
-    - Using Terraform resource name
-    - Using Cloudformation resource name
-- Get the ASFF Resource Name for any AWS resource (e.g. `AwsCertificateManagerCertificate`)
-- Get the Cloudformation Resource Name for any AWS resource (e.g. `AWS::CertificateManager::Certificate`)
-- Get the Terraform Resource Name for any AWS resource (e.g. `aws_acm_certificate`)
+    - Using service and resoruce name (e.g. `acm` and `certificate`)
+    - Using Terraform resource name (e.g. `aws_acm_certificate`)
+    - Using Cloudformation resource name (e.g. `AWS::CertificateManager::Certificate`)
+- Get the ASFF Resource Name for any AWS resource
+- Get the Cloudformation Resource Name for any AWS resource
+- Get the Terraform Resource Name for any AWS resource
+
+# To do
+
+- [ ] From an ARN: get the service, resource name, terraform resource name, cloudformation resource name and ASFF resource name
+- [ ] From an ASFF resource name: get the service, resource name, terraform resource name, cloudformation resource name and ARN
+- [ ] Provide a block of terraform or cloudformation block and generate the ARN for it
+
 
 # Contributing to this list
 
