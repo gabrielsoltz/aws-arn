@@ -26,6 +26,7 @@ See the full list of ARNs [here](#full-list-of-arns).
 
 # To do
 
+- [ ] Code quality
 - [ ] From an ARN: get the service, resource name, terraform resource name, cloudformation resource name and ASFF resource name
 - [ ] From an ASFF resource name: get the service, resource name, terraform resource name, cloudformation resource name and ARN
 - [ ] Provide a block of terraform or cloudformation block and generate the ARN for it
