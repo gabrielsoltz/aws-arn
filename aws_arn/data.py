@@ -273,7 +273,7 @@ aws_arn_data = {
     },
     "autoscaling": {
         "auto_scaling_group": {
-            "arn_format": "arn:{partition}:autoscaling:{region}:{account}:autoScalingGroup:{resource_id}",
+            "arn_format": "arn:{partition}:autoscaling:{region}:{account}:autoScalingGroup/{resource_id}",
             "id_name": "AutoScalingGroupName",
             "id_regexp": "[a-zA-Z0-9-]{1,255}",
             "asff_name": "AwsAutoScalingAutoScalingGroup",
@@ -281,7 +281,7 @@ aws_arn_data = {
             "terraform": "aws_autoscaling_group",
         },
         "launch_configuration": {
-            "arn_format": "arn:{partition}:autoscaling:{region}:{account}:launchConfiguration:{resource_id}",
+            "arn_format": "arn:{partition}:autoscaling:{region}:{account}:launchConfiguration/{resource_id}",
             "id_name": "LaunchConfigurationName",
             "id_regexp": "[a-zA-Z0-9-]{1,255}",
             "asff_name": "AwsAutoScalingLaunchConfiguration",

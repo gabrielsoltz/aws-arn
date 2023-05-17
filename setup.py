@@ -2,7 +2,7 @@ from setuptools import setup
 
 setup(
     name="aws-arn",
-    version="0.0.8",
+    version="0.0.9",
     description="A library to work with AWS ARNs",
     packages=["aws_arn"],
     install_requires=[],
@@ -26,4 +26,5 @@ setup(
 )
 
 
+# python3 setup.py sdist bdist_wheel
 # twine upload dist/*
