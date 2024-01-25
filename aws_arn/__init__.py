@@ -77,7 +77,6 @@ def generate_arn(
     account,
     partition,
 ):
-    sub_resource_type = sub_resource_type.replace("_", "-")
     try:
         arn = aws_arn_data[resource_type][sub_resource_type]["arn_format"].format(
             partition=partition, region=region, account=account, resource_id=resource_id
