@@ -195,7 +195,7 @@ arn:aws:ec2:us-east-1:012345789012:instance/test
 | config | config_rule | `arn:{partition}:config:{region}:{account}:config-rule/{resource_id}` | ConfigRuleName | `([a-zA-Z0-9-_]+)` |  | AWS::Config::ConfigRule | aws_config_config_rule |
 | config | organization_config_rule | `arn:{partition}:config:{region}:{account}:organization-config-rule/{resource_id}` | OrganizationConfigRuleName | `([a-zA-Z0-9-_]+)` |  | AWS::Config::OrganizationConfigRule | aws_config_organization_custom_rule |
 | config | remediation_configuration | `arn:{partition}:config:{region}:{account}:remediation-configuration/{resource_id}` | RemediationConfigurationName | `([a-zA-Z0-9-_]+)` |  | AWS::Config::RemediationConfiguration | aws_config_remediation_configuration |
-| cur | report_definition | `arn:{partition}:cur:{ReportName}-{YYYYMM}-{AdditionalArtifact}-{region}-{account}` | ReportName | `([a-zA-Z0-9-_.]+)` |  | AWS::CUR::ReportDefinition | aws_cur_report_definition |
+| cur | report_definition | `arn:{partition}:cur:{region}:{account}:{ReportName}-{YYYYMM}-{AdditionalArtifact}-{region}-{account}` | ReportName | `([a-zA-Z0-9-_.]+)` |  | AWS::CUR::ReportDefinition | aws_cur_report_definition |
 | dataexchange | asset | `arn:{partition}:dataexchange:{region}:{account}:asset/{resource_id}` | AssetId | `([a-zA-Z0-9-_.]+)` |  | AWS::DataExchange::Asset | aws_dataexchange_asset |
 | dataexchange | data_set | `arn:{partition}:dataexchange:{region}:{account}:data-sets/{resource_id}` | DataSetId | `([a-zA-Z0-9-_.]+)` |  | AWS::DataExchange::DataSet | aws_dataexchange_data_set |
 | dataexchange | job | `arn:{partition}:dataexchange:{region}:{account}:job/{resource_id}` | JobId | `([a-zA-Z0-9-_.]+)` |  | AWS::DataExchange::Job | aws_dataexchange_job |
@@ -254,7 +254,7 @@ arn:aws:ec2:us-east-1:012345789012:instance/test
 | ec2 | vpn_connection | `arn:{partition}:ec2:{region}:{account}:vpn-connection/{resource_id}` | VpnConnectionId | `^vpn-[a-f0-9]{8}$` | AwsEc2VpnConnection | AWS::EC2::VPNConnection | aws_vpn_connection |
 | ec2 | vpn_gateway | `arn:{partition}:ec2:{region}:{account}:vpn-gateway/{resource_id}` | VpnGatewayId | `^vgw-[0-9a-f]{8}$` |  | AWS::EC2::VPNGateway | aws_vpn_gateway |
 | ec2-instance-connect | connect | `arn:{partition}:ec2-instance-connect:{region}:{account}:connect/{resource_id}` | InstanceId | `([a-zA-Z0-9\-]+)` |  | AWS::EC2::Instance | aws_instance |
-| ecr | repository | `arn:{partition}:ecr:{region}:{account}:repository/{resource_id}` | RepositoryName | `([a-zA-Z0-9-_]+)` |  | AwsEcrRepository | aws_ecr_repository |
+| ecr | repository | `arn:{partition}:ecr:{region}:{account}:repository/{resource_id}` | RepositoryName | `([a-zA-Z0-9-_]+)` | AwsEcrRepository | AWS::ECR::Repository | aws_ecr_repository |
 | ecr | image | `arn:{partition}:ecr:{region}:{account}:image/{resource_id}` | ImageDigest | `([a-zA-Z0-9-_]+)` | AwsEcrContainerImage | AWS::ECR::Image | aws_ecr_lifecycle_policy |
 | ecs | cluster | `arn:{partition}:ecs:{region}:{account}:cluster/{resource_id}` | ClusterName | `([a-zA-Z0-9-_.]+)` | AwsEcsCluster | AWS::ECS::Cluster | aws_ecs_cluster |
 | ecs | task_definition | `arn:{partition}:ecs:{region}:{account}:task-definition/{resource_id}` | TaskDefinitionFamily | `([a-zA-Z0-9-_.]+)` | AwsEcsTaskDefinition | AWS::ECS::TaskDefinition | aws_ecs_task_definition |
@@ -277,7 +277,7 @@ arn:aws:ec2:us-east-1:012345789012:instance/test
 | elasticbeanstalk | environment | `arn:{partition}:elasticbeanstalk:{region}:{account}:environment/{resource_id}` | EnvironmentId | `([a-zA-Z0-9-_.]+)` | AwsElasticBeanstalkEnvironment | AWS::ElasticBeanstalk::Environment | aws_elastic_beanstalk_environment |
 | elb | loadbalancer | `arn:{partition}:elasticloadbalancing:{region}:{account}:loadbalancer/{resource_id}` | LoadBalancerName | `[\w.-]{1,32}` | AwsElbLoadBalancer | AWS::ElasticLoadBalancing::LoadBalancer | aws_elb |
 | elbv2 | loadbalancer | `arn:{partition}:elasticloadbalancing:{region}:{account}:loadbalancer/{resource_id}` | LoadBalancerName | `[\w.-]{1,32}` | AwsElbv2LoadBalancer | AWS::ElasticLoadBalancingV2::LoadBalancer | aws_alb |
-| elbv2 | targetgroup | `arn:{partition}:elasticloadbalancing:{region}:{account}:targetgroup/{resource_id}/{tagergroup_id}}` | TargetGroupID | `[\w.-]{1,32}` |  | AWS::ElasticLoadBalancingV2::TargetGroup | aws_alb_target_group |
+| elbv2 | targetgroup | `arn:{partition}:elasticloadbalancing:{region}:{account}:targetgroup/{resource_id}/{targetgroup_id}` | TargetGroupID | `[\w.-]{1,32}` |  | AWS::ElasticLoadBalancingV2::TargetGroup | aws_alb_target_group |
 | elbv2 | listener | `arn:{partition}:elasticloadbalancing:{region}:{account}:listener/{resource_id}/{load_balancer_id}/{listener_id}` | ListenerId | `(?<=listener\/app\/)[^\/]+` |  | AWS::ElasticLoadBalancingV2::Listener | aws_alb_listener |
 | elbv2 | listener_rule | `arn:{partition}:elasticloadbalancing:{region}:{account}:listener-rule/{resource_id}` | ListenerRuleId | `[\w.-]{1,32}` |  | AWS::ElasticLoadBalancingV2::ListenerRule | aws_alb_listener_rule |
 | elasticmapreduce | cluster | `arn:{partition}:elasticmapreduce:{region}:{account}:cluster/{resource_id}` | ClusterId | `j-[0-9a-zA-Z]+` |  | AWS::EMR::Cluster | aws_emr_cluster |
