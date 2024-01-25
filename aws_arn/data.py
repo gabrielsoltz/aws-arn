@@ -1186,7 +1186,7 @@ aws_arn_data = {
             "arn_format": "arn:{partition}:ecr:{region}:{account}:repository/{resource_id}",
             "id_name": "RepositoryName",
             "id_regexp": "([a-zA-Z0-9-_]+)",
-            "asff_name": "",
+            "asff_name": "AwsEcrRepository",
             "cloudformation": "AWS::ECR::Repository",
             "terraform": "aws_ecr_repository",
         },
