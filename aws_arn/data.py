@@ -693,7 +693,7 @@ aws_arn_data = {
     },
     "cur": {
         "report_definition": {
-            "arn_format": "arn:{partition}:cur:{ReportName}-{YYYYMM}-{AdditionalArtifact}-{region}-{account}",
+            "arn_format": "arn:{partition}:cur:{region}:{account}:{ReportName}-{YYYYMM}-{AdditionalArtifact}-{region}-{account}",
             "id_name": "ReportName",
             "id_regexp": "([a-zA-Z0-9-_.]+)",
             "asff_name": "",
@@ -1187,7 +1187,7 @@ aws_arn_data = {
             "id_name": "RepositoryName",
             "id_regexp": "([a-zA-Z0-9-_]+)",
             "asff_name": "",
-            "cloudformation": "AwsEcrRepository",
+            "cloudformation": "AWS::ECR::Repository",
             "terraform": "aws_ecr_repository",
         },
         "image": {
@@ -1385,7 +1385,7 @@ aws_arn_data = {
             "terraform": "aws_alb",
         },
         "targetgroup": {
-            "arn_format": "arn:{partition}:elasticloadbalancing:{region}:{account}:targetgroup/{resource_id}/{tagergroup_id}}",
+            "arn_format": "arn:{partition}:elasticloadbalancing:{region}:{account}:targetgroup/{resource_id}/{targetgroup_id}",
             "id_name": "TargetGroupID",
             "id_regexp": "[\\w.-]{1,32}",
             "asff_name": "",
