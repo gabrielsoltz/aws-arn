@@ -34,7 +34,7 @@ See the full list of ARNs [here](#full-list-of-arns).
 
 # Contributing to this list
 
-ARNs are defined under [aws_arn/data.py](aws_arn/data.py). 
+ARNs are defined under [aws_arn/data.py](aws_arn/data.py).
 
 Format:
 
@@ -141,6 +141,12 @@ arn:aws:ec2:us-east-1:012345789012:instance/test
 | apigateway | vpc_link | `arn:{partition}:apigateway:{region}::/vpclinks/{resource_id}` | VpcLinkId | `[a-zA-Z0-9\-_]+` |  | AWS::ApiGateway::VpcLink | aws_api_gateway_vpc_link |
 | appflow | connector_profile | `arn:{partition}:appflow:{region}:{account}:connectorprofile/{resource_id}` | ConnectorProfileName | `([a-zA-Z0-9-_]{1,256})` |  | AWS::AppFlow::ConnectorProfile | aws_appflow_connector_profile |
 | appflow | flow | `arn:{partition}:appflow:{region}:{account}:flow/{resource_id}` | FlowName | `([a-zA-Z0-9-_]{1,256})` |  | AWS::AppFlow::Flow | aws_appflow_flow |
+| apprunner | service | `arn:{partition}:apprunner:{region}:{account}:service/{resource_id}` | Service | `([a-zA-Z0-9-_]{1,256})` |  | AWS::AppRunner::Service | aws_apprunner_service |
+| apprunner | connection | `arn:{partition}:apprunner:{region}:{account}:connection/{ConnectionName}/{resource_id}` | Connection | `([a-zA-Z0-9-_]{1,256})` |  |  | aws_apprunner_connection |
+| apprunner | auto_scaling_configuration | `arn:{partition}:apprunner:{region}:{account}:autoscalingconfiguration/{resource_name}/{AutoScalingConfigurationVersion}/{resource_id}` | AutoScalingConfiguration | `([a-zA-Z0-9-_]{1,256})` |  | AWS::AppRunner::AutoScalingConfiguration | aws_apprunner_auto_scaling_configuration_version |
+| apprunner | observability_configuration | `arn:{Partition}:apprunner:{gegion}:{account}:observabilityconfiguration/{resource_name}/{ObservabilityConfigurationVersion}/{resource_id}` | ObservabilityConfiguration | `([a-zA-Z0-9-_]{1,256})` |  | AWS::AppRunner::ObservabilityConfiguration | aws_apprunner_observability_configuration |
+| apprunner | vpc_connector | `arn:{partition}:apprunner:{gegion}:{account}:vpcconnector/{resource_name}/{VpcConnectorVersion}/{resource_id}` | VpcConnector | `([a-zA-Z0-9-_]{1,256})` |  | AWS::AppRunner::VpcConnector | aws_apprunner_vpc_connector |
+| apprunner | vpc_ingress_connection | `arn:{partition}:apprunner:{region}:{account}:vpcingressconnection/{resource_name}/{resource_id}` | vpc_ingress_connection | `([a-zA-Z0-9-_]{1,256})` |  | AWS::AppRunner::VpcIngressConnection | aws_apprunner_vpc_ingress_connection |
 | appstream | directory_config | `arn:{partition}:appstream:{region}:{account}:directoryconfig/{resource_id}` | DirectoryConfigName | `[a-zA-Z0-9-]+` |  | AWS::AppStream::DirectoryConfig | aws_appstream_directory_config |
 | appstream | fleet | `arn:{partition}:appstream:{region}:{account}:fleet/{resource_id}` | FleetName | `[a-zA-Z0-9-]+` |  | AWS::AppStream::Fleet | aws_appstream_fleet |
 | appstream | image | `arn:{partition}:appstream:{region}:{account}:image/{resource_id}` | ImageName | `[a-zA-Z0-9-]+` |  | AWS::AppStream::Image | aws_appstream_image |
