@@ -9,8 +9,8 @@ This repository can be used as documentation or as a module or CLI to generate A
 
 > :warning: **Work in progress**: This is a work in progress. Not all services and resources are included yet. Please open an issue or pull request if you find any errors or omissions.
 
-- Total number of services:  153
-- Total number of resources:  468
+- Total number of services:  154
+- Total number of resources:  474
 
 See the complete list of ARNs [here](#full-list-of-arns).
 
@@ -38,17 +38,17 @@ ARNs are defined under [aws_arn/data.py](aws_arn/data.py).
 
 Format:
 
-```
-    "acm": { --> The Service Name (we follow boto3 naming conventions)
-        "certificate": {  --> The Resource Name (we follow boto3 naming conventions)
-            "arn_format": "arn:{partition}:acm:{region}:{account}:certificate/{resource_id}",
-            "id_name": "CertificateId",  --> The Resource Id name
-            "id_regexp": "([a-z0-9-]+)", --> The Resource Id regexp
-            "asff_name": "AwsCertificateManagerCertificate",   --> The ASFF Resource Name
-            "cloudformation": "AWS::CertificateManager::Certificate",  --> The CloudFormation Resource Name
-            "terraform": "aws_acm_certificate",  --> The Terraform Resource Name
-        }
-    },
+```json
+"acm": { --> The Service Name (we follow boto3 naming conventions)
+    "certificate": {  --> The Resource Name (we follow boto3 naming conventions)
+        "arn_format": "arn:{partition}:acm:{region}:{account}:certificate/{resource_id}",
+        "id_name": "CertificateId",  --> The Resource Id name
+        "id_regexp": "([a-z0-9-]+)", --> The Resource Id regexp
+        "asff_name": "AwsCertificateManagerCertificate",   --> The ASFF Resource Name
+        "cloudformation": "AWS::CertificateManager::Certificate",  --> The CloudFormation Resource Name
+        "terraform": "aws_acm_certificate",  --> The Terraform Resource Name
+    }
+},
 ```
 
 # Use it as a module
@@ -57,7 +57,7 @@ Format:
 
 ## Generate ARN using service and resource name
 
-```
+```python
 import aws_arn
 
 arn = aws_arn.generate_arn('i-1234568901', 'ec2', 'instance', 'us-east-1', '012345789012', 'aws')
@@ -68,7 +68,8 @@ arn:aws:ec2:us-east-1:012345789012:instance/i-1234568901
 ```
 
 ## Generate ARN using Terraform resource name
-```
+
+```python
 arn = aws_arn.generate_arn_from_terraform('i-1234568901', 'aws_instance', 'us-east-1', '012345789012', 'aws')
 
 print (arn)
@@ -77,7 +78,8 @@ arn:aws:ec2:us-east-1:012345789012:instance/i-1234568901
 ```
 
 ## Generate ARN using Cloudformation resource name
-```
+
+```python
 arn = aws_arn.generate_arn_from_cloudformation('i-1234568901', 'AWS::EC2::Instance', 'us-east-1', '012345789012', 'aws')
 
 print (arn)
@@ -87,25 +89,30 @@ arn:aws:ec2:us-east-1:012345789012:instance/i-1234568901
 
 # Use it as CLI
 
-`git clone git@github.com:gabrielsoltz/aws-arn.git`
-`./aws-arn --help`
+```bash
+git clone git@github.com:gabrielsoltz/aws-arn.git
+./aws-arn --help
+```
 
 ## Generate ARN using service and resource name
-```
+
+```bash
 ./aws-arn --generate-arn --id test --service ec2 --sub-service instance --region us-east-1 --account 012345789012 --partition aws
 
 arn:aws:ec2:us-east-1:012345789012:instance/test
 ```
 
 ## Generate ARN using Terraform resource name
-```
+
+```bash
 ./aws-arn --generate-arn-from-terraform --id test --terraform aws_instance --region us-east-1 --account 012345789012 --partition aws
 
 arn:aws:ec2:us-east-1:012345789012:instance/test
 ```
 
 ## Generate ARN using Cloudformation resource name
-```
+
+```bash
 ./aws-arn --generate-arn-from-cloudformation --id test --cloudformation AWS::EC2::Instance --region us-east-1 --account 012345789012 --partition aws
 
 arn:aws:ec2:us-east-1:012345789012:instance/test
