@@ -1,22 +1,22 @@
 # aws-arn
-A complete list of all AWS ARNs with their respective Cloudformation, Terraform and ASFF resource names.
+A complete list of all AWS ARNs with their respective Cloudformation, Terraform, and ASFF resource names.
 
 This is a complete list of all AWS ARNs. The list is sorted alphabetically by service and resource. This is the only complete list of AWS ARNs available anywhere.
 
-This is also a python module and CLI to generate ARNs for any AWS resource by passing in the resource ID, region and partition.
+This is also a Python module and CLI that generates ARNs for any AWS resource by passing in the resource ID, region, and partition.
 
-You can use this repository as documentation, or you can use it as a module or CLI to generate ARNs for any AWS resource.
+This repository can be used as documentation or as a module or CLI to generate ARNs for any AWS resource.
 
 > :warning: **Work in progress**: This is a work in progress. Not all services and resources are included yet. Please open an issue or pull request if you find any errors or omissions.
 
 - Total number of services:  153
 - Total number of resources:  468
 
-See the full list of ARNs [here](#full-list-of-arns).
+See the complete list of ARNs [here](#full-list-of-arns).
 
 # Features
 
-- Generate ARNs for any AWS resource by passing in the resource ID, region and partition
+- Generate ARNs for any AWS resource by passing in the resource ID, region, and partition
     - Using service and resoruce name (e.g. `acm` and `certificate`)
     - Using Terraform resource name (e.g. `aws_acm_certificate`)
     - Using Cloudformation resource name (e.g. `AWS::CertificateManager::Certificate`)
