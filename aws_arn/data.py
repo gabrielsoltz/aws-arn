@@ -1681,7 +1681,7 @@ aws_arn_data = {
             "terraform": "aws_glue_job",
         },
         "partition": {
-            "arn_format": "arn:{partition}:glue:{region}:{account}:table/{DatabaseName}/{TableName}/partition/{PartitionValues}",
+            "arn_format": "arn:{partition}:glue:{region}:{account}:table/{database_name}/{resource_id}/partition/{PartitionValues}",
             "id_name": "None",
             "id_regexp": "None",
             "asff_name": "",
