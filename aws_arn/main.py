@@ -13,7 +13,6 @@ except ModuleNotFoundError:
 def main():
     parser = get_parser()
     args = parser.parse_args()
-    print("Args:", args)
 
     id = args.id or ""
     service = args.service or ""
@@ -39,23 +38,12 @@ def main():
         print(generate_markdown_table())
         sys.exit(0)
 
+    # Generate ARNs
     if args.generate_arn:
         print(generate_arn(id, service, sub_service, region, account, partition))
 
-    if args.validate_id:
-        print(check_resource_id_regexp(id, service, sub_service))
-
-    if args.get_service_from_asff_resource:
-        print(get_sub_service_from_arn(asff_resource))
-
-    if args.get_service_from_terraform:
-        print(get_service_from_terraform(terraform))
-
     if args.generate_arn_from_terraform:
         print(generate_arn_from_terraform(id, terraform, region, account, partition))
-
-    if args.get_service_from_cloudformation:
-        print(get_service_from_cloudformation(cloudformation))
 
     if args.generate_arn_from_cloudformation:
         print(
@@ -63,6 +51,19 @@ def main():
                 id, cloudformation, region, account, partition
             )
         )
+    if args.generate_arn_from_asff:
+        print(generate_arn_from_asff(id, asff_resource, region, account, partition))
+
+    # Parse ARN
+    if args.parse_arn:
+        print(parse_arn(args.parse_arn))
+
+    # Get service
+    if args.get_service:
+        print(get_service(args.get_service))
+
+    if args.validate_id:
+        print(check_resource_id_regexp(id, service, sub_service))
 
 
 if __name__ == "__main__":
