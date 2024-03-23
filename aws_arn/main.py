@@ -17,7 +17,6 @@ def main():
     id = args.id or ""
     service = args.service or ""
     sub_service = args.sub_service or ""
-    arn = args.arn or ""
     asff_resource = args.asff_resource or ""
     region = args.region or ""
     account = args.account or ""

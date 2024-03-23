@@ -74,33 +74,15 @@ def get_parser():
 
     group_data = parser.add_argument_group("Data")
     group_data.add_argument(
+        "--partition",
+        default=None,
+        help="Partition",
+        required=False,
+    )
+    group_data.add_argument(
         "--service",
         default=None,
         help="Service name",
-        required=False,
-    )
-    group_data.add_argument(
-        "--sub-service",
-        default=None,
-        help="Sub Service name",
-        required=False,
-    )
-    group_data.add_argument(
-        "--arn",
-        default=None,
-        help="ARN",
-        required=False,
-    )
-    group_data.add_argument(
-        "--id",
-        default=None,
-        help="ID",
-        required=False,
-    )
-    group_data.add_argument(
-        "--asff-resource",
-        default=None,
-        help="ID",
         required=False,
     )
     group_data.add_argument(
@@ -116,9 +98,21 @@ def get_parser():
         required=False,
     )
     group_data.add_argument(
-        "--partition",
+        "--sub-service",
         default=None,
-        help="Partition",
+        help="Sub Service name",
+        required=False,
+    )
+    group_data.add_argument(
+        "--id",
+        default=None,
+        help="ID",
+        required=False,
+    )
+    group_data.add_argument(
+        "--asff-resource",
+        default=None,
+        help="ID",
         required=False,
     )
     group_data.add_argument(
