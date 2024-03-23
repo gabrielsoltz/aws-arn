@@ -55,11 +55,17 @@ def main():
 
     # Parse ARN
     if args.parse_arn:
-        print(parse_arn(args.parse_arn))
+        try:
+            print(parse_arn(args.parse_arn))
+        except ValueError as e:
+            print(e)
 
     # Get service
     if args.get_service:
-        print(get_service(args.get_service))
+        try:
+            print(get_service(args.get_service))
+        except ValueError as e:
+            print(e)
 
     if args.validate_id:
         print(check_resource_id_regexp(id, service, sub_service))

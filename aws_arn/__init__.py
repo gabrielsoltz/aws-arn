@@ -71,23 +71,20 @@ def generate_markdown_table():
 
 def generate_arn(
     resource_id,
-    resource_type,
-    sub_resource_type,
+    service,
+    sub_service,
     region,
     account,
     partition,
 ):
     try:
-        arn = aws_arn_data[resource_type][sub_resource_type]["arn_format"].format(
+        arn = aws_arn_data[service][sub_service]["arn_format"].format(
             partition=partition, region=region, account=account, resource_id=resource_id
         )
     except KeyError as e:
-        print(
-            "Invalid resource {} or sub resource type {}".format(
-                resource_type, sub_resource_type
-            )
+        raise KeyError(
+            "Invalid resource {} or sub resource type {}".format(service, sub_service)
         )
-        return False
     return arn
 
 
@@ -99,8 +96,7 @@ def generate_arn_from_terraform(
     partition,
 ):
     if not validate_terraform(terraform):
-        print("Invalid Terraform resource")
-        return False
+        raise ValueError("Invalid Terraform resource: {}".format(terraform))
     service, sub_service = get_service_from_terraform(terraform)
     arn = generate_arn(resource_id, service, sub_service, region, account, partition)
     return arn
@@ -114,8 +110,7 @@ def generate_arn_from_cloudformation(
     partition,
 ):
     if not validate_cloudformation(cloudformation):
-        print("Invalid CloudFormation resource")
-        return False
+        raise ValueError("Invalid CloudFormation resource: {}".format(cloudformation))
     service, sub_service = get_service_from_cloudformation(cloudformation)
     arn = generate_arn(resource_id, service, sub_service, region, account, partition)
     return arn
@@ -129,8 +124,7 @@ def generate_arn_from_asff(
     partition,
 ):
     if not validate_asff(asff_resource):
-        print("Invalid ASFF resource")
-        return False
+        raise ValueError("Invalid ASFF resource: {}".format(asff_resource))
     service, sub_service = get_service_from_asff(asff_resource)
     arn = generate_arn(resource_id, service, sub_service, region, account, partition)
     return arn
@@ -159,7 +153,7 @@ def parse_arn(arn):
             "terraform": terraform,
             "cloudformation": cloudformation,
         }
-    print("Invalid ARN: {}".format(arn))
+    raise ValueError("Invalid ARN: {}".format(arn))
 
 
 def get_service_from_arn(arn):
@@ -192,12 +186,9 @@ def get_resource_id_from_arn(arn):
     try:
         arn_format = aws_arn_data[service][sub_service]["arn_format"]
     except KeyError:
-        print(
-            "Invalid resource type {} or sub resource type {}".format(
-                service, sub_service
-            )
+        raise KeyError(
+            "Invalid resource {} or sub resource type {}".format(service, sub_service)
         )
-        return None
 
     arn_parts = arn.split(":")
     format_parts = arn_format.split(":")
@@ -224,12 +215,9 @@ def get_asff_from_arn(arn):
     try:
         asff_name = aws_arn_data[service][sub_service]["asff_name"]
     except KeyError:
-        print(
-            "Invalid resource type {} or sub resource type {}".format(
-                service, sub_service
-            )
+        raise KeyError(
+            "Invalid resource {} or sub resource type {}".format(service, sub_service)
         )
-        return None
     return asff_name
 
 
@@ -239,12 +227,9 @@ def get_terraform_from_arn(arn):
     try:
         terraform = aws_arn_data[service][sub_service]["terraform"]
     except KeyError:
-        print(
-            "Invalid resource type {} or sub resource type {}".format(
-                service, sub_service
-            )
+        raise KeyError(
+            "Invalid resource {} or sub resource type {}".format(service, sub_service)
         )
-        return None
     return terraform
 
 
@@ -254,12 +239,9 @@ def get_cloudformation_from_arn(arn):
     try:
         cloudformation = aws_arn_data[service][sub_service]["cloudformation"]
     except KeyError:
-        print(
-            "Invalid resource type {} or sub resource type {}".format(
-                service, sub_service
-            )
+        raise KeyError(
+            "Invalid resource {} or sub resource type {}".format(service, sub_service)
         )
-        return None
     return cloudformation
 
 
@@ -275,7 +257,7 @@ def get_service(item):
         return get_service_from_cloudformation(item)
     if validate_asff(item):
         return get_service_from_asff(item)
-    print("Invalid input to get service: {}".format(item))
+    raise ValueError("Invalid input to get service: {}".format(item))
 
 
 def get_service_from_asff(asff_resource):
