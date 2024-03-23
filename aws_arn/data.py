@@ -913,6 +913,16 @@ aws_arn_data = {
             "terraform": "aws_dx_transit_virtual_interface",
         },
     },
+    "ds": {
+        "directory": {
+            "arn_format": "arn:{partition}:ds:{region}:{account}:directory/{resource_id}",
+            "id_name": "DirectoryId",
+            "id_regexp": "([a-zA-Z0-9-]+)",
+            "asff_name": "",
+            "cloudformation": "AWS::DirectoryService::MicrosoftAD",
+            "terraform": "aws_directory_service_directory",
+        },
+    },
     "dynamodb": {
         "table": {
             "arn_format": "arn:{partition}:dynamodb:{region}:{account}:table/{resource_id}",
@@ -974,6 +984,14 @@ aws_arn_data = {
         },
         "eip_allocation": {
             "arn_format": "arn:{partition}:ec2:{region}:{account}:eip-allocation/{resource_id}",
+            "id_name": "AllocationId",
+            "id_regexp": "^eipalloc-[0-9a-fA-F]{8,17}$",
+            "asff_name": "AwsEc2Eip",
+            "cloudformation": "AWS::EC2::EIP",
+            "terraform": "aws_eip",
+        },
+        "eip": {
+            "arn_format": "arn:{partition}:ec2:{region}:{account}:elastic-ip/{resource_id}",
             "id_name": "AllocationId",
             "id_regexp": "^eipalloc-[0-9a-fA-F]{8,17}$",
             "asff_name": "AwsEc2Eip",
@@ -3138,6 +3156,14 @@ aws_arn_data = {
             "cloudformation": "AWS::RDS::DBParameterGroup",
             "terraform": "aws_db_parameter_group",
         },
+        "cluster_parameter_group": {
+            "arn_format": "arn:{partition}:rds:{region}:{account}:cluster-pg:{resource_id}",
+            "id_name": "DBClusterParameterGroupName",
+            "id_regexp": "^[a-zA-Z0-9-]+$",
+            "asff_name": "",
+            "cloudformation": "AWS::RDS::DBClusterParameterGroup",
+            "terraform": "aws_rds_cluster_parameter_group",
+        },
         "security_group": {
             "arn_format": "arn:{partition}:rds:{region}:{account}:secgrp:{resource_id}",
             "id_name": "DBSecurityGroupName",
@@ -3146,8 +3172,8 @@ aws_arn_data = {
             "cloudformation": "AWS::RDS::DBSecurityGroup",
             "terraform": "aws_db_security_group",
         },
-        "subgroup": {
-            "arn_format": "arn:{partition}:rds:{region}:{account}:sub-group:{resource_id}",
+        "subnet_group": {
+            "arn_format": "arn:{partition}:rds:{region}:{account}:subgrp:{resource_id}",
             "id_name": "DBSubnetGroupName",
             "id_regexp": "^[a-zA-Z0-9-]+$",
             "asff_name": "",
@@ -3619,14 +3645,6 @@ aws_arn_data = {
             "asff_name": "",
             "cloudformation": "AWS::SNS::Subscription",
             "terraform": "aws_sns_topic_subscription",
-        },
-        "platform_application_endpoint": {
-            "arn_format": "arn:{partition}:sns:{region}:{account}:app/{PlatformApplicationArn}/{resource_id}",
-            "id_name": "EndpointId",
-            "id_regexp": "^[a-zA-Z0-9-_]{1,256}$",
-            "asff_name": "",
-            "cloudformation": "AWS::SNS::Endpoint",
-            "terraform": "aws_sns_platform_application_endpoint",
         },
     },
     "sqs": {

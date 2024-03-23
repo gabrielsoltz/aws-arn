@@ -191,6 +191,11 @@ def get_sub_service_from_arn(arn):
             return "object"
     elif service == "sqs":
         return "queue"
+    elif service == "sns":
+        if len(arn.split(":")) == 6:
+            return "topic"
+        else:
+            return "subscription"
     elif arn_part_5.startswith("/"):
         sub_service_from_arn = arn.split(":")[5].split("/")[1].replace("-", "_")
     else:
