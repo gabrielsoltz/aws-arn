@@ -1,6 +1,6 @@
 # aws-arn
 
-This repository contains a list of all AWS services and resources with their ARN format, ID name, ID regexp, ASFF name, CloudFormation resource name and Terraform resource name, that you can use as [Documentation](#full-list-of-arns), as a Python module or as CLI tool.
+This repository contains a list of almost all (WIP) AWS services and resources with their **ARN format**, **ID name**, **ID regexp**, **ASFF name**, **CloudFormation resource name** and **Terraform resource name**, that you can use as [Documentation](#full-list-of-arns), as a [Python module](#python-module) or as [CLI tool](#cli-tool).
 
 | AWS Services 	| AWS Resources 	|
 |--------------	|---------------	|
