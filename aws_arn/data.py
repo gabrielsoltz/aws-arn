@@ -740,6 +740,14 @@ aws_arn_data = {
             "cloudformation": "AWS::Config::RemediationConfiguration",
             "terraform": "aws_config_remediation_configuration",
         },
+        "config_recorder": {
+            "arn_format": "arn:{partition}:config:{region}:{account}:config_recorder/{resource_id}",
+            "id_name": "ConfigRecorderName",
+            "id_regexp": "([a-zA-Z0-9-_]+)",
+            "asff_name": "",
+            "cloudformation": "AWS::Config::ConfigurationRecorder",
+            "terraform": "aws_config_configuration_recorder",
+        },
     },
     "cur": {
         "report_definition": {
@@ -964,8 +972,8 @@ aws_arn_data = {
             "cloudformation": "AWS::ElasticInference::Accelerator",
             "terraform": "aws_eia_accelerator",
         },
-        "elastic_ip": {
-            "arn_format": "arn:{partition}:ec2:{region}:{account}:elastic-ip/{resource_id}",
+        "eip_allocation": {
+            "arn_format": "arn:{partition}:ec2:{region}:{account}:eip-allocation/{resource_id}",
             "id_name": "AllocationId",
             "id_regexp": "^eipalloc-[0-9a-fA-F]{8,17}$",
             "asff_name": "AwsEc2Eip",
@@ -3988,19 +3996,35 @@ aws_arn_data = {
             "cloudformation": "AWS::WAFv2::IPSet",
             "terraform": "aws_wafv2_ip_set",
         },
-        "rule_group": {
-            "arn_format": "arn:{partition}:wafv2:{region}:{account}:/rulegroup/{resource_scope}/{resource_id}",
+        "regional_rule_group": {
+            "arn_format": "arn:{partition}:wafv2:{region}:{account}:regional/rulegroup/{resource_scope}/{resource_id}",
             "id_name": "Id",
             "id_regexp": "^[a-zA-Z0-9-]+$",
-            "asff_name": "AwsWafv2RuleGroup",
+            "asff_name": "AwsWAFv2RuleGroup",
+            "cloudformation": "AWS::WAFv2::RuleGroup",
+            "terraform": "aws_wafv2_rule_group",
+        },
+        "regional_web_acl": {
+            "arn_format": "arn:{partition}:wafv2:{region}:{account}:regional/webacl/{resource_scope}/{resource_id}",
+            "id_name": "Id",
+            "id_regexp": "^[a-zA-Z0-9-]+$",
+            "asff_name": "AwsWAFv2WebACL",
+            "cloudformation": "AWS::WAFv2::WebACL",
+            "terraform": "aws_wafv2_web_acl",
+        },
+        "rule_group": {
+            "arn_format": "arn:{partition}:wafv2:{region}:{account}:global/rulegroup/{resource_scope}/{resource_id}",
+            "id_name": "Id",
+            "id_regexp": "^[a-zA-Z0-9-]+$",
+            "asff_name": "AwsWAFv2RuleGroup",
             "cloudformation": "AWS::WAFv2::RuleGroup",
             "terraform": "aws_wafv2_rule_group",
         },
         "web_acl": {
-            "arn_format": "arn:{partition}:wafv2:{region}:{account}:/webacl/{resource_scope}/{resource_id}",
+            "arn_format": "arn:{partition}:wafv2:{region}:{account}:global/webacl/{resource_scope}/{resource_id}",
             "id_name": "Id",
             "id_regexp": "^[a-zA-Z0-9-]+$",
-            "asff_name": "AwsWafv2WebAcl",
+            "asff_name": "AwsWAFv2WebACL",
             "cloudformation": "AWS::WAFv2::WebACL",
             "terraform": "aws_wafv2_web_acl",
         },

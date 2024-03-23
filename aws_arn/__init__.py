@@ -157,7 +157,20 @@ def parse_arn(arn):
 
 
 def get_service_from_arn(arn):
-    return arn.split(":")[2]
+    service_from_arn = arn.split(":")[2]
+    try:
+        service = aws_arn_data[service_from_arn]
+        return service_from_arn
+    except KeyError:
+        # Let's try finding the service across all ARNs
+        for service in aws_arn_data:
+            for sub_service in aws_arn_data[service]:
+                if (
+                    aws_arn_data[service][sub_service]["arn_format"].split(":")[2]
+                    == arn.split(":")[2]
+                ):
+                    return service
+        raise KeyError("Unknown service in ARN: {}".format(arn))
 
 
 def get_region_from_arn(arn):
@@ -170,14 +183,39 @@ def get_account_from_arn(arn):
 
 def get_sub_service_from_arn(arn):
     arn_part_5 = arn.split(":")[5]
-    if arn_part_5.startswith("/"):
-        return arn.split(":")[5].split("/")[1].replace("-", "_")
-    if get_service_from_arn(arn) == "s3":
+    service = get_service_from_arn(arn)
+    if service == "s3":
         if not "/" in arn_part_5:
             return "bucket"
         else:
             return "object"
-    return arn.split(":")[5].split("/")[0].replace("-", "_")
+    elif service == "sqs":
+        return "queue"
+    elif arn_part_5.startswith("/"):
+        sub_service_from_arn = arn.split(":")[5].split("/")[1].replace("-", "_")
+    else:
+        sub_service_from_arn = arn.split(":")[5].split("/")[0].replace("-", "_")
+    # Let's see if we can find the sub_service in the service
+    try:
+        sub_service = aws_arn_data[service][sub_service_from_arn]
+        return sub_service_from_arn
+    except KeyError:
+        # Let's try finding the sub_service across all ARNs
+        for sub_service in aws_arn_data[service]:
+            sub_service_arn_part_5 = aws_arn_data[service][sub_service][
+                "arn_format"
+            ].split(":")[5]
+            if sub_service_arn_part_5.startswith("/"):
+                sub_service_arn_part_5 = sub_service_arn_part_5.split("/")[1].replace(
+                    "-", "_"
+                )
+            else:
+                sub_service_arn_part_5 = sub_service_arn_part_5.split("/")[0].replace(
+                    "-", "_"
+                )
+            if sub_service_arn_part_5 == sub_service_from_arn:
+                return sub_service
+        raise KeyError("Unknown sub service in ARN: {}".format(arn))
 
 
 def get_resource_id_from_arn(arn):
