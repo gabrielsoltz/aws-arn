@@ -4,7 +4,7 @@ This repository contains a list of almost all (WIP) AWS services and resources w
 
 | AWS Services 	| AWS Resources 	|
 |--------------	|---------------	|
-| 154          	| 477           	|
+| 155          	| 479           	|
 
 # Use Cases
 
@@ -228,6 +228,7 @@ arn:aws:ec2:us-east-1:012345789012:instance/i-1234568901
 | directconnect | private_virtual_interface | `arn:{partition}:directconnect:{region}:{account}:dxvif:{resource_id}` | VirtualInterfaceId | `([a-zA-Z0-9-]+)` |  | AWS::DirectConnect::PrivateVirtualInterface | aws_dx_private_virtual_interface |
 | directconnect | public_virtual_interface | `arn:{partition}:directconnect:{region}:{account}:dxvif:{resource_id}` | VirtualInterfaceId | `([a-zA-Z0-9-]+)` |  | AWS::DirectConnect::PublicVirtualInterface | aws_dx_public_virtual_interface |
 | directconnect | transit_virtual_interface | `arn:{partition}:directconnect:{region}:{account}:dxvif:{resource_id}` | VirtualInterfaceId | `([a-zA-Z0-9-]+)` |  | AWS::DirectConnect::TransitVirtualInterface | aws_dx_transit_virtual_interface |
+| ds | directory | `arn:{partition}:ds:{region}:{account}:directory/{resource_id}` | DirectoryId | `([a-zA-Z0-9-]+)` |  | AWS::DirectoryService::MicrosoftAD | aws_directory_service_directory |
 | dynamodb | table | `arn:{partition}:dynamodb:{region}:{account}:table/{resource_id}` | TableName | `([a-zA-Z0-9_.-]+)` | AwsDynamoDbTable | AWS::DynamoDB::Table | aws_dynamodb_table |
 | ec2 | customer_gateway | `arn:{partition}:ec2:{region}:{account}:customer-gateway/{resource_id}` | CustomerGatewayId | `^cgw-[a-f0-9]{8}$` | AwsEc2CustomerGateway | AWS::EC2::CustomerGateway | aws_customer_gateway |
 | ec2 | dedicated_host | `arn:{partition}:ec2:{region}:{account}:host/{resource_id}` | DedicatedHostId | `^h-[0-9a-f]{17}$` | AwsEc2DedicatedHost | AWS::EC2::Host | aws_ec2_host |
@@ -236,6 +237,7 @@ arn:aws:ec2:us-east-1:012345789012:instance/i-1234568901
 | ec2 | elastic_gpu | `arn:{partition}:ec2:{region}:{account}:elastic-gpu/{resource_id}` | ElasticGpuId | `^egp-[0-9a-f]{8,17}$` | AwsEc2ElasticGpu | AWS::EC2::ElasticGpu |  |
 | ec2 | elastic_inference_accelerator | `arn:{partition}:elastic-inference:{region}:{account}:accelerator/{resource_id}` | AcceleratorId | `^eia-[0-9a-f]{17}$` | AwsElasticInferenceAccelerator | AWS::ElasticInference::Accelerator | aws_eia_accelerator |
 | ec2 | eip_allocation | `arn:{partition}:ec2:{region}:{account}:eip-allocation/{resource_id}` | AllocationId | `^eipalloc-[0-9a-fA-F]{8,17}$` | AwsEc2Eip | AWS::EC2::EIP | aws_eip |
+| ec2 | eip | `arn:{partition}:ec2:{region}:{account}:elastic-ip/{resource_id}` | AllocationId | `^eipalloc-[0-9a-fA-F]{8,17}$` | AwsEc2Eip | AWS::EC2::EIP | aws_eip |
 | ec2 | flow_log | `arn:{partition}:ec2:{region}:{account}:flow-log/{resource_id}` | FlowLogId | `^fl-[0-9a-f]{17}$` |  | AWS::EC2::FlowLog | aws_flow_log |
 | ec2 | image | `arn:{partition}:ec2:{region}:{account}:image/{resource_id}` | ImageId | `^ami-[a-f0-9]{8}$|^ami-[a-f0-9]{17}$` |  | AWS::EC2::Image | aws_ami |
 | ec2 | instance | `arn:{partition}:ec2:{region}:{account}:instance/{resource_id}` | InstanceId | `^i-[0-9a-f]{8,17}$` | AwsEc2Instance | AWS::EC2::Instance | aws_instance |
@@ -487,8 +489,9 @@ arn:aws:ec2:us-east-1:012345789012:instance/i-1234568901
 | rds | db_cluster_snapshot | `arn:{partition}:rds:{region}:{account}:cluster-snapshot:{resource_id}` | DBClusterSnapshotIdentifier | `^[a-zA-Z0-9-]+$` | AwsRdsDbClusterSnapshot | AWS::RDS::DBClusterSnapshot | aws_rds_cluster_snapshot |
 | rds | option_group | `arn:{partition}:rds:{region}:{account}:og:{resource_id}` | OptionGroupName | `^[a-zA-Z0-9-]+$` |  | AWS::RDS::OptionGroup | aws_db_option_group |
 | rds | parameter_group | `arn:{partition}:rds:{region}:{account}:pg:{resource_id}` | DBParameterGroupName | `^[a-zA-Z0-9-]+$` |  | AWS::RDS::DBParameterGroup | aws_db_parameter_group |
+| rds | cluster_parameter_group | `arn:{partition}:rds:{region}:{account}:cluster-pg:{resource_id}` | DBClusterParameterGroupName | `^[a-zA-Z0-9-]+$` |  | AWS::RDS::DBClusterParameterGroup | aws_rds_cluster_parameter_group |
 | rds | security_group | `arn:{partition}:rds:{region}:{account}:secgrp:{resource_id}` | DBSecurityGroupName | `^[a-zA-Z0-9-]+$` | AwsRdsDbSecurityGroup | AWS::RDS::DBSecurityGroup | aws_db_security_group |
-| rds | subgroup | `arn:{partition}:rds:{region}:{account}:sub-group:{resource_id}` | DBSubnetGroupName | `^[a-zA-Z0-9-]+$` |  | AWS::RDS::DBSubnetGroup | aws_db_subnet_group |
+| rds | subnet_group | `arn:{partition}:rds:{region}:{account}:subgrp:{resource_id}` | DBSubnetGroupName | `^[a-zA-Z0-9-]+$` |  | AWS::RDS::DBSubnetGroup | aws_db_subnet_group |
 | rds | event_subscription | `arn:{partition}:rds:{region}:{account}:es:{resource_id}` | EventSubscriptionName | `^[a-zA-Z0-9-_]+$` | AwsRdsEventSubscription | AWS::RDS::EventSubscription | aws_db_event_subscription |
 | rds | global_cluster | `arn:{partition}:rds:{region}:{account}:global-cluster:{resource_id}` | GlobalClusterIdentifier | `^[a-zA-Z0-9-]{1,63}$` |  | AWS::RDS::GlobalCluster | aws_rds_global_cluster |
 | rds-data | secret | `arn:{partition}:secretsmanager:{region}:{account}:secret:{resource_id}` | SecretId | `^[-0-9a-zA-Z:_/]+$` |  | AWS::SecretsManager::Secret | aws_secretsmanager_secret |
@@ -542,7 +545,6 @@ arn:aws:ec2:us-east-1:012345789012:instance/i-1234568901
 | snowball | job | `arn:{partition}:snowball:{region}:{account}:job/{resource_id}` | JobId | `^[a-zA-Z0-9-]+$` |  | AWS::Snowball::Job | aws_snowball_job |
 | sns | topic | `arn:{partition}:sns:{region}:{account}:{resource_id}` | TopicName | `^[a-zA-Z0-9-_]{1,256}$` | AwsSnsTopic | AWS::SNS::Topic | aws_sns_topic |
 | sns | subscription | `arn:{partition}:sns:{region}:{account}:{TopicName}:{resource_id}` | SubscriptionId | `^[a-zA-Z0-9-_]{1,256}$` |  | AWS::SNS::Subscription | aws_sns_topic_subscription |
-| sns | platform_application_endpoint | `arn:{partition}:sns:{region}:{account}:app/{PlatformApplicationArn}/{resource_id}` | EndpointId | `^[a-zA-Z0-9-_]{1,256}$` |  | AWS::SNS::Endpoint | aws_sns_platform_application_endpoint |
 | sqs | queue | `arn:{partition}:sqs:{region}:{account}:{resource_id}` | QueueName | `^[a-zA-Z0-9_-]{1,80}$` | AwsSqsQueue | AWS::SQS::Queue | aws_sqs_queue |
 | ssm | document | `arn:{partition}:ssm:{region}:{account}:document/{resource_id}` | DocumentName | `^[a-zA-Z0-9_/+.-]{3,128}$` |  | AWS::SSM::Document | aws_ssm_document |
 | ssm | parameter | `arn:{partition}:ssm:{region}:{account}:parameter/{resource_id}` | ParameterName | `^[a-zA-Z0-9_/+.-]{1,2048}$` |  | AWS::SSM::Parameter | aws_ssm_parameter |
