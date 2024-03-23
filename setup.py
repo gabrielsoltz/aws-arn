@@ -4,8 +4,8 @@ setup(
     name="aws-arn",
     version="0.0.13",
     description="A library to work with AWS ARNs",
-    long_description=open('README.md').read(),
-    long_description_content_type='text/markdown',
+    long_description=open("README.md").read(),
+    long_description_content_type="text/markdown",
     packages=["aws_arn"],
     install_requires=[],
     entry_points={
