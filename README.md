@@ -4,7 +4,7 @@ This repository contains a list of almost all (WIP) AWS services and resources w
 
 | AWS Services 	| AWS Resources 	|
 |--------------	|---------------	|
-| 154          	| 474           	|
+| 154          	| 477           	|
 
 # Use Cases
 
@@ -208,6 +208,7 @@ arn:aws:ec2:us-east-1:012345789012:instance/i-1234568901
 | config | config_rule | `arn:{partition}:config:{region}:{account}:config-rule/{resource_id}` | ConfigRuleName | `([a-zA-Z0-9-_]+)` |  | AWS::Config::ConfigRule | aws_config_config_rule |
 | config | organization_config_rule | `arn:{partition}:config:{region}:{account}:organization-config-rule/{resource_id}` | OrganizationConfigRuleName | `([a-zA-Z0-9-_]+)` |  | AWS::Config::OrganizationConfigRule | aws_config_organization_custom_rule |
 | config | remediation_configuration | `arn:{partition}:config:{region}:{account}:remediation-configuration/{resource_id}` | RemediationConfigurationName | `([a-zA-Z0-9-_]+)` |  | AWS::Config::RemediationConfiguration | aws_config_remediation_configuration |
+| config | config_recorder | `arn:{partition}:config:{region}:{account}:config_recorder/{resource_id}` | ConfigRecorderName | `([a-zA-Z0-9-_]+)` |  | AWS::Config::ConfigurationRecorder | aws_config_configuration_recorder |
 | cur | report_definition | `arn:{partition}:cur:{region}:{account}:{ReportName}-{YYYYMM}-{AdditionalArtifact}-{region}-{account}` | ReportName | `([a-zA-Z0-9-_.]+)` |  | AWS::CUR::ReportDefinition | aws_cur_report_definition |
 | dataexchange | asset | `arn:{partition}:dataexchange:{region}:{account}:asset/{resource_id}` | AssetId | `([a-zA-Z0-9-_.]+)` |  | AWS::DataExchange::Asset | aws_dataexchange_asset |
 | dataexchange | data_set | `arn:{partition}:dataexchange:{region}:{account}:data-sets/{resource_id}` | DataSetId | `([a-zA-Z0-9-_.]+)` |  | AWS::DataExchange::DataSet | aws_dataexchange_data_set |
@@ -234,7 +235,7 @@ arn:aws:ec2:us-east-1:012345789012:instance/i-1234568901
 | ec2 | egress_only_internet_gateway | `arn:{partition}:ec2:{region}:{account}:egress-only-internet-gateway/{resource_id}` | EgressOnlyInternetGatewayId | `^egress-only-igw-[a-f0-9]{8,17}$` | AwsEc2EgressOnlyInternetGateway | AWS::EC2::EgressOnlyInternetGateway | aws_egress_only_internet_gateway |
 | ec2 | elastic_gpu | `arn:{partition}:ec2:{region}:{account}:elastic-gpu/{resource_id}` | ElasticGpuId | `^egp-[0-9a-f]{8,17}$` | AwsEc2ElasticGpu | AWS::EC2::ElasticGpu |  |
 | ec2 | elastic_inference_accelerator | `arn:{partition}:elastic-inference:{region}:{account}:accelerator/{resource_id}` | AcceleratorId | `^eia-[0-9a-f]{17}$` | AwsElasticInferenceAccelerator | AWS::ElasticInference::Accelerator | aws_eia_accelerator |
-| ec2 | elastic_ip | `arn:{partition}:ec2:{region}:{account}:elastic-ip/{resource_id}` | AllocationId | `^eipalloc-[0-9a-fA-F]{8,17}$` | AwsEc2Eip | AWS::EC2::EIP | aws_eip |
+| ec2 | eip_allocation | `arn:{partition}:ec2:{region}:{account}:eip-allocation/{resource_id}` | AllocationId | `^eipalloc-[0-9a-fA-F]{8,17}$` | AwsEc2Eip | AWS::EC2::EIP | aws_eip |
 | ec2 | flow_log | `arn:{partition}:ec2:{region}:{account}:flow-log/{resource_id}` | FlowLogId | `^fl-[0-9a-f]{17}$` |  | AWS::EC2::FlowLog | aws_flow_log |
 | ec2 | image | `arn:{partition}:ec2:{region}:{account}:image/{resource_id}` | ImageId | `^ami-[a-f0-9]{8}$|^ami-[a-f0-9]{17}$` |  | AWS::EC2::Image | aws_ami |
 | ec2 | instance | `arn:{partition}:ec2:{region}:{account}:instance/{resource_id}` | InstanceId | `^i-[0-9a-f]{8,17}$` | AwsEc2Instance | AWS::EC2::Instance | aws_instance |
@@ -318,7 +319,7 @@ arn:aws:ec2:us-east-1:012345789012:instance/i-1234568901
 | glue | database | `arn:{partition}:glue:{region}:{account}:database/{resource_id}` | DatabaseName | `[-0-9a-zA-Z]+` |  | AWS::Glue::Database | aws_glue_catalog_database |
 | glue | dev_endpoint | `arn:{partition}:glue:{region}:{account}:devEndpoint/{resource_id}` | DevEndpointName | `[-0-9a-zA-Z]+` |  | AWS::Glue::DevEndpoint | aws_glue_dev_endpoint |
 | glue | job | `arn:{partition}:glue:{region}:{account}:job/{resource_id}` | JobName | `[-0-9a-zA-Z]+` |  | AWS::Glue::Job | aws_glue_job |
-| glue | partition | `arn:{partition}:glue:{region}:{account}:table/{DatabaseName}/{TableName}/partition/{PartitionValues}` | None | `None` |  | AWS::Glue::Partition | aws_glue_catalog_partition |
+| glue | partition | `arn:{partition}:glue:{region}:{account}:table/{database_name}/{resource_id}/partition/{PartitionValues}` | None | `None` |  | AWS::Glue::Partition | aws_glue_catalog_partition |
 | glue | trigger | `arn:{partition}:glue:{region}:{account}:trigger/{resource_id}` | TriggerName | `[-0-9a-zA-Z]+` |  | AWS::Glue::Trigger | aws_glue_trigger |
 | glue | workflow | `arn:{partition}:glue:{region}:{account}:workflow/{resource_id}` | WorkflowName | `[-0-9a-zA-Z]+` |  | AWS::Glue::Workflow | aws_glue_workflow |
 | greengrass | group | `arn:{partition}:greengrass:{region}:{account}:/greengrass/groups/{resource_id}` | GroupId | `^[a-zA-Z0-9-_]{1,128}$` |  | AWS::Greengrass::Group | aws_greengrass_group |
@@ -584,8 +585,10 @@ arn:aws:ec2:us-east-1:012345789012:instance/i-1234568901
 | waf-regional | regional_rule_group | `arn:{partition}:waf-regional:{region}:{account}:rulegroup/{RuleGroupName}/{resource_id}` | RuleGroupId | `^[a-zA-Z0-9-]+$` | AwsWafRegionalRuleGroup | AWS::WAF::RuleGroup | aws_waf_rule_group |
 | waf-regional | regional_rate_based_rule | `arn:{partition}:waf-regional:{region}:{account}:rule/{resource_id}` | RuleId | `^[a-zA-Z0-9-]+$` | AwsWafRegionalRateBasedRule | AWS::WAF::RateBasedRule | aws_waf_rate_based_rule |
 | wafv2 | ip_set | `arn:{partition}:wafv2:{region}:{account}:/ipset/{resource_scope}/{resource_id}` | Id | `^[a-zA-Z0-9-]+$` |  | AWS::WAFv2::IPSet | aws_wafv2_ip_set |
-| wafv2 | rule_group | `arn:{partition}:wafv2:{region}:{account}:/rulegroup/{resource_scope}/{resource_id}` | Id | `^[a-zA-Z0-9-]+$` | AwsWafv2RuleGroup | AWS::WAFv2::RuleGroup | aws_wafv2_rule_group |
-| wafv2 | web_acl | `arn:{partition}:wafv2:{region}:{account}:/webacl/{resource_scope}/{resource_id}` | Id | `^[a-zA-Z0-9-]+$` | AwsWafv2WebAcl | AWS::WAFv2::WebACL | aws_wafv2_web_acl |
+| wafv2 | regional_rule_group | `arn:{partition}:wafv2:{region}:{account}:regional/rulegroup/{resource_scope}/{resource_id}` | Id | `^[a-zA-Z0-9-]+$` | AwsWAFv2RuleGroup | AWS::WAFv2::RuleGroup | aws_wafv2_rule_group |
+| wafv2 | regional_web_acl | `arn:{partition}:wafv2:{region}:{account}:regional/webacl/{resource_scope}/{resource_id}` | Id | `^[a-zA-Z0-9-]+$` | AwsWAFv2WebACL | AWS::WAFv2::WebACL | aws_wafv2_web_acl |
+| wafv2 | rule_group | `arn:{partition}:wafv2:{region}:{account}:global/rulegroup/{resource_scope}/{resource_id}` | Id | `^[a-zA-Z0-9-]+$` | AwsWAFv2RuleGroup | AWS::WAFv2::RuleGroup | aws_wafv2_rule_group |
+| wafv2 | web_acl | `arn:{partition}:wafv2:{region}:{account}:global/webacl/{resource_scope}/{resource_id}` | Id | `^[a-zA-Z0-9-]+$` | AwsWAFv2WebACL | AWS::WAFv2::WebACL | aws_wafv2_web_acl |
 | wellarchitected | workload | `arn:{partition}:wellarchitected:{region}:{account}:workload/{resource_id}` | WorkloadId | `^[a-zA-Z0-9-]+$` |  | AWS::WellArchitected::Workload | aws_wellarchitected_workload |
 | workdocs | document | `arn:{partition}:workdocs:{region}:{account}:{FolderHierarchy}/{resource_id}` | DocumentName | `^[a-zA-Z0-9-_.()]+$` |  | AWS::WorkDocs::Document | aws_workdocs_document |
 | workdocs | folder | `arn:{partition}:workdocs:{region}:{account}:{FolderHierarchy}/{resource_id}` | FolderName | `^[a-zA-Z0-9-_.()]+$` |  | AWS::WorkDocs::Folder | aws_workdocs_folder |
