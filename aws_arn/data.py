@@ -1534,7 +1534,7 @@ aws_arn_data = {
             "arn_format": "arn:{partition}:es:{region}:{account}:domain/{resource_id}",
             "id_name": "DomainName",
             "id_regexp": "[a-z0-9][a-z0-9-]{2,28}[a-z0-9]",
-            "asff_name": "AwsElasticSearchDomain",
+            "asff_name": "AwsElasticsearchDomain",
             "cloudformation": "AWS::Elasticsearch::Domain",
             "terraform": "aws_elasticsearch_domain",
         }
