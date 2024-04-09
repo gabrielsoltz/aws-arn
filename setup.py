@@ -2,7 +2,7 @@ from setuptools import setup
 
 setup(
     name="aws-arn",
-    version="0.0.18",
+    version="0.0.19",
     description="A library to work with AWS ARNs",
     long_description=open("README.md").read(),
     long_description_content_type="text/markdown",

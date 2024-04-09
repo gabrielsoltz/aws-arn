@@ -1452,8 +1452,16 @@ aws_arn_data = {
         },
     },
     "elbv2": {
-        "loadbalancer": {
-            "arn_format": "arn:{partition}:elasticloadbalancing:{region}:{account}:loadbalancer/{resource_id}",
+        "app_loadbalancer": {
+            "arn_format": "arn:{partition}:elasticloadbalancing:{region}:{account}:loadbalancer/app/{resource_id}/{load_balancer_id}",
+            "id_name": "LoadBalancerName",
+            "id_regexp": "[\\w.-]{1,32}",
+            "asff_name": "AwsElbv2LoadBalancer",
+            "cloudformation": "AWS::ElasticLoadBalancingV2::LoadBalancer",
+            "terraform": "aws_alb",
+        },
+        "net_loadbalancer": {
+            "arn_format": "arn:{partition}:elasticloadbalancing:{region}:{account}:loadbalancer/net/{resource_id}/{load_balancer_id}",
             "id_name": "LoadBalancerName",
             "id_regexp": "[\\w.-]{1,32}",
             "asff_name": "AwsElbv2LoadBalancer",

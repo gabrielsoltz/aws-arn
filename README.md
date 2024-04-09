@@ -1,6 +1,6 @@
 # aws-arn
 
-This repository contains a list of almost all (WIP) AWS services and resources with their **ARN format**, **ID name**, **ID regexp**, **ASFF name**, **CloudFormation resource name** and **Terraform resource name**, that you can use as [Documentation](#full-list-of-arns), as a [Python module](#python-module) or as [CLI tool](#cli-tool).
+This repository contains a list of almost all (WIP) AWS services and resources with their **ARN format**, **ID name**, **ID regexp**, **ASFF name**, **CloudFormation resource name** and **Terraform resource name**, that you can use as [Documentation](#complete-list-of-arns), as a [Python module](#python-module) or as [CLI tool](#cli-tool).
 
 | AWS Services 	| AWS Resources 	|
 |--------------	|---------------	|
@@ -119,7 +119,7 @@ arn:aws:ec2:us-east-1:012345789012:instance/i-1234568901
 {'service': 'ec2', 'sub_service': 'instance', 'region': 'us-east-1', 'account': '012345789012', 'resource_id': 'i-1234568901', 'asff_resource': 'AwsEc2Instance', 'terraform': 'aws_instance', 'cloudformation': 'AWS::EC2::Instance'}
 ```
 
-## Full List of ARNs
+## Complete List of ARNs
 
 | Service | Resource | ARN Format | ID Name | ID Regexp | ASFF Name | CloudFormation | Terraform |
 |----|----|----|----|----|----|----|----|
@@ -292,7 +292,8 @@ arn:aws:ec2:us-east-1:012345789012:instance/i-1234568901
 | elasticbeanstalk | application_version | `arn:{partition}:elasticbeanstalk:{region}:{account}:applicationversion/{resource_id}` | ApplicationVersionName | `([a-zA-Z0-9-_.]+)` |  | AWS::ElasticBeanstalk::ApplicationVersion | aws_elastic_beanstalk_application_version |
 | elasticbeanstalk | environment | `arn:{partition}:elasticbeanstalk:{region}:{account}:environment/{resource_id}` | EnvironmentId | `([a-zA-Z0-9-_.]+)` | AwsElasticBeanstalkEnvironment | AWS::ElasticBeanstalk::Environment | aws_elastic_beanstalk_environment |
 | elb | loadbalancer | `arn:{partition}:elasticloadbalancing:{region}:{account}:loadbalancer/{resource_id}` | LoadBalancerName | `[\w.-]{1,32}` | AwsElbLoadBalancer | AWS::ElasticLoadBalancing::LoadBalancer | aws_elb |
-| elbv2 | loadbalancer | `arn:{partition}:elasticloadbalancing:{region}:{account}:loadbalancer/{resource_id}` | LoadBalancerName | `[\w.-]{1,32}` | AwsElbv2LoadBalancer | AWS::ElasticLoadBalancingV2::LoadBalancer | aws_alb |
+| elbv2 | app_loadbalancer | `arn:{partition}:elasticloadbalancing:{region}:{account}:loadbalancer/app/{resource_id}/{load_balancer_id}` | LoadBalancerName | `[\w.-]{1,32}` | AwsElbv2LoadBalancer | AWS::ElasticLoadBalancingV2::LoadBalancer | aws_alb |
+| elbv2 | net_loadbalancer | `arn:{partition}:elasticloadbalancing:{region}:{account}:loadbalancer/net/{resource_id}/{load_balancer_id}` | LoadBalancerName | `[\w.-]{1,32}` | AwsElbv2LoadBalancer | AWS::ElasticLoadBalancingV2::LoadBalancer | aws_alb |
 | elbv2 | targetgroup | `arn:{partition}:elasticloadbalancing:{region}:{account}:targetgroup/{resource_id}/{targetgroup_id}` | TargetGroupID | `[\w.-]{1,32}` |  | AWS::ElasticLoadBalancingV2::TargetGroup | aws_alb_target_group |
 | elbv2 | listener | `arn:{partition}:elasticloadbalancing:{region}:{account}:listener/{resource_id}/{load_balancer_id}/{listener_id}` | ListenerId | `(?<=listener\/app\/)[^\/]+` |  | AWS::ElasticLoadBalancingV2::Listener | aws_alb_listener |
 | elbv2 | listener_rule | `arn:{partition}:elasticloadbalancing:{region}:{account}:listener-rule/{resource_id}` | ListenerRuleId | `[\w.-]{1,32}` |  | AWS::ElasticLoadBalancingV2::ListenerRule | aws_alb_listener_rule |
@@ -301,7 +302,7 @@ arn:aws:ec2:us-east-1:012345789012:instance/i-1234568901
 | elasticmapreduce | step | `arn:{partition}:elasticmapreduce:{region}:{account}:cluster/{resource_id}/step/{step_id}` | StepId | `s-[0-9a-zA-Z]+` |  | AWS::EMR::Step | aws_emr_step |
 | elastictranscoder | pipeline | `arn:{partition}:elastictranscoder:{region}:{account}:pipeline/{resource_id}` | PipelineId | `[0-9a-zA-Z-_]{1,255}` |  | AWS::ElasticTranscoder::Pipeline | aws_elastictranscoder_pipeline |
 | elastictranscoder | preset | `arn:{partition}:elastictranscoder:{region}:{account}:preset/{resource_id}` | PresetId | `[0-9a-zA-Z-_]{1,255}` |  | AWS::ElasticTranscoder::Preset | aws_elastictranscoder_preset |
-| es | domain | `arn:{partition}:es:{region}:{account}:domain/{resource_id}` | DomainName | `[a-z0-9][a-z0-9-]{2,28}[a-z0-9]` | AwsElasticSearchDomain | AWS::Elasticsearch::Domain | aws_elasticsearch_domain |
+| es | domain | `arn:{partition}:es:{region}:{account}:domain/{resource_id}` | DomainName | `[a-z0-9][a-z0-9-]{2,28}[a-z0-9]` | AwsElasticsearchDomain | AWS::Elasticsearch::Domain | aws_elasticsearch_domain |
 | events | archive | `arn:{partition}:events:{region}:{account}:archive/{resource_id}` | ArchiveName | `[0-9a-zA-Z_.:-]+` |  | AWS::Events::Archive | aws_cloudwatch_event_archive |
 | events | bus | `arn:{partition}:events:{region}:{account}:event-bus/{resource_id}` | EventBusName | `[0-9a-zA-Z_]+` |  | AWS::Events::EventBus | aws_cloudwatch_event_bus |
 | events | rule | `arn:{partition}:events:{region}:{account}:rule/{resource_id}` | RuleName | `[0-9a-zA-Z_]+` |  | AWS::Events::Rule | aws_cloudwatch_event_rule |
