@@ -158,6 +158,14 @@ def parse_arn(arn):
 
 def get_service_from_arn(arn):
     service_from_arn = arn.split(":")[2]
+    # Fix service for elasticloadbalancing:
+    if service_from_arn == "elasticloadbalancing":
+        if "/app/" in arn:
+            service_from_arn = "elbv2"
+        elif "/net/" in arn:
+            service_from_arn = "elbv2"
+        else:
+            service_from_arn = "elb"
     try:
         service = aws_arn_data[service_from_arn]
         return service_from_arn
@@ -196,6 +204,11 @@ def get_sub_service_from_arn(arn):
             return "topic"
         else:
             return "subscription"
+    elif service == "elbv2":
+        if "/app/" in arn:
+            return "app_loadbalancer"
+        elif "/net/" in arn:
+            return "net_loadbalancer"
     elif arn_part_5.startswith("/"):
         sub_service_from_arn = arn.split(":")[5].split("/")[1].replace("-", "_")
     else:
