@@ -22,7 +22,7 @@ This repository contains a list of almost all (WIP) AWS services and resources w
 
 > :warning: **Work in progress**: This is a work in progress. Not all services and resources are included yet. Please open an issue or pull request if you find any errors or omissions.
 
-The data is defined in the file [data.py](aws_arn/data.py) as Python dictionary. 
+The data is defined in the file [data.py](aws_arn/data.py) as Python dictionary.
 
 For each service:
 
@@ -51,7 +51,7 @@ pip3 install aws-arn
 import aws_arn
 
 # Generate ARN using service and resource name
-print(aws_arn.generate_arn('i-1234568901', 'ec2', 'instance', 'us-east-1', '012345789012', 'aws')) 
+print(aws_arn.generate_arn('i-1234568901', 'ec2', 'instance', 'us-east-1', '012345789012', 'aws'))
 arn:aws:ec2:us-east-1:012345789012:instance/i-1234568901
 
 # Generate ARN using Terraform resource name
@@ -68,7 +68,7 @@ arn:aws:ec2:us-east-1:012345789012:instance/i-1234568901
 ```
 
 ## Parse ARN:
-  
+
 ```python
 import aws_arn
 
@@ -173,6 +173,7 @@ arn:aws:ec2:us-east-1:012345789012:instance/i-1234568901
 | cloud9 | environment | `arn:{partition}:cloud9:{region}:{account}:environment:{resource_id}` | EnvironmentId | `[a-zA-Z0-9-]+` |  | AWS::Cloud9::EnvironmentEC2 | aws_cloud9_environment_ec2 |
 | cloudformation | change_set | `arn:{partition}:cloudformation:{region}:{account}:changeSet/{resource_id}` | ChangeSetId | `([a-zA-Z0-9-]+)` |  | AWS::CloudFormation::ChangeSet | aws_cloudformation_change_set |
 | cloudformation | stack | `arn:{partition}:cloudformation:{region}:{account}:stack/{resource_id}/{stack_id}` | StackName | `([a-zA-Z][-a-zA-Z0-9]*)` | AwsCloudFormationStack | AWS::CloudFormation::Stack | aws_cloudformation_stack |
+| cloudformation | stack_set | `arn:{partition}:cloudformation:{region}:{account}:stackset/{resource_id}/{stack_id}` | StackSetName | `([a-zA-Z][-a-zA-Z0-9]*)` |  | AWS::CloudFormation::StackSet | aws_cloudformation_stack_set |
 | cloudfront | distribution | `arn:{partition}:cloudfront::{account}:distribution/{resource_id}` | DistributionId | `[A-Z0-9]+` | AwsCloudFrontDistribution | AWS::CloudFront::Distribution | aws_cloudfront_distribution |
 | cloudfront | field_level_encryption_config | `arn:{partition}:cloudfront::{account}:field-level-encryption-config/{resource_id}` | FieldLevelEncryptionConfigId | `[A-Z0-9]+` |  | AWS::CloudFront::FieldLevelEncryptionConfig | aws_cloudfront_field_level_encryption_config |
 | cloudfront | field_level_encryption_profile | `arn:{partition}:cloudfront::{account}:field-level-encryption-profile/{resource_id}` | FieldLevelEncryptionProfileId | `[A-Z0-9]+` |  | AWS::CloudFront::FieldLevelEncryptionProfile | aws_cloudfront_field_level_encryption_profile |
@@ -180,6 +181,7 @@ arn:aws:ec2:us-east-1:012345789012:instance/i-1234568901
 | cloudhsmv2 | cluster | `arn:{partition}:cloudhsmv2:{region}:{account}:cluster/{resource_id}` | ClusterId | `[a-zA-Z0-9-]+` |  | AWS::CloudHSMV2::Cluster | aws_cloudhsmv2_cluster |
 | cloudhsmv2 | backup | `arn:{partition}:cloudhsmv2:{region}:{account}:backup/{resource_id}` | BackupId | `[a-zA-Z0-9-]+` |  | AWS::CloudHSMV2::Backup | aws_cloudhsmv2_backup |
 | cloudhsmv2 | hsm | `arn:{partition}:cloudhsmv2:{region}:{account}:cluster/{resource_id}/hsm/{hsm_id}` | HsmId | `[a-zA-Z0-9-]+` |  | AWS::CloudHSMV2::Hsm | aws_cloudhsmv2_hsm |
+| cloudtrail | event_data_store | `arn:{partition}:cloudtrail:{region}:{account}:eventdatastore/{resource_id}` | EventDataStoreName | `[a-zA-Z0-9-_\.]+` |  | AWS::CloudTrail::EventDataStore | aws_cloudtrail_event_data_store |
 | cloudtrail | trail | `arn:{partition}:cloudtrail:{region}:{account}:trail/{resource_id}` | TrailName | `[a-zA-Z0-9-_\.]+` | AwsCloudTrailTrail | AWS::CloudTrail::Trail | aws_cloudtrail |
 | cloudwatch | alarm | `arn:{partition}:cloudwatch:{region}:{account}:alarm:{resource_id}` | AlarmName | `^[a-zA-Z0-9\-_]{1,255}$` | AwsCloudWatchAlarm | AWS::CloudWatch::Alarm | aws_cloudwatch_metric_alarm |
 | cloudwatch | dashboard | `arn:{partition}:cloudwatch::{account}:dashboard/{resource_id}` | DashboardName | `^[a-zA-Z0-9-_ ]{3,255}$` |  | AWS::CloudWatch::Dashboard | aws_cloudwatch_dashboard |
@@ -238,6 +240,7 @@ arn:aws:ec2:us-east-1:012345789012:instance/i-1234568901
 | ec2 | elastic_inference_accelerator | `arn:{partition}:elastic-inference:{region}:{account}:accelerator/{resource_id}` | AcceleratorId | `^eia-[0-9a-f]{17}$` | AwsElasticInferenceAccelerator | AWS::ElasticInference::Accelerator | aws_eia_accelerator |
 | ec2 | eip_allocation | `arn:{partition}:ec2:{region}:{account}:eip-allocation/{resource_id}` | AllocationId | `^eipalloc-[0-9a-fA-F]{8,17}$` | AwsEc2Eip | AWS::EC2::EIP | aws_eip |
 | ec2 | eip | `arn:{partition}:ec2:{region}:{account}:elastic-ip/{resource_id}` | AllocationId | `^eipalloc-[0-9a-fA-F]{8,17}$` | AwsEc2Eip | AWS::EC2::EIP | aws_eip |
+| ec2 | fleet | `arn:{partition}:ec2:{region}:{account}:fleet/{resource_id}` | FleetId | `^fleet-[0-9a-f]{17}$` |  | AWS::EC2::EC2Fleet | aws_ec2_fleet |
 | ec2 | flow_log | `arn:{partition}:ec2:{region}:{account}:flow-log/{resource_id}` | FlowLogId | `^fl-[0-9a-f]{17}$` |  | AWS::EC2::FlowLog | aws_flow_log |
 | ec2 | image | `arn:{partition}:ec2:{region}:{account}:image/{resource_id}` | ImageId | `^ami-[a-f0-9]{8}$|^ami-[a-f0-9]{17}$` |  | AWS::EC2::Image | aws_ami |
 | ec2 | instance | `arn:{partition}:ec2:{region}:{account}:instance/{resource_id}` | InstanceId | `^i-[0-9a-f]{8,17}$` | AwsEc2Instance | AWS::EC2::Instance | aws_instance |
@@ -284,9 +287,10 @@ arn:aws:ec2:us-east-1:012345789012:instance/i-1234568901
 | elasticache | cache_cluster | `arn:{partition}:elasticache:{region}:{account}:cluster:{resource_id}` | CacheClusterId | `([a-zA-Z0-9-]+)` |  | AWS::ElastiCache::CacheCluster | aws_elasticache_cluster |
 | elasticache | cache_parameter_group | `arn:{partition}:elasticache:{region}:{account}:parameter-group:{resource_id}` | CacheParameterGroupName | `([a-zA-Z0-9-]+)` |  | AWS::ElastiCache::CacheParameterGroup | aws_elasticache_parameter_group |
 | elasticache | cache_security_group | `arn:{partition}:elasticache:{region}:{account}:security-group:{resource_id}` | CacheSecurityGroupName | `([a-zA-Z0-9-]+)` |  | AWS::ElastiCache::SecurityGroup | aws_elasticache_security_group |
-| elasticache | cache_subnet_group | `arn:{partition}:elasticache:{region}:{account}:subnet-group:{resource_id}` | CacheSubnetGroupName | `([a-zA-Z0-9-]+)` |  | AWS::ElastiCache::SubnetGroup | aws_elasticache_subnet_group |
+| elasticache | cache_subnet_group | `arn:{partition}:elasticache:{region}:{account}:subnetgroup:{resource_id}` | CacheSubnetGroupName | `([a-zA-Z0-9-]+)` |  | AWS::ElastiCache::SubnetGroup | aws_elasticache_subnet_group |
 | elasticache | global_replication_group | `arn:{partition}:elasticache:{region}:{account}:global-replication-group:{resource_id}` | GlobalReplicationGroupId | `([a-zA-Z0-9-]+)` |  | AWS::ElastiCache::GlobalReplicationGroup | aws_elasticache_global_replication_group |
 | elasticache | replication_group | `arn:{partition}:elasticache:{region}:{account}:cluster:{resource_id}` | ReplicationGroupId | `([a-zA-Z0-9-]+)` |  | AWS::ElastiCache::ReplicationGroup | aws_elasticache_replication_group |
+| elasticache | serverless_cache | `arn:{partition}:elasticache:{region}:{account}:serverlesscache:{resource_id}` | ServerlessCachename | `([a-zA-Z0-9-]+)` |  | AWS::ElastiCache::ServerlessCache | aws_elasticache_serverless_cache |
 | elasticache | user_group | `arn:{partition}:elasticache:{region}:{account}:user-group:{resource_id}` | UserGroupId | `([a-zA-Z0-9-]+)` |  | AWS::ElastiCache::UserGroup | aws_elasticache_user_group |
 | elasticbeanstalk | application | `arn:{partition}:elasticbeanstalk:{region}:{account}:application/{resource_id}` | ApplicationName | `([a-zA-Z0-9-_.]+)` |  | AWS::ElasticBeanstalk::Application | aws_elastic_beanstalk_application |
 | elasticbeanstalk | application_version | `arn:{partition}:elasticbeanstalk:{region}:{account}:applicationversion/{resource_id}` | ApplicationVersionName | `([a-zA-Z0-9-_.]+)` |  | AWS::ElasticBeanstalk::ApplicationVersion | aws_elastic_beanstalk_application_version |
@@ -526,6 +530,10 @@ arn:aws:ec2:us-east-1:012345789012:instance/i-1234568901
 | sagemaker | endpoint_config | `arn:{partition}:sagemaker:{region}:{account}:endpoint-config/{resource_id}` | EndpointConfigName | `^[a-zA-Z0-9](-*[a-zA-Z0-9])*$` |  | AWS::SageMaker::EndpointConfig | aws_sagemaker_endpoint_configuration |
 | sagemaker | endpoint | `arn:{partition}:sagemaker:{region}:{account}:endpoint/{resource_id}` | EndpointName | `^[a-zA-Z0-9](-*[a-zA-Z0-9])*$` |  | AWS::SageMaker::Endpoint | aws_sagemaker_endpoint |
 | sagemaker | feature_group | `arn:{partition}:sagemaker:{region}:{account}:feature-group/{resource_id}` | FeatureGroupName | `^[a-zA-Z0-9]([a-zA-Z0-9_-]{0,62}[a-zA-Z0-9])?$` |  | AWS::SageMaker::FeatureGroup | aws_sagemaker_feature_group |
+| schemas | discoverer | `arn:{partition}:schemas:{region}:{account}:discoverer/{resource_id}` | DiscovererId | `[0-9a-zA-Z_]+` |  | AWS::EventSchemas::Discoverer | aws_schemas_discoverer |
+| schemas | registry | `arn:{partition}:schemas:{region}:{account}:registry/{resource_id}` | RegistryName | `[0-9a-zA-Z_]+` |  | AWS::EventSchemas::Registry | aws_schemas_registry |
+| schemas | registry_policy | `arn:{partition}:schemas:{region}:{account}:registrypolicy/{resource_id}` | RegistryName | `[0-9a-zA-Z_]+` |  | AWS::EventSchemas::RegistryPolicy | aws_schemas_registry |
+| schemas | schema | `arn:{partition}:schemas:{region}:{account}:schema/{resource_id}` | SchemaName | `[0-9a-zA-Z_]+` |  | AWS::EventSchemas::Schema | aws_schemas_schema |
 | sdb | domain | `arn:{partition}:sdb:{region}:{account}:domain/{resource_id}` | DomainName | `^[a-zA-Z0-9_.-]{3,255}$` |  | AWS::SDB::Domain | aws_sdb_domain |
 | secretsmanager | secret | `arn:{partition}:secretsmanager:{region}:{account}:secret:{resource_id}` | SecretId | `^[a-zA-Z0-9/_+=.@-]{1,64}$` | AwsSecretsManagerSecret | AWS::SecretsManager::Secret | aws_secretsmanager_secret |
 | securityhub | hub | `arn:{partition}:securityhub:{region}:{account}:hub/default` | none | `` |  | AWS::SecurityHub::Hub | aws_securityhub_account |
