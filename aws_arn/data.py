@@ -430,6 +430,14 @@ aws_arn_data = {
             "cloudformation": "AWS::CloudFormation::Stack",
             "terraform": "aws_cloudformation_stack",
         },
+        "stack_set": {
+            "arn_format": "arn:{partition}:cloudformation:{region}:{account}:stackset/{resource_id}/{stack_id}",
+            "id_name": "StackSetName",
+            "id_regexp": "([a-zA-Z][-a-zA-Z0-9]*)",
+            "asff_name": "",
+            "cloudformation": "AWS::CloudFormation::StackSet",
+            "terraform": "aws_cloudformation_stack_set",
+        },
     },
     "cloudfront": {
         "distribution": {
@@ -492,6 +500,14 @@ aws_arn_data = {
         },
     },
     "cloudtrail": {
+        "event_data_store": {
+            "arn_format": "arn:{partition}:cloudtrail:{region}:{account}:eventdatastore/{resource_id}",
+            "id_name": "EventDataStoreName",
+            "id_regexp": "[a-zA-Z0-9-_\\.]+",
+            "asff_name": "",
+            "cloudformation": "AWS::CloudTrail::EventDataStore",
+            "terraform": "aws_cloudtrail_event_data_store",
+        },
         "trail": {
             "arn_format": "arn:{partition}:cloudtrail:{region}:{account}:trail/{resource_id}",
             "id_name": "TrailName",
@@ -998,6 +1014,14 @@ aws_arn_data = {
             "cloudformation": "AWS::EC2::EIP",
             "terraform": "aws_eip",
         },
+        "fleet": {
+            "arn_format": "arn:{partition}:ec2:{region}:{account}:fleet/{resource_id}",
+            "id_name": "FleetId",
+            "id_regexp": "^fleet-[0-9a-f]{17}$",
+            "asff_name": "",
+            "cloudformation": "AWS::EC2::EC2Fleet",
+            "terraform": "aws_ec2_fleet",
+        },
         "flow_log": {
             "arn_format": "arn:{partition}:ec2:{region}:{account}:flow-log/{resource_id}",
             "id_name": "FlowLogId",
@@ -1383,7 +1407,7 @@ aws_arn_data = {
             "terraform": "aws_elasticache_security_group",
         },
         "cache_subnet_group": {
-            "arn_format": "arn:{partition}:elasticache:{region}:{account}:subnet-group:{resource_id}",
+            "arn_format": "arn:{partition}:elasticache:{region}:{account}:subnetgroup:{resource_id}",
             "id_name": "CacheSubnetGroupName",
             "id_regexp": "([a-zA-Z0-9-]+)",
             "asff_name": "",
@@ -1405,6 +1429,14 @@ aws_arn_data = {
             "asff_name": "",
             "cloudformation": "AWS::ElastiCache::ReplicationGroup",
             "terraform": "aws_elasticache_replication_group",
+        },
+        "serverless_cache": {
+            "arn_format": "arn:{partition}:elasticache:{region}:{account}:serverlesscache:{resource_id}",
+            "id_name": "ServerlessCachename",
+            "id_regexp": "([a-zA-Z0-9-]+)",
+            "asff_name": "",
+            "cloudformation": "AWS::ElastiCache::ServerlessCache",
+            "terraform": "aws_elasticache_serverless_cache",
         },
         "user_group": {
             "arn_format": "arn:{partition}:elasticache:{region}:{account}:user-group:{resource_id}",
@@ -3469,6 +3501,40 @@ aws_arn_data = {
             "asff_name": "",
             "cloudformation": "AWS::SageMaker::FeatureGroup",
             "terraform": "aws_sagemaker_feature_group",
+        },
+    },
+    "schemas": {
+        "discoverer": {
+            "arn_format": "arn:{partition}:schemas:{region}:{account}:discoverer/{resource_id}",
+            "id_name": "DiscovererId",
+            "id_regexp": "[0-9a-zA-Z_]+",
+            "asff_name": "",
+            "cloudformation": "AWS::EventSchemas::Discoverer",
+            "terraform": "aws_schemas_discoverer",
+        },
+        "registry": {
+            "arn_format": "arn:{partition}:schemas:{region}:{account}:registry/{resource_id}",
+            "id_name": "RegistryName",
+            "id_regexp": "[0-9a-zA-Z_]+",
+            "asff_name": "",
+            "cloudformation": "AWS::EventSchemas::Registry",
+            "terraform": "aws_schemas_registry",
+        },
+        "registry_policy": {
+            "arn_format": "arn:{partition}:schemas:{region}:{account}:registrypolicy/{resource_id}",
+            "id_name": "RegistryName",
+            "id_regexp": "[0-9a-zA-Z_]+",
+            "asff_name": "",
+            "cloudformation": "AWS::EventSchemas::RegistryPolicy",
+            "terraform": "aws_schemas_registry",
+        },
+        "schema": {
+            "arn_format": "arn:{partition}:schemas:{region}:{account}:schema/{resource_id}",
+            "id_name": "SchemaName",
+            "id_regexp": "[0-9a-zA-Z_]+",
+            "asff_name": "",
+            "cloudformation": "AWS::EventSchemas::Schema",
+            "terraform": "aws_schemas_schema",
         },
     },
     "sdb": {
