@@ -2,7 +2,7 @@ import re
 
 from .data import aws_arn_data
 
-__version__ = "0.0.21"
+__version__ = "0.0.20"
 
 __all__ = [
     "list_services",
@@ -106,7 +106,7 @@ def generate_markdown_table() -> str:
             table.append(row)
 
     table_str = "| " + " | ".join(headers) + " |\n"
-    table_str += "|-" + "-|-".join(["--" for _ in headers]) + "-|\n"
+    table_str += "| " + " | ".join(["---" for _ in headers]) + " |\n"
 
     for row in table[1:]:
         table_str += "| " + " | ".join([str(item) for item in row]) + " |\n"
