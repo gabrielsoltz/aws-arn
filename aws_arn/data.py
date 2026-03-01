@@ -235,7 +235,7 @@ aws_arn_data = {
             "terraform": "aws_apprunner_auto_scaling_configuration_version",
         },
         "observability_configuration": {
-            "arn_format": "arn:{Partition}:apprunner:{gegion}:{account}:observabilityconfiguration/{resource_name}/{ObservabilityConfigurationVersion}/{resource_id}",
+            "arn_format": "arn:{partition}:apprunner:{region}:{account}:observabilityconfiguration/{resource_name}/{ObservabilityConfigurationVersion}/{resource_id}",
             "id_name": "ObservabilityConfiguration",
             "id_regexp": "([a-zA-Z0-9-_]{1,256})",
             "asff_name": "",
@@ -243,7 +243,7 @@ aws_arn_data = {
             "terraform": "aws_apprunner_observability_configuration",
         },
         "vpc_connector": {
-            "arn_format": "arn:{partition}:apprunner:{gegion}:{account}:vpcconnector/{resource_name}/{VpcConnectorVersion}/{resource_id}",
+            "arn_format": "arn:{partition}:apprunner:{region}:{account}:vpcconnector/{resource_name}/{VpcConnectorVersion}/{resource_id}",
             "id_name": "VpcConnector",
             "id_regexp": "([a-zA-Z0-9-_]{1,256})",
             "asff_name": "",
@@ -515,7 +515,7 @@ aws_arn_data = {
             "asff_name": "AwsCloudTrailTrail",
             "cloudformation": "AWS::CloudTrail::Trail",
             "terraform": "aws_cloudtrail",
-        }
+        },
     },
     "cloudwatch": {
         "alarm": {
@@ -1185,7 +1185,7 @@ aws_arn_data = {
         "transit_gateway": {
             "arn_format": "arn:{partition}:ec2:{region}:{account}:transit-gateway/{resource_id}",
             "id_name": "TransitGatewayId",
-            "id_regexp": "^tgw-\w{8,17}$",
+            "id_regexp": r"^tgw-\w{8,17}$",
             "asff_name": "AwsEc2TransitGateway",
             "cloudformation": "AWS::EC2::TransitGateway",
             "terraform": "aws_ec2_transit_gateway",
@@ -1511,7 +1511,7 @@ aws_arn_data = {
         "listener": {
             "arn_format": "arn:{partition}:elasticloadbalancing:{region}:{account}:listener/{resource_id}/{load_balancer_id}/{listener_id}",
             "id_name": "ListenerId",
-            "id_regexp": "(?<=listener\/app\/)[^\/]+",
+            "id_regexp": r"(?<=listener/app/)[^/]+",
             "asff_name": "",
             "cloudformation": "AWS::ElasticLoadBalancingV2::Listener",
             "terraform": "aws_alb_listener",
@@ -1827,7 +1827,7 @@ aws_arn_data = {
         "event": {
             "arn_format": "arn:{partition}:health:{region}:{account}:event/{resource_id}",
             "id_name": "EventArn",
-            "id_regexp": "arn:[^:]+:health:[^:]+:[^:]+:event\/[0-9a-f-]+",
+            "id_regexp": r"arn:[^:]+:health:[^:]+:[^:]+:event/[0-9a-f-]+",
             "asff_name": "",
             "cloudformation": "AWS::Health::Event",
             "terraform": "aws_health_event",
@@ -1843,7 +1843,7 @@ aws_arn_data = {
         "organization_event_detail": {
             "arn_format": "arn:{partition}:health:{region}:{account}:event-organization/{event_type_code}/{service}/{event_type_version}/{event_id}",
             "id_name": "EventArn",
-            "id_regexp": "arn:[^:]+:health:[^:]+:[^:]+:event\/[0-9a-f-]+",
+            "id_regexp": r"arn:[^:]+:health:[^:]+:[^:]+:event/[0-9a-f-]+",
             "asff_name": "",
             "cloudformation": "AWS::Health::OrganizationEventDetail",
             "terraform": "aws_health_organization_event_detail",
