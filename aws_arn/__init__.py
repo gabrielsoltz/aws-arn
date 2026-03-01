@@ -2,7 +2,7 @@ import re
 
 from .data import aws_arn_data
 
-__version__ = "0.0.20"
+__version__ = "0.1.0"
 
 __all__ = [
     "list_services",
