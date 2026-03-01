@@ -9,7 +9,6 @@ from aws_arn import (
     generate_arn_from_asff,
     generate_arn_from_cloudformation,
     generate_arn_from_terraform,
-    generate_markdown_table,
     get_service,
     list_services,
     list_sub_services,
@@ -41,10 +40,6 @@ def main() -> None:
 
     if args.list_sub_services:
         list_sub_services()
-        sys.exit(0)
-
-    if args.generate_markdown:
-        print(generate_markdown_table())
         sys.exit(0)
 
     # Generate ARNs
