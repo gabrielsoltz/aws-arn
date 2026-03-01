@@ -49,32 +49,55 @@ def main() -> None:
 
     # Generate ARNs
     if args.generate_arn:
-        print(generate_arn(id, service, sub_service, region, account, partition))
+        try:
+            print(generate_arn(id, service, sub_service, region, account, partition))
+        except (KeyError, ValueError) as e:
+            print(f"Error: {e}", file=sys.stderr)
+            sys.exit(1)
 
     if args.generate_arn_from_terraform:
-        print(generate_arn_from_terraform(id, terraform, region, account, partition))
+        try:
+            print(generate_arn_from_terraform(id, terraform, region, account, partition))
+        except (KeyError, ValueError) as e:
+            print(f"Error: {e}", file=sys.stderr)
+            sys.exit(1)
 
     if args.generate_arn_from_cloudformation:
-        print(generate_arn_from_cloudformation(id, cloudformation, region, account, partition))
+        try:
+            print(generate_arn_from_cloudformation(id, cloudformation, region, account, partition))
+        except (KeyError, ValueError) as e:
+            print(f"Error: {e}", file=sys.stderr)
+            sys.exit(1)
+
     if args.generate_arn_from_asff:
-        print(generate_arn_from_asff(id, asff_resource, region, account, partition))
+        try:
+            print(generate_arn_from_asff(id, asff_resource, region, account, partition))
+        except (KeyError, ValueError) as e:
+            print(f"Error: {e}", file=sys.stderr)
+            sys.exit(1)
 
     # Parse ARN
     if args.parse_arn:
         try:
             print(parse_arn(args.parse_arn))
-        except ValueError as e:
-            print(e)
+        except (KeyError, ValueError) as e:
+            print(f"Error: {e}", file=sys.stderr)
+            sys.exit(1)
 
     # Get service
     if args.get_service:
         try:
             print(get_service(args.get_service))
-        except ValueError as e:
-            print(e)
+        except (KeyError, ValueError) as e:
+            print(f"Error: {e}", file=sys.stderr)
+            sys.exit(1)
 
     if args.validate_id:
-        print(check_resource_id_regexp(id, service, sub_service))
+        try:
+            print(check_resource_id_regexp(id, service, sub_service))
+        except (KeyError, ValueError) as e:
+            print(f"Error: {e}", file=sys.stderr)
+            sys.exit(1)
 
 
 if __name__ == "__main__":
