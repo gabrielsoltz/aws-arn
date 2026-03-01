@@ -106,7 +106,7 @@ def generate_markdown_table() -> str:
             table.append(row)
 
     table_str = "| " + " | ".join(headers) + " |\n"
-    table_str += "|-" + "-|-".join(["--" for _ in headers]) + "-|\n"
+    table_str += "| " + " | ".join(["---" for _ in headers]) + " |\n"
 
     for row in table[1:]:
         table_str += "| " + " | ".join([str(item) for item in row]) + " |\n"
