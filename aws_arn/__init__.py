@@ -1,11 +1,8 @@
-from __future__ import annotations
-
 import re
-from typing import Optional
 
 from .data import aws_arn_data
 
-__version__ = "0.0.20"
+__version__ = "0.0.21"
 
 __all__ = [
     "list_services",
@@ -269,7 +266,7 @@ def get_sub_service_from_arn(arn: str) -> str:
     raise KeyError("Unknown sub service in ARN: {}".format(arn))
 
 
-def get_resource_id_from_arn(arn: str) -> Optional[str]:
+def get_resource_id_from_arn(arn: str) -> str | None:
     service = get_service_from_arn(arn)
     sub_service = get_sub_service_from_arn(arn)
     try:
