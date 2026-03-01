@@ -9,9 +9,12 @@ A library and CLI tool to work with AWS ARNs (Amazon Resource Names).
 
 Contains definitions for almost all AWS services and resources, including their **ARN format**, **ID regexp**, **ASFF name**, **CloudFormation resource type**, and **Terraform resource type**.
 
-| AWS Services | AWS Resources |
-| :----------: | :-----------: |
-|     155      |      479      |
+The full reference table is available as:
+
+- **Searchable page**: [gabrielsoltz.github.io/aws-arn](https://gabrielsoltz.github.io/aws-arn) — filter by service, Terraform type, CloudFormation type, or ASFF name
+- **Markdown file**: [docs/arn-list.md](docs/arn-list.md)
+
+> The docs are regenerated automatically by a GitHub Action whenever `aws_arn/data.py` changes.
 
 ---
 
@@ -194,21 +197,3 @@ The data is defined in [aws_arn/data.py](aws_arn/data.py) as a Python dictionary
     }
 },
 ```
-
-After editing `data.py`, regenerate the table in this README by running:
-
-```bash
-aws-arn --generate-markdown > /tmp/table.md
-# Then paste the output into the "Complete List of ARNs" section below
-```
-
----
-
-## Complete List of ARNs
-
-The full reference table (155 services, 479 resources) is available as:
-
-- **Searchable page**: [gabrielsoltz.github.io/aws-arn](https://gabrielsoltz.github.io/aws-arn) — filter by service, Terraform type, CloudFormation type, or ASFF name
-- **Markdown file**: [docs/arn-list.md](docs/arn-list.md)
-
-> The docs are regenerated automatically by a GitHub Action whenever `aws_arn/data.py` changes.
