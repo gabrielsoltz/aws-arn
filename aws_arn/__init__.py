@@ -179,7 +179,7 @@ def generate_arn_from_asff(
 # Parse ARN
 
 
-def parse_arn(arn: str) -> dict[str, str]:
+def parse_arn(arn: str) -> dict[str, str | None]:
     if validate_arn(arn):
         service = get_service_from_arn(arn)
         sub_service = get_sub_service_from_arn(arn)
@@ -212,19 +212,14 @@ def get_service_from_arn(arn: str) -> str:
             service_from_arn = "elbv2"
         else:
             service_from_arn = "elb"
-    try:
-        service = aws_arn_data[service_from_arn]
+    if service_from_arn in aws_arn_data:
         return service_from_arn
-    except KeyError:
-        # Let's try finding the service across all ARNs
-        for service in aws_arn_data:
-            for sub_service in aws_arn_data[service]:
-                if (
-                    aws_arn_data[service][sub_service]["arn_format"].split(":")[2]
-                    == arn.split(":")[2]
-                ):
-                    return service
-        raise KeyError("Unknown service in ARN: {}".format(arn))
+    # Let's try finding the service across all ARNs
+    for svc in aws_arn_data:
+        for sub in aws_arn_data[svc]:
+            if aws_arn_data[svc][sub]["arn_format"].split(":")[2] == arn.split(":")[2]:
+                return svc
+    raise KeyError("Unknown service in ARN: {}".format(arn))
 
 
 def get_region_from_arn(arn: str) -> str:
@@ -260,20 +255,18 @@ def get_sub_service_from_arn(arn: str) -> str:
     else:
         sub_service_from_arn = arn.split(":")[5].split("/")[0].replace("-", "_")
     # Let's see if we can find the sub_service in the service
-    try:
-        sub_service = aws_arn_data[service][sub_service_from_arn]
+    if sub_service_from_arn in aws_arn_data[service]:
         return sub_service_from_arn
-    except KeyError:
-        # Let's try finding the sub_service across all ARNs
-        for sub_service in aws_arn_data[service]:
-            sub_service_arn_part_5 = aws_arn_data[service][sub_service]["arn_format"].split(":")[5]
-            if sub_service_arn_part_5.startswith("/"):
-                sub_service_arn_part_5 = sub_service_arn_part_5.split("/")[1].replace("-", "_")
-            else:
-                sub_service_arn_part_5 = sub_service_arn_part_5.split("/")[0].replace("-", "_")
-            if sub_service_arn_part_5 == sub_service_from_arn:
-                return sub_service
-        raise KeyError("Unknown sub service in ARN: {}".format(arn))
+    # Let's try finding the sub_service across all ARNs
+    for sub in aws_arn_data[service]:
+        sub_arn_part_5 = aws_arn_data[service][sub]["arn_format"].split(":")[5]
+        if sub_arn_part_5.startswith("/"):
+            sub_arn_part_5 = sub_arn_part_5.split("/")[1].replace("-", "_")
+        else:
+            sub_arn_part_5 = sub_arn_part_5.split("/")[0].replace("-", "_")
+        if sub_arn_part_5 == sub_service_from_arn:
+            return sub
+    raise KeyError("Unknown sub service in ARN: {}".format(arn))
 
 
 def get_resource_id_from_arn(arn: str) -> Optional[str]:
@@ -336,7 +329,7 @@ def get_cloudformation_from_arn(arn: str) -> str:
 # Get Service
 
 
-def get_service(item: str) -> str:
+def get_service(item: str) -> str | tuple[str, str]:
     if validate_arn(item):
         return get_service_from_arn(item)
     if validate_terraform(item):
