@@ -1,16 +1,64 @@
-try:
-    from data import aws_arn_data
-except ModuleNotFoundError:
-    from aws_arn.data import aws_arn_data
+from __future__ import annotations
+
+import re
+from typing import Optional
+
+from .data import aws_arn_data
+
+__version__ = "0.0.20"
+
+__all__ = [
+    "list_services",
+    "list_sub_services",
+    "list_sub_services_for_service",
+    "list_asff_resources",
+    "generate_markdown_table",
+    "generate_arn",
+    "generate_arn_from_terraform",
+    "generate_arn_from_cloudformation",
+    "generate_arn_from_asff",
+    "parse_arn",
+    "get_service_from_arn",
+    "get_region_from_arn",
+    "get_account_from_arn",
+    "get_sub_service_from_arn",
+    "get_resource_id_from_arn",
+    "get_asff_from_arn",
+    "get_terraform_from_arn",
+    "get_cloudformation_from_arn",
+    "get_service",
+    "get_service_from_asff",
+    "get_service_from_terraform",
+    "get_service_from_cloudformation",
+    "validate_arn",
+    "validate_terraform",
+    "validate_cloudformation",
+    "validate_asff",
+    "check_resource_id_regexp",
+]
+
+# O(1) reverse-lookup indexes built once at import time
+_terraform_index: dict[str, tuple[str, str]] = {}
+_cloudformation_index: dict[str, tuple[str, str]] = {}
+_asff_index: dict[str, tuple[str, str]] = {}
+
+for _svc, _resources in aws_arn_data.items():
+    for _sub, _attrs in _resources.items():
+        if _attrs["terraform"]:
+            _terraform_index[_attrs["terraform"]] = (_svc, _sub)
+        if _attrs["cloudformation"]:
+            _cloudformation_index[_attrs["cloudformation"]] = (_svc, _sub)
+        if _attrs["asff_name"]:
+            _asff_index[_attrs["asff_name"]] = (_svc, _sub)
 
 
-def list_services():
+def list_services() -> None:
     for i in aws_arn_data:
         print(i)
     print("Total number of services: ", len(aws_arn_data))
 
 
-def list_sub_services():
+def list_sub_services() -> None:
     count_resources = 0
     for i in aws_arn_data.values():
         for j in i:
@@ -19,19 +67,19 @@ def list_sub_services():
     print("Total number of resources: ", count_resources)
 
 
-def list_sub_services_for_service(service):
+def list_sub_services_for_service(service: str) -> None:
     for i in aws_arn_data[service]:
         print(i)
 
 
-def list_asff_resources():
+def list_asff_resources() -> None:
     for services in aws_arn_data:
         for sub_services in aws_arn_data[services]:
             if aws_arn_data[services][sub_services]["asff_name"] != "":
                 print(aws_arn_data[services][sub_services]["asff_name"])
 
 
-def generate_markdown_table():
+def generate_markdown_table() -> str:
     headers = [
         "Service",
         "Resource",
@@ -70,31 +118,29 @@ def generate_markdown_table():
 
 
 def generate_arn(
-    resource_id,
-    service,
-    sub_service,
-    region,
-    account,
-    partition,
-):
+    resource_id: str,
+    service: str,
+    sub_service: str,
+    region: str,
+    account: str,
+    partition: str,
+) -> str:
     try:
         arn = aws_arn_data[service][sub_service]["arn_format"].format(
             partition=partition, region=region, account=account, resource_id=resource_id
         )
-    except KeyError as e:
-        raise KeyError(
-            "Invalid resource {} or sub resource type {}".format(service, sub_service)
-        )
+    except KeyError:
+        raise KeyError("Invalid resource {} or sub resource type {}".format(service, sub_service))
     return arn
 
 
 def generate_arn_from_terraform(
-    resource_id,
-    terraform,
-    region,
-    account,
-    partition,
-):
+    resource_id: str,
+    terraform: str,
+    region: str,
+    account: str,
+    partition: str,
+) -> str:
     if not validate_terraform(terraform):
         raise ValueError("Invalid Terraform resource: {}".format(terraform))
     service, sub_service = get_service_from_terraform(terraform)
@@ -103,12 +149,12 @@ def generate_arn_from_terraform(
 
 
 def generate_arn_from_cloudformation(
-    resource_id,
-    cloudformation,
-    region,
-    account,
-    partition,
-):
+    resource_id: str,
+    cloudformation: str,
+    region: str,
+    account: str,
+    partition: str,
+) -> str:
     if not validate_cloudformation(cloudformation):
         raise ValueError("Invalid CloudFormation resource: {}".format(cloudformation))
     service, sub_service = get_service_from_cloudformation(cloudformation)
@@ -117,12 +163,12 @@ def generate_arn_from_cloudformation(
 
 
 def generate_arn_from_asff(
-    resource_id,
-    asff_resource,
-    region,
-    account,
-    partition,
-):
+    resource_id: str,
+    asff_resource: str,
+    region: str,
+    account: str,
+    partition: str,
+) -> str:
     if not validate_asff(asff_resource):
         raise ValueError("Invalid ASFF resource: {}".format(asff_resource))
     service, sub_service = get_service_from_asff(asff_resource)
@@ -133,7 +179,7 @@ def generate_arn_from_asff(
 # Parse ARN
 
 
-def parse_arn(arn):
+def parse_arn(arn: str) -> dict[str, str]:
     if validate_arn(arn):
         service = get_service_from_arn(arn)
         sub_service = get_sub_service_from_arn(arn)
@@ -156,7 +202,7 @@ def parse_arn(arn):
     raise ValueError("Invalid ARN: {}".format(arn))
 
 
-def get_service_from_arn(arn):
+def get_service_from_arn(arn: str) -> str:
     service_from_arn = arn.split(":")[2]
     # Fix service for elasticloadbalancing:
     if service_from_arn == "elasticloadbalancing":
@@ -181,19 +227,19 @@ def get_service_from_arn(arn):
         raise KeyError("Unknown service in ARN: {}".format(arn))
 
 
-def get_region_from_arn(arn):
+def get_region_from_arn(arn: str) -> str:
     return arn.split(":")[3]
 
 
-def get_account_from_arn(arn):
+def get_account_from_arn(arn: str) -> str:
     return arn.split(":")[4]
 
 
-def get_sub_service_from_arn(arn):
+def get_sub_service_from_arn(arn: str) -> str:
     arn_part_5 = arn.split(":")[5]
     service = get_service_from_arn(arn)
     if service == "s3":
-        if not "/" in arn_part_5:
+        if "/" not in arn_part_5:
             return "bucket"
         else:
             return "object"
@@ -220,31 +266,23 @@ def get_sub_service_from_arn(arn):
     except KeyError:
         # Let's try finding the sub_service across all ARNs
         for sub_service in aws_arn_data[service]:
-            sub_service_arn_part_5 = aws_arn_data[service][sub_service][
-                "arn_format"
-            ].split(":")[5]
+            sub_service_arn_part_5 = aws_arn_data[service][sub_service]["arn_format"].split(":")[5]
             if sub_service_arn_part_5.startswith("/"):
-                sub_service_arn_part_5 = sub_service_arn_part_5.split("/")[1].replace(
-                    "-", "_"
-                )
+                sub_service_arn_part_5 = sub_service_arn_part_5.split("/")[1].replace("-", "_")
             else:
-                sub_service_arn_part_5 = sub_service_arn_part_5.split("/")[0].replace(
-                    "-", "_"
-                )
+                sub_service_arn_part_5 = sub_service_arn_part_5.split("/")[0].replace("-", "_")
             if sub_service_arn_part_5 == sub_service_from_arn:
                 return sub_service
         raise KeyError("Unknown sub service in ARN: {}".format(arn))
 
 
-def get_resource_id_from_arn(arn):
+def get_resource_id_from_arn(arn: str) -> Optional[str]:
     service = get_service_from_arn(arn)
     sub_service = get_sub_service_from_arn(arn)
     try:
         arn_format = aws_arn_data[service][sub_service]["arn_format"]
     except KeyError:
-        raise KeyError(
-            "Invalid resource {} or sub resource type {}".format(service, sub_service)
-        )
+        raise KeyError("Invalid resource {} or sub resource type {}".format(service, sub_service))
 
     arn_parts = arn.split(":")
     format_parts = arn_format.split(":")
@@ -265,46 +303,40 @@ def get_resource_id_from_arn(arn):
     return resource_id
 
 
-def get_asff_from_arn(arn):
+def get_asff_from_arn(arn: str) -> str:
     service = get_service_from_arn(arn)
     sub_service = get_sub_service_from_arn(arn)
     try:
         asff_name = aws_arn_data[service][sub_service]["asff_name"]
     except KeyError:
-        raise KeyError(
-            "Invalid resource {} or sub resource type {}".format(service, sub_service)
-        )
+        raise KeyError("Invalid resource {} or sub resource type {}".format(service, sub_service))
     return asff_name
 
 
-def get_terraform_from_arn(arn):
+def get_terraform_from_arn(arn: str) -> str:
     service = get_service_from_arn(arn)
     sub_service = get_sub_service_from_arn(arn)
     try:
         terraform = aws_arn_data[service][sub_service]["terraform"]
     except KeyError:
-        raise KeyError(
-            "Invalid resource {} or sub resource type {}".format(service, sub_service)
-        )
+        raise KeyError("Invalid resource {} or sub resource type {}".format(service, sub_service))
     return terraform
 
 
-def get_cloudformation_from_arn(arn):
+def get_cloudformation_from_arn(arn: str) -> str:
     service = get_service_from_arn(arn)
     sub_service = get_sub_service_from_arn(arn)
     try:
         cloudformation = aws_arn_data[service][sub_service]["cloudformation"]
     except KeyError:
-        raise KeyError(
-            "Invalid resource {} or sub resource type {}".format(service, sub_service)
-        )
+        raise KeyError("Invalid resource {} or sub resource type {}".format(service, sub_service))
     return cloudformation
 
 
 # Get Service
 
 
-def get_service(item):
+def get_service(item: str) -> str:
     if validate_arn(item):
         return get_service_from_arn(item)
     if validate_terraform(item):
@@ -316,37 +348,34 @@ def get_service(item):
     raise ValueError("Invalid input to get service: {}".format(item))
 
 
-def get_service_from_asff(asff_resource):
-    if validate_asff(asff_resource):
-        for service in aws_arn_data:
-            for sub_service in aws_arn_data[service]:
-                if aws_arn_data[service][sub_service]["asff_name"] == asff_resource:
-                    return service, sub_service
-    return False, False
+def get_service_from_asff(asff_resource: str) -> tuple[str, str]:
+    if not validate_asff(asff_resource):
+        raise ValueError("Invalid ASFF resource: {}".format(asff_resource))
+    result = _asff_index.get(asff_resource)
+    if result is None:
+        raise ValueError("ASFF resource not found: {}".format(asff_resource))
+    return result
 
 
-def get_service_from_terraform(terraform):
-    if validate_terraform(terraform):
-        for service in aws_arn_data:
-            for sub_service in aws_arn_data[service]:
-                if aws_arn_data[service][sub_service]["terraform"] == terraform:
-                    return service, sub_service
-    return False, False
+def get_service_from_terraform(terraform: str) -> tuple[str, str]:
+    if not validate_terraform(terraform):
+        raise ValueError("Invalid Terraform resource: {}".format(terraform))
+    result = _terraform_index.get(terraform)
+    if result is None:
+        raise ValueError("Terraform resource not found: {}".format(terraform))
+    return result
 
 
-def get_service_from_cloudformation(cloudformation):
-    if validate_cloudformation(cloudformation):
-        for service in aws_arn_data:
-            for sub_service in aws_arn_data[service]:
-                if (
-                    aws_arn_data[service][sub_service]["cloudformation"]
-                    == cloudformation
-                ):
-                    return service, sub_service
-    return False, False
+def get_service_from_cloudformation(cloudformation: str) -> tuple[str, str]:
+    if not validate_cloudformation(cloudformation):
+        raise ValueError("Invalid CloudFormation resource: {}".format(cloudformation))
+    result = _cloudformation_index.get(cloudformation)
+    if result is None:
+        raise ValueError("CloudFormation resource not found: {}".format(cloudformation))
+    return result
 
 
-def validate_arn(arn):
+def validate_arn(arn: str) -> bool:
     if not arn.startswith("arn:"):
         return False
     arn_parts = arn.split(":")
@@ -355,28 +384,24 @@ def validate_arn(arn):
     return True
 
 
-def validate_terraform(terraform):
+def validate_terraform(terraform: str) -> bool:
     if not terraform.startswith("aws_"):
         return False
     return True
 
 
-def validate_cloudformation(cloudformation):
+def validate_cloudformation(cloudformation: str) -> bool:
     if not cloudformation.startswith("AWS::"):
         return False
     return True
 
 
-def validate_asff(asff_name):
+def validate_asff(asff_name: str) -> bool:
     if not asff_name.startswith("Aws"):
         return False
     return True
 
 
-def check_resource_id_regexp(resource_id, resource_type, sub_resource_type):
-    import re
-
+def check_resource_id_regexp(resource_id: str, resource_type: str, sub_resource_type: str) -> bool:
     pattern = re.compile(aws_arn_data[resource_type][sub_resource_type]["id_regexp"])
-    # print (aws_arn_data[resource_type][sub_resource_type]["id_regexp"])
-
     return bool(re.search(pattern, resource_id))

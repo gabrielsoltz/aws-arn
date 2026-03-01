@@ -1,18 +1,28 @@
 #!/usr/bin/env python3
 
+import logging
 import sys
 
-try:
-    from __init__ import *
-    from get_parser import get_parser
-except ModuleNotFoundError:
-    from aws_arn.__init__ import *
-    from aws_arn.get_parser import get_parser
+from aws_arn import (
+    check_resource_id_regexp,
+    generate_arn,
+    generate_arn_from_asff,
+    generate_arn_from_cloudformation,
+    generate_arn_from_terraform,
+    generate_markdown_table,
+    get_service,
+    list_services,
+    list_sub_services,
+    parse_arn,
+)
+from aws_arn.get_parser import get_parser
 
 
-def main():
+def main() -> None:
     parser = get_parser()
     args = parser.parse_args()
+
+    logging.basicConfig(level=getattr(logging, args.log_level))
 
     id = args.id or ""
     service = args.service or ""
@@ -45,11 +55,7 @@ def main():
         print(generate_arn_from_terraform(id, terraform, region, account, partition))
 
     if args.generate_arn_from_cloudformation:
-        print(
-            generate_arn_from_cloudformation(
-                id, cloudformation, region, account, partition
-            )
-        )
+        print(generate_arn_from_cloudformation(id, cloudformation, region, account, partition))
     if args.generate_arn_from_asff:
         print(generate_arn_from_asff(id, asff_resource, region, account, partition))
 

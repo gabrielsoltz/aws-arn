@@ -1,5 +1,7 @@
 import argparse
 
+from . import __version__
+
 
 def get_parser():
     """Configure Parser"""
@@ -112,20 +114,26 @@ def get_parser():
     group_data.add_argument(
         "--asff-resource",
         default=None,
-        help="ID",
+        help="ASFF Resource Name (e.g. AwsCertificateManagerCertificate)",
         required=False,
     )
     group_data.add_argument(
         "--terraform",
         default=None,
-        help="Partition",
+        help="Terraform resource type (e.g. aws_acm_certificate)",
         required=False,
     )
     group_data.add_argument(
         "--cloudformation",
         default=None,
-        help="Partition",
+        help="CloudFormation resource type (e.g. AWS::CertificateManager::Certificate)",
         required=False,
+    )
+
+    parser.add_argument(
+        "--version",
+        action="version",
+        version=f"aws-arn {__version__}",
     )
 
     # Group: Debug Options
