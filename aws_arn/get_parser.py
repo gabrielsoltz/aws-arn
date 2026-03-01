@@ -127,13 +127,6 @@ Examples:
         help="List all supported resource types across every service.",
         required=False,
     )
-    group_functions.add_argument(
-        "--generate-markdown",
-        action=argparse.BooleanOptionalAction,
-        help="Print a Markdown table of all supported resources (useful for updating README.md).",
-        required=False,
-    )
-
     group_data = parser.add_argument_group("Data")
     group_data.add_argument(
         "--partition",

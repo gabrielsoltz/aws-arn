@@ -8,7 +8,6 @@ from pathlib import Path
 ROOT = Path(__file__).parent.parent
 sys.path.insert(0, str(ROOT))
 
-from aws_arn import generate_markdown_table  # noqa: E402
 from aws_arn.data import aws_arn_data  # noqa: E402
 
 DOCS = ROOT / "docs"
@@ -140,9 +139,36 @@ filter('');
 
 
 def generate_markdown() -> None:
-    md = generate_markdown_table()
+    headers = [
+        "Service",
+        "Resource",
+        "ARN Format",
+        "ID Name",
+        "ID Regexp",
+        "ASFF Name",
+        "CloudFormation",
+        "Terraform",
+    ]
+    lines = [
+        "| " + " | ".join(headers) + " |",
+        "| " + " | ".join(["---"] * len(headers)) + " |",
+    ]
+    for service, resources in aws_arn_data.items():
+        for resource, attrs in resources.items():
+            row = [
+                service,
+                resource,
+                "`" + attrs.get("arn_format", "") + "`",
+                attrs.get("id_name", ""),
+                "`" + attrs.get("id_regexp", "") + "`" if attrs.get("id_regexp") else "",
+                attrs.get("asff_name", ""),
+                attrs.get("cloudformation", ""),
+                attrs.get("terraform", ""),
+            ]
+            lines.append("| " + " | ".join(row) + " |")
+
     path = DOCS / "arn-list.md"
-    path.write_text(md, encoding="utf-8")
+    path.write_text("\n".join(lines) + "\n", encoding="utf-8")
     print(f"Written {path}")
 
 

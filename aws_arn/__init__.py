@@ -9,7 +9,6 @@ __all__ = [
     "list_sub_services",
     "list_sub_services_for_service",
     "list_asff_resources",
-    "generate_markdown_table",
     "generate_arn",
     "generate_arn_from_terraform",
     "generate_arn_from_cloudformation",
@@ -74,44 +73,6 @@ def list_asff_resources() -> None:
         for sub_services in aws_arn_data[services]:
             if aws_arn_data[services][sub_services]["asff_name"] != "":
                 print(aws_arn_data[services][sub_services]["asff_name"])
-
-
-def generate_markdown_table() -> str:
-    headers = [
-        "Service",
-        "Resource",
-        "ARN Format",
-        "ID Name",
-        "ID Regexp",
-        "ASFF Name",
-        "CloudFormation",
-        "Terraform",
-    ]
-    table = [headers]
-
-    for service, resources in aws_arn_data.items():
-        for resource, attributes in resources.items():
-            arn_format = "`" + attributes.get("arn_format", "") + "`"
-            id_regexp = "`" + str(attributes.get("id_regexp", "")) + "`"
-            row = [
-                service,
-                resource,
-                arn_format,
-                attributes.get("id_name", ""),
-                id_regexp,
-                attributes.get("asff_name", ""),
-                attributes.get("cloudformation", ""),
-                attributes.get("terraform", ""),
-            ]
-            table.append(row)
-
-    table_str = "| " + " | ".join(headers) + " |\n"
-    table_str += "| " + " | ".join(["---" for _ in headers]) + " |\n"
-
-    for row in table[1:]:
-        table_str += "| " + " | ".join([str(item) for item in row]) + " |\n"
-
-    return table_str
 
 
 def generate_arn(
